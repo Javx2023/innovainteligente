@@ -1,0 +1,37 @@
+name: innovainteligente
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: innovainteligente:latest
+    restart: unless-stopped
+    environment:
+      APP_ENV: production
+      HOST: 0.0.0.0
+      PORT: 8080
+      LEADS_DATA_DIR: /data
+      DASHBOARD_USER: ${DASHBOARD_USER:-admin}
+      DASHBOARD_PASSWORD: ${DASHBOARD_PASSWORD:?Define DASHBOARD_PASSWORD en .env o en Dokploy}
+      LEADS_EMAIL_TO: ${LEADS_EMAIL_TO:-javier@innovainteligente.com}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      SMTP_TLS: ${SMTP_TLS:-1}
+      SMTP_SSL: ${SMTP_SSL:-0}
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    volumes:
+      - leads_data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8080/api/health', timeout=3).status == 200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  leads_data:

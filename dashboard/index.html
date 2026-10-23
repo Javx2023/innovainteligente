@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leads · Panel interno · Innovainteligente</title>
+  <meta name="description" content="Panel interno de clientes y leads de Innovainteligente.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#031129">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 10-2.3 5.7M20 5v6h-6"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 012-2h8a2 2 0 012 2v16"/><path d="M16 9h2a2 2 0 012 2v10"/><path d="M2 21h20M8 7h4M8 11h4M8 15h4"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.4v.6"/></symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></symbol>
+      <symbol id="i-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l3-8h12l3 8v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5z"/><path d="M3 13h5l1 2h6l1-2h5"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h5"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="db-header">
+    <div class="container container--wide db-header__inner">
+      <a class="db-brand" href="/landing/" aria-label="Innovainteligente, ir a la landing">
+        <span class="db-brand__tile" aria-hidden="true">
+          <img src="assets/brand/logo-mark.webp" alt="" width="640" height="640">
+        </span>
+        <span class="db-brand__text">
+          <span class="db-brand__name">innova<span>inteligente</span>.com</span>
+          <span class="db-brand__tag">Panel de leads</span>
+        </span>
+      </a>
+      <div class="db-header__actions">
+        <span class="badge badge--success badge--dot" id="api-status">Conectado</span>
+        <a class="btn btn--outline btn--sm" href="/api/leads.csv" download>
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-download"></use></svg>
+          Exportar CSV
+        </a>
+        <button class="btn btn--primary btn--sm" id="refresh-btn" type="button">
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-refresh"></use></svg>
+          Actualizar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="container container--wide db-main" tabindex="-1">
+    <div class="db-intro">
+      <div>
+        <span class="db-eyebrow">Panel interno</span>
+        <h1>Clientes y leads</h1>
+        <p class="db-lead">Solicitudes recibidas desde el formulario de la landing. Los datos se guardan en este equipo.</p>
+      </div>
+      <p class="db-updated">
+        <svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>
+        <span id="last-update">Cargando…</span>
+      </p>
+    </div>
+
+    <section class="db-stats" aria-label="Resumen de leads">
+      <div class="stat">
+        <span class="stat__value" id="stat-total">0</span>
+        <span class="stat__label">Total</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" id="stat-nuevo">0</span>
+        <span class="stat__label">Nuevos</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" id="stat-contactado">0</span>
+        <span class="stat__label">Contactados</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" id="stat-descartado">0</span>
+        <span class="stat__label">Descartados</span>
+      </div>
+    </section>
+
+    <section class="db-panel" aria-labelledby="leads-title">
+      <div class="db-panel__head">
+        <h2 id="leads-title">Bandeja de solicitudes</h2>
+        <span class="badge" id="leads-count">—</span>
+      </div>
+
+      <div class="db-toolbar">
+        <div class="field db-search">
+          <label class="visually-hidden" for="filter-q">Buscar leads</label>
+          <div class="field__control">
+            <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-search"></use></svg></span>
+            <input class="input input--search" id="filter-q" type="search" placeholder="Buscar por nombre, empresa, correo o mensaje…" autocomplete="off">
+          </div>
+        </div>
+        <div class="field db-filter">
+          <label class="visually-hidden" for="filter-status">Filtrar por estado</label>
+          <div class="select-wrap">
+            <select class="select" id="filter-status">
+              <option value="">Todos los estados</option>
+              <option value="nuevo">Nuevos</option>
+              <option value="contactado">Contactados</option>
+              <option value="descartado">Descartados</option>
+            </select>
+          </div>
+        </div>
+        <div class="field db-filter">
+          <label class="visually-hidden" for="filter-pilar">Filtrar por pilar</label>
+          <div class="select-wrap">
+            <select class="select" id="filter-pilar">
+              <option value="">Todos los pilares</option>
+              <option value="Automatización e inteligencia de procesos">Automatización</option>
+              <option value="Investigación, desarrollo e innovación">I+D+i</option>
+              <option value="Transformación estratégica y gobernanza de IA">Gobernanza</option>
+              <option value="__sin__">Sin pilar</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn--ghost btn--sm db-clear" id="clear-filters" type="button">
+          Limpiar filtros
+        </button>
+      </div>
+
+      <div class="alert alert--danger" id="db-error" role="alert" hidden>
+        <span class="alert__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg></span>
+        <div class="alert__content"><strong class="alert__title">No se pudo cargar la bandeja</strong><span id="db-error-message">Inicia el servidor local con <code class="code">python3 server/app.py</code> y vuelve a intentarlo.</span></div>
+      </div>
+
+      <div class="db-table-wrap" id="db-table-wrap" role="region" aria-label="Tabla de leads" tabindex="0">
+        <table class="table db-table">
+          <caption>Solicitudes recibidas desde la landing</caption>
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Pilar</th>
+              <th scope="col">Estado</th>
+              <th scope="col"><span class="visually-hidden">Detalle</span></th>
+            </tr>
+          </thead>
+          <tbody id="leads-body"></tbody>
+        </table>
+      </div>
+
+      <div class="empty db-empty" id="db-empty" hidden>
+        <span class="empty__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-inbox"></use></svg></span>
+        <p class="empty__title" id="db-empty-title">Todavía no hay solicitudes</p>
+        <p class="empty__text" id="db-empty-text">Cuando alguien envíe el formulario de la landing, la solicitud aparecerá aquí.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="db-footer">
+    <div class="container container--wide db-footer__inner">
+      <span>Panel local · los datos permanecen en este equipo</span>
+      <a class="link" href="/landing/">Ver la landing <svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="lead-modal" data-modal aria-hidden="true">
+    <div class="modal db-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" aria-describedby="lead-modal-desc">
+      <div class="modal__head">
+        <div>
+          <h2 class="modal__title" id="lead-modal-title">Detalle del lead</h2>
+          <p class="modal__subtitle" id="lead-modal-sub"></p>
+        </div>
+        <button class="modal__close" type="button" data-modal-close aria-label="Cerrar detalle">
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-x"></use></svg>
+        </button>
+      </div>
+      <div class="modal__body" id="lead-modal-desc">
+        <dl class="db-detail">
+          <div><dt>Nombre</dt><dd id="d-nombre"></dd></div>
+          <div><dt>Empresa</dt><dd id="d-empresa"></dd></div>
+          <div><dt>Correo</dt><dd><a class="link" id="d-correo" href="#"></a></dd></div>
+          <div><dt>Pilar de interés</dt><dd id="d-pilar"></dd></div>
+          <div><dt>Estado</dt><dd id="d-estado"></dd></div>
+          <div><dt>Fecha de recepción</dt><dd id="d-fecha"></dd></div>
+          <div><dt>Aviso por correo</dt><dd id="d-email"></dd></div>
+          <div class="db-detail__message"><dt>Proceso o reto</dt><dd id="d-mensaje"></dd></div>
+        </dl>
+      </div>
+      <div class="modal__foot">
+        <a class="btn btn--outline" id="d-mailto" href="#">
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg>
+          Responder por correo
+        </a>
+        <button class="btn btn--primary" type="button" data-modal-close>Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-region" id="toast-region" role="region" aria-label="Notificaciones" aria-live="polite"></div>
+
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Innovainteligente · Automatización, procesos e I+D+i con IA</title>
+  <meta name="description" content="Automatización, procesos e I+D+i impulsados por inteligencia artificial. Optimización operativa inmediata e innovación tecnológica a largo plazo.">
+  <meta name="author" content="Innovainteligente">
+  <meta name="theme-color" content="#031129" id="meta-theme-color">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Innovainteligente · Automatización, procesos e I+D+i con IA">
+  <meta property="og:description" content="Optimización operativa inmediata e innovación tecnológica a largo plazo, con tres pilares: procesos, I+D+i y gobernanza de IA.">
+  <meta property="og:image" content="assets/brand/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/brand/favicon-180.png">
+  <link rel="preload" href="assets/brand/logo-mark.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <script src="js/landing-theme-init.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="lp-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+
+  <noscript>
+    <style>
+      .lp-menu-btn { display: none !important; }
+      .lp-nav { display: flex !important; flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
+      .lp-tabs .tabs__list { display: none; }
+      .lp-tab-panel[hidden] { display: block !important; margin-bottom: var(--space-8); }
+      .lp-mobile-panel { display: none !important; }
+    </style>
+  </noscript>
+
+  <!-- Sprite de iconos de la landing -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1111.2 3a6.6 6.6 0 009.8 9.8z"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.6a8.6 8.6 0 01-12.8 7.5L3 20.5l1.4-5.1A8.6 8.6 0 1121 11.6z"/><path d="M8.7 7.9c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.8 1.8c.1.3.1.5-.1.7l-.6.6c-.2.2-.2.4 0 .7.6 1 1.5 1.8 2.6 2.2.3.1.5.1.7-.1l.7-.8c.2-.2.4-.3.6-.2l1.8.8c.3.1.5.3.5.6 0 .8-.6 1.6-1.3 1.8-.5.2-1.2.2-3.2-.6-2-.9-3.6-2.6-4.4-4.3-.4-.9-.6-1.6-.6-2.2 0-.6.2-1.1.5-1.5z"/></symbol>
+      <symbol id="i-telegram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.7 3.3L2.9 10.5c-.8.3-.8 1.5.1 1.7l4.7 1.6 1.8 5.5c.2.7 1.1.9 1.6.3l2.4-2.9 4.7 3.4c.6.4 1.4.1 1.6-.6l3-14.2c.2-1-.7-1.7-1.6-1.4z"/><path d="M8.1 13.5l9.4-6.2-6.9 6.9"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9.4l-4.2 1.8L12 16l-1.8-4.8L6 9.4l4.2-1.8L12 3z"/><path d="M18.4 14.4l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12.2l2 2 4-4.2"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 20v-6M11 20V8M16 20v-9M21 20V5"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5M3 16.5l9 5 9-5"/></symbol>
+      <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v3.5M11 10.5l-5 6M13 10.5l5 6M7 18h10"/></symbol>
+      <symbol id="i-workflow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M10 6.5h4a3 3 0 013 3v4"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9l-6-6z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 016.5 2H20v18H6.5A2.5 2.5 0 004 22V4.5z"/><path d="M4 17.5A2.5 2.5 0 016.5 15H20"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 012-2h8a2 2 0 012 2v16"/><path d="M16 9h2a2 2 0 012 2v10"/><path d="M2 21h20M8 7h4M8 11h4M8 15h4"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.8 7L4 21l2-5.2A8 8 0 1121 12z"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.4"/></symbol>
+      <symbol id="i-alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.4v.6"/></symbol>
+      <symbol id="i-hexagon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6l8.2 4.7v9.4L12 21.4 3.8 16.7V7.3L12 2.6z"/></symbol>
+      <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h6v6"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="lp-header theme-ink" id="cabecera">
+    <div class="container container--wide lp-header__inner">
+      <a class="lp-brand" href="#inicio" aria-label="Innovainteligente, inicio">
+        <span class="lp-brand__tile" aria-hidden="true">
+          <img src="assets/brand/logo-mark.webp" alt="" width="640" height="640">
+        </span>
+        <span class="lp-brand__name">innova<span>inteligente</span>.com</span>
+      </a>
+
+      <nav class="lp-nav" aria-label="Navegación principal">
+        <a class="lp-nav__link" href="#enfoque">Enfoque</a>
+        <a class="lp-nav__link" href="#id">I+D+i</a>
+        <a class="lp-nav__link" href="#servicios">Servicios</a>
+        <a class="lp-nav__link" href="#ruta">Ruta</a>
+        <a class="lp-nav__link" href="#faq">Preguntas</a>
+      </nav>
+
+      <div class="lp-header__actions">
+        <button class="btn btn--icon btn--sm btn--ghost theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a tema claro" aria-pressed="false">
+          <svg class="icon icon--sm icon-moon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>
+          <svg class="icon icon--sm icon-sun" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>
+        </button>
+        <a class="btn btn--primary btn--sm lp-header__cta" href="#contacto">Hablemos</a>
+        <button class="btn btn--icon btn--sm btn--ghost lp-menu-btn" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú">
+          <svg class="icon icon--menu" aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>
+          <svg class="icon icon--close" aria-hidden="true" focusable="false"><use href="#i-x"></use></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="lp-mobile-panel" id="menu-movil" hidden>
+      <nav class="lp-mobile-panel__nav" aria-label="Navegación móvil">
+        <a href="#enfoque">Enfoque</a>
+        <a href="#id">I+D+i</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#ruta">Ruta de adopción</a>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="#contacto">Hablemos</a>
+      </nav>
+      <p class="lp-mobile-panel__note">Automatización y procesos I+D+i con IA.</p>
+    </div>
+  </header>
+
+  <noscript>
+    <p class="lp-noscript">JavaScript está desactivado: se muestran los tres pilares de servicio a la vez y el formulario no puede validarse.</p>
+  </noscript>
+
+  <main id="contenido" tabindex="-1">
+    <!-- ================================ HERO ================================ -->
+    <section class="lp-hero theme-ink" id="inicio" aria-labelledby="hero-title">
+      <div class="lp-hero__grid" aria-hidden="true"></div>
+      <div class="container container--wide lp-hero__inner">
+        <div class="lp-hero__copy">
+          <span class="kicker">Automatización y procesos I+D+i con IA</span>
+          <h1 class="lp-hero__title" id="hero-title">Automatización, procesos e <span class="lp-gradient">I+D+i</span> con inteligencia artificial</h1>
+          <p class="lp-hero__lead">Una agencia especializada en automatización, procesos e I+D+i impulsados por Inteligencia Artificial: operamos en la intersección entre la optimización operativa inmediata y la innovación tecnológica a largo plazo.</p>
+          <div class="lp-hero__actions">
+            <a class="btn btn--primary btn--lg" href="#servicios">
+              Explorar servicios
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#id">Qué es I+D+i</a>
+          </div>
+          <dl class="lp-hero__stats">
+            <div class="lp-stat">
+              <dt>Pilares</dt>
+              <dd><span class="lp-stat__value" data-count="3">3</span></dd>
+            </div>
+            <div class="lp-stat">
+              <dt>Servicios</dt>
+              <dd><span class="lp-stat__value" data-count="14">14</span></dd>
+            </div>
+            <div class="lp-stat">
+              <dt>Fases de I+D</dt>
+              <dd><span class="lp-stat__value" data-count="3">3</span></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="lp-hero__visual" aria-hidden="true">
+          <div class="lp-stage">
+            <div class="lp-stage__ring lp-stage__ring--outer"></div>
+            <div class="lp-stage__ring lp-stage__ring--inner"></div>
+            <span class="orbit"></span>
+            <span class="orbit orbit--reverse orbit--inner"></span>
+            <div class="lp-stage__mark">
+              <img src="assets/brand/logo-mark.webp" alt="" width="640" height="640">
+            </div>
+            <div class="lp-float lp-float--a">
+              <span class="hex" style="--hex-size:1.9rem"><svg aria-hidden="true" focusable="false"><use href="#i-workflow"></use></svg></span>
+              <span><strong>RPA + IA</strong><small>Procesos</small></span>
+            </div>
+            <div class="lp-float lp-float--b">
+              <span class="hex" style="--hex-size:1.9rem"><svg aria-hidden="true" focusable="false"><use href="#i-file"></use></svg></span>
+              <span><strong>IDP</strong><small>Documentos</small></span>
+            </div>
+            <div class="lp-float lp-float--c">
+              <span class="hex" style="--hex-size:1.9rem"><svg aria-hidden="true" focusable="false"><use href="#i-cpu"></use></svg></span>
+              <span><strong>LLM · RAG</strong><small>I+D+i</small></span>
+            </div>
+            <div class="lp-float lp-float--d">
+              <span class="hex" style="--hex-size:1.9rem"><svg aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg></span>
+              <span><strong>Gobernanza</strong><small>Ética y datos</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== ENFOQUE =============================== -->
+    <section class="lp-section" id="enfoque" aria-labelledby="enfoque-title">
+      <div class="container">
+        <div class="lp-section__head" data-reveal>
+          <span class="lp-eyebrow">Enfoque</span>
+          <h2 class="lp-section__title" id="enfoque-title">Dos velocidades, una misma estrategia</h2>
+          <p class="lp-section__lead">La oferta se divide en tres pilares: Optimización/Automatización de Procesos, Servicios de I+D+i y Estrategia y Capacitación.</p>
+        </div>
+
+        <div class="lp-pillars">
+          <article class="lp-pillar" data-reveal>
+            <span class="lp-pillar__icon" aria-hidden="true"><svg><use href="#i-zap"></use></svg></span>
+            <span class="lp-pillar__num" aria-hidden="true">01</span>
+            <h3>Optimización inmediata</h3>
+            <p>Eliminar tareas repetitivas, reducir errores humanos y acelerar los flujos de trabajo diarios.</p>
+          </article>
+          <article class="lp-pillar" data-reveal>
+            <span class="lp-pillar__icon" aria-hidden="true"><svg><use href="#i-sparkles"></use></svg></span>
+            <span class="lp-pillar__num" aria-hidden="true">02</span>
+            <h3>Innovación a largo plazo</h3>
+            <p>Crear soluciones tecnológicas únicas, desarrollo de software a medida y prueba de nuevos modelos de negocio.</p>
+          </article>
+          <article class="lp-pillar" data-reveal>
+            <span class="lp-pillar__icon" aria-hidden="true"><svg><use href="#i-shield"></use></svg></span>
+            <span class="lp-pillar__num" aria-hidden="true">03</span>
+            <h3>Adopción ética y segura</h3>
+            <p>Estructurar la adopción de la tecnología de manera ética, segura y rentable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ I+D+i ================================ -->
+    <section class="lp-section lp-section--band" id="id" aria-labelledby="id-title">
+      <div class="container">
+        <div class="lp-section__head" data-reveal>
+          <span class="lp-eyebrow">Fundamento · I+D+i</span>
+          <h2 class="lp-section__title" id="id-title">Del conocimiento al valor</h2>
+          <p class="lp-section__lead">I + D es la abreviatura de Investigación y Desarrollo (R&amp;D): el conjunto de actividades innovadoras y sistemáticas con las que se crean nuevos conocimientos, productos, servicios o procesos, o se mejoran de manera significativa los ya existentes.</p>
+        </div>
+
+        <div class="lp-id">
+          <div class="lp-id__intro" data-reveal>
+            <p class="lp-id__text">La fórmula <strong>I + D + i</strong> añade una «i» pequeña que representa la <strong>Innovación</strong>. Mientras la I+D se enfoca en la creación o mejora del conocimiento y la tecnología, la innovación es la introducción exitosa de esas nuevas ideas en el mercado o en la sociedad: transformar el conocimiento en valor económico o social.</p>
+            <div class="lp-formula" role="img" aria-label="Investigación más Desarrollo más Innovación">
+              <div class="lp-formula__group">
+                <span class="lp-formula__item">I</span>
+                <small>Investigación</small>
+              </div>
+              <span class="lp-formula__op" aria-hidden="true">+</span>
+              <div class="lp-formula__group">
+                <span class="lp-formula__item">D</span>
+                <small>Desarrollo</small>
+              </div>
+              <span class="lp-formula__op" aria-hidden="true">+</span>
+              <div class="lp-formula__group">
+                <span class="lp-formula__item lp-formula__item--small">i</span>
+                <small>Innovación</small>
+              </div>
+            </div>
+            <p class="lp-id__caption">Tres fases clave de I + D</p>
+          </div>
+
+          <ol class="lp-phases" data-reveal>
+            <li class="lp-phase">
+              <span class="lp-phase__index">01</span>
+              <div>
+                <h3>Investigación básica</h3>
+                <p>Indagación o exploración teórica que busca adquirir nuevos conocimientos sin un fin práctico o comercial inmediato.</p>
+              </div>
+            </li>
+            <li class="lp-phase">
+              <span class="lp-phase__index">02</span>
+              <div>
+                <h3>Investigación aplicada</h3>
+                <p>Estudios dirigidos a resolver un problema específico o a encontrar aplicaciones prácticas para los hallazgos de la investigación básica.</p>
+              </div>
+            </li>
+            <li class="lp-phase">
+              <span class="lp-phase__index">03</span>
+              <div>
+                <h3>Desarrollo tecnológico</h3>
+                <p>Aplicación práctica de la investigación para diseñar, construir, probar y perfeccionar un nuevo producto, material, dispositivo o sistema antes de su producción o comercialización a gran escala.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="lp-why">
+          <div class="lp-why__head" data-reveal>
+            <h3>¿Por qué es importante el I+D?</h3>
+          </div>
+          <div class="lp-why__grid">
+            <article class="lp-why__card" data-reveal>
+              <span class="lp-why__icon" aria-hidden="true"><svg><use href="#i-trending"></use></svg></span>
+              <h4>Competitividad</h4>
+              <p>Permite a las empresas diferenciarse de sus competidores mediante avances tecnológicos o productos únicos.</p>
+            </article>
+            <article class="lp-why__card" data-reveal>
+              <span class="lp-why__icon" aria-hidden="true"><svg><use href="#i-globe"></use></svg></span>
+              <h4>Crecimiento económico</h4>
+              <p>Los países que invierten un mayor porcentaje de su PIB en I+D suelen liderar las industrias globales de alto valor agregado: tecnología, biotecnología, automoción, energía, entre otras.</p>
+            </article>
+            <article class="lp-why__card" data-reveal>
+              <span class="lp-why__icon" aria-hidden="true"><svg><use href="#i-shield"></use></svg></span>
+              <h4>Resolución de problemas</h4>
+              <p>Impulsa el avance de la medicina, la sostenibilidad ambiental y la eficiencia de los procesos industriales.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== SERVICIOS =============================== -->
+    <section class="lp-section" id="servicios" aria-labelledby="servicios-title">
+      <div class="container">
+        <div class="lp-section__head" data-reveal>
+          <span class="lp-eyebrow">Servicios y oferta de valor</span>
+          <h2 class="lp-section__title" id="servicios-title">Tres pilares, catorce servicios</h2>
+          <p class="lp-section__lead">Automatización, I+D+i y gobernanza de IA: tres formas de trabajar el mismo objetivo, desde la operación diaria hasta la estrategia tecnológica.</p>
+        </div>
+
+        <div class="tabs lp-tabs" id="pilares" data-reveal>
+          <div class="tabs__list" role="tablist" aria-label="Pilares de servicio">
+            <button class="tab" id="tab-procesos" role="tab" aria-selected="true" aria-controls="panel-procesos" tabindex="0">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-workflow"></use></svg>
+              <span class="tab-label tab-label--long">Automatización</span>
+              <span class="tab-label tab-label--short">Procesos</span>
+            </button>
+            <button class="tab" id="tab-idi" role="tab" aria-selected="false" aria-controls="panel-idi" tabindex="-1">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-cpu"></use></svg>
+              <span class="tab-label">I+D+i</span>
+            </button>
+            <button class="tab" id="tab-gob" role="tab" aria-selected="false" aria-controls="panel-gob" tabindex="-1">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg>
+              <span class="tab-label">Gobernanza</span>
+            </button>
+          </div>
+
+          <div class="tabs__panel lp-tab-panel" id="panel-procesos" role="tabpanel" aria-labelledby="tab-procesos" tabindex="0">
+            <div class="lp-pillar-lead">
+              <span class="badge badge--accent">Pilar 01 · Procesos</span>
+              <h3>Automatización e Inteligencia de Procesos</h3>
+              <p>Estos servicios buscan eliminar tareas repetitivas, reducir errores humanos y acelerar los flujos de trabajo diarios.</p>
+            </div>
+            <div class="lp-services">
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-workflow"></use></svg></span><span class="lp-service__num">01</span></div><h4 class="service-card__title">Automatización Robótica de Procesos (RPA) + IA</h4><p class="service-card__text">Bots inteligentes que integran sistemas legados, procesan documentos estructurados y no estructurados (facturas, contratos, correos) y automatizan flujos operativos end-to-end.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-file"></use></svg></span><span class="lp-service__num">02</span></div><h4 class="service-card__title">Procesamiento Inteligente de Documentos (IDP)</h4><p class="service-card__text">OCR avanzado impulsado por IA para extraer, clasificar y procesar grandes volúmenes de datos en papel o PDF.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-layers"></use></svg></span><span class="lp-service__num">03</span></div><h4 class="service-card__title">Optimización de Cadena de Suministro y Operaciones</h4><p class="service-card__text">Algoritmos de planificación predictiva, gestión automática de inventarios y logística inteligente.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-network"></use></svg></span><span class="lp-service__num">04</span></div><h4 class="service-card__title">Integración de Sistemas e Interoperabilidad</h4><p class="service-card__text">Conexión de herramientas (ERP, CRM, bases de datos) mediante conectores de IA e integración de APIs personalizadas.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-message"></use></svg></span><span class="lp-service__num">05</span></div><h4 class="service-card__title">Automatización de Atención al Cliente y Ventas</h4><p class="service-card__text">Agentes conversacionales (chatbots y voicebots con IA generativa) capaces de resolver incidencias complejas y calificar clientes potenciales.</p></article>
+            </div>
+          </div>
+
+          <div class="tabs__panel lp-tab-panel" id="panel-idi" role="tabpanel" aria-labelledby="tab-idi" tabindex="0" hidden>
+            <div class="lp-pillar-lead">
+              <span class="badge badge--accent">Pilar 02 · I+D+i</span>
+              <h3>Investigación, Desarrollo e Innovación</h3>
+              <p>Se enfoca en crear soluciones tecnológicas únicas, desarrollo de software a medida y prueba de nuevos modelos de negocio.</p>
+            </div>
+            <div class="lp-services">
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-cpu"></use></svg></span><span class="lp-service__num">06</span></div><h4 class="service-card__title">Desarrollo de Modelos de IA a Medida</h4><p class="service-card__text">Entrenamiento y ajuste fino (fine-tuning) de machine learning, visión por computador y modelos de lenguaje (LLM) adaptados a la data específica del cliente.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-zap"></use></svg></span><span class="lp-service__num">07</span></div><h4 class="service-card__title">Pruebas de Concepto (PoC) y Prototipado Rápido</h4><p class="service-card__text">Creación de productos mínimos viables (MVP) con IA para validar hipótesis de negocio o tecnológicas antes de realizar inversiones mayores.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-book"></use></svg></span><span class="lp-service__num">08</span></div><h4 class="service-card__title">Consultoría y Gestión de Fondos de I+D+i</h4><p class="service-card__text">Asesoramiento técnico y estructuración de proyectos de innovación para acceder a incentivos fiscales, deducciones tributarias o subvenciones públicas de I+D+i.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span><span class="lp-service__num">09</span></div><h4 class="service-card__title">Analítica Predictiva y Prescriptiva</h4><p class="service-card__text">Modelado de datos para predecir comportamientos de mercado, fuga de clientes (churn), mantenimiento predictivo de maquinaria o análisis de riesgo financiero.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-shield"></use></svg></span><span class="lp-service__num">10</span></div><h4 class="service-card__title">Generación de Propiedad Intelectual</h4><p class="service-card__text">Identificación y registro de patentes, algoritmos o software propio derivados de las investigaciones desarrolladas para la empresa.</p></article>
+            </div>
+          </div>
+
+          <div class="tabs__panel lp-tab-panel" id="panel-gob" role="tabpanel" aria-labelledby="tab-gob" tabindex="0" hidden>
+            <div class="lp-pillar-lead">
+              <span class="badge badge--accent">Pilar 03 · Gobernanza</span>
+              <h3>Transformación Estratégica y Gobernanza de IA</h3>
+              <p>Servicios orientados a estructurar la adopción de la tecnología de manera ética, segura y rentable.</p>
+            </div>
+            <div class="lp-services">
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-search"></use></svg></span><span class="lp-service__num">11</span></div><h4 class="service-card__title">Auditoría de Madurez Digital y Diagnóstico de Procesos</h4><p class="service-card__text">Identificación de cuellos de botella e inventario de procesos candidatos para ser automatizados o transformados con IA.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-grid"></use></svg></span><span class="lp-service__num">12</span></div><h4 class="service-card__title">Diseño de la Hoja de Ruta de IA (AI Roadmap)</h4><p class="service-card__text">Planificación estratégica que define la prioridad de los proyectos según su ROI (Retorno de Inversión) e impacto operativo.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-lock"></use></svg></span><span class="lp-service__num">13</span></div><h4 class="service-card__title">Gobernanza de Datos y Ética en IA</h4><p class="service-card__text">Políticas de cumplimiento normativo (privacidad, seguridad, auditoría de sesgos en algoritmos) e implementación de arquitecturas RAG para entornos corporativos seguros.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-user"></use></svg></span><span class="lp-service__num">14</span></div><h4 class="service-card__title">Capacitación y Cambio Cultural (Up-skilling)</h4><p class="service-card__text">Formación de equipos internos en el uso de herramientas de IA, ingeniería de prompts (prompt engineering) y gestión del cambio organizacional para evitar el rechazo a la automatización.</p></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================= RUTA ================================= -->
+    <section class="lp-section lp-section--band" id="ruta" aria-labelledby="ruta-title">
+      <div class="container">
+        <div class="lp-section__head" data-reveal>
+          <span class="lp-eyebrow">Ruta de adopción</span>
+          <h2 class="lp-section__title" id="ruta-title">De la auditoría a la capacitación</h2>
+          <p class="lp-section__lead">Un recorrido en cuatro momentos que ordena el diagnóstico, la priorización, la implementación y la adopción interna.</p>
+        </div>
+
+        <ol class="lp-route">
+          <li class="lp-route__step" data-reveal>
+            <span class="lp-route__num">01</span>
+            <h3>Diagnóstico y auditoría</h3>
+            <p>Identificación de cuellos de botella e inventario de procesos candidatos para ser automatizados o transformados con IA.</p>
+          </li>
+          <li class="lp-route__step" data-reveal>
+            <span class="lp-route__num">02</span>
+            <h3>Hoja de ruta de IA</h3>
+            <p>Planificación estratégica que prioriza los proyectos según su ROI e impacto operativo.</p>
+          </li>
+          <li class="lp-route__step" data-reveal>
+            <span class="lp-route__num">03</span>
+            <h3>Desarrollo e implementación</h3>
+            <p>Pruebas de concepto, prototipado rápido, modelos a medida, RPA e integración de sistemas.</p>
+          </li>
+          <li class="lp-route__step" data-reveal>
+            <span class="lp-route__num">04</span>
+            <h3>Gobernanza y capacitación</h3>
+            <p>Políticas de cumplimiento y ética, arquitecturas RAG y formación de los equipos internos.</p>
+          </li>
+        </ol>
+        <p class="lp-note" data-reveal><svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg> Recorrido de referencia: cada proyecto adapta el orden y el alcance de estas etapas.</p>
+      </div>
+    </section>
+
+    <!-- ================================== FAQ ================================== -->
+    <section class="lp-section" id="faq" aria-labelledby="faq-title">
+      <div class="container lp-faq">
+        <div class="lp-faq__head" data-reveal>
+          <span class="lp-eyebrow">Preguntas frecuentes</span>
+          <h2 class="lp-section__title" id="faq-title">Lo esencial, en claro</h2>
+          <p class="lp-section__lead">Preguntas para evaluar un proyecto de automatización, I+D+i y gobernanza de IA.</p>
+        </div>
+
+        <div class="accordion lp-accordion" data-reveal>
+          <details class="accordion__item" open>
+            <summary class="accordion__trigger">¿Cómo sé si un proceso es buen candidato para automatizar?<span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></summary>
+            <div class="accordion__content"><p>El punto de partida es una auditoría de madurez digital y un diagnóstico de procesos: permite identificar cuellos de botella y hacer inventario de los procesos candidatos a ser automatizados o transformados con IA.</p></div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">¿Puedo empezar con un proyecto pequeño antes de una inversión mayor?<span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></summary>
+            <div class="accordion__content"><p>Sí. Las pruebas de concepto (PoC) y el prototipado rápido permiten crear productos mínimos viables con IA para validar hipótesis de negocio o tecnológicas antes de realizar inversiones mayores.</p></div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">¿Tengo que reemplazar mi ERP o mi CRM?<span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></summary>
+            <div class="accordion__content"><p>No necesariamente. La integración de sistemas e interoperabilidad conecta herramientas como ERP, CRM y bases de datos mediante conectores de IA e integración de APIs personalizadas.</p></div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">¿Qué ocurre con la seguridad y la privacidad de los datos?<span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></summary>
+            <div class="accordion__content"><p>La gobernanza de datos y ética en IA establece políticas de cumplimiento normativo —privacidad, seguridad de la información y auditoría de sesgos— e implementa arquitecturas RAG para entornos corporativos seguros.</p></div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">¿Cómo se decide qué proyecto se aborda primero?<span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></summary>
+            <div class="accordion__content"><p>La hoja de ruta de IA prioriza los proyectos según su ROI (retorno de inversión) e impacto operativo.</p></div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">¿La IA sustituirá a mi equipo?<span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></summary>
+            <div class="accordion__content"><p>La propuesta incluye capacitación y cambio cultural (up-skilling): formación de los equipos internos en herramientas de IA, ingeniería de prompts y gestión del cambio para evitar el rechazo a la automatización.</p></div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">¿Cómo se protege lo que se desarrolle?<span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></summary>
+            <div class="accordion__content"><p>Se identifican y registran patentes, algoritmos o software propio derivados de las investigaciones desarrolladas para la empresa.</p></div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">¿Qué pasa si la información está en papel o en PDF?<span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></summary>
+            <div class="accordion__content"><p>El procesamiento inteligente de documentos (IDP) utiliza OCR avanzado impulsado por IA para extraer, clasificar y procesar grandes volúmenes de datos en papel o PDF.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== CONTACTO =============================== -->
+    <section class="lp-section" id="contacto" aria-labelledby="contacto-title">
+      <div class="container">
+        <div class="lp-contact" data-reveal>
+          <div class="lp-contact__form">
+            <span class="lp-eyebrow">Hablemos</span>
+            <h2 class="lp-section__title" id="contacto-title">Cuéntanos qué proceso quieres transformar</h2>
+            <p class="lp-section__lead">La auditoría de madurez digital identifica cuellos de botella e inventario de procesos candidatos para ser automatizados o transformados con IA.</p>
+
+            <form class="lp-form" id="contact-form" novalidate>
+              <div class="lp-form__grid">
+                <div class="field" data-field="nombre">
+                  <label class="field__label" for="c-nombre">Nombre <span class="field__required" aria-hidden="true">*</span></label>
+                  <div class="field__control">
+                    <span class="field__icon" aria-hidden="true"><svg><use href="#i-user"></use></svg></span>
+                    <input class="input input--with-icon" id="c-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="c-nombre-error">
+                  </div>
+                  <p class="field__error" id="c-nombre-error" hidden><svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg><span>Escribe tu nombre.</span></p>
+                </div>
+                <div class="field" data-field="empresa">
+                  <label class="field__label" for="c-empresa">Empresa <span class="optional">(opcional)</span></label>
+                  <div class="field__control">
+                    <span class="field__icon" aria-hidden="true"><svg><use href="#i-building"></use></svg></span>
+                    <input class="input input--with-icon" id="c-empresa" name="empresa" type="text" autocomplete="organization">
+                  </div>
+                </div>
+                <div class="field" data-field="email">
+                  <label class="field__label" for="c-email">Correo <span class="field__required" aria-hidden="true">*</span></label>
+                  <div class="field__control">
+                    <span class="field__icon" aria-hidden="true"><svg><use href="#i-mail"></use></svg></span>
+                    <input class="input input--with-icon" id="c-email" name="email" type="email" autocomplete="email" required aria-describedby="c-email-error">
+                  </div>
+                  <p class="field__error" id="c-email-error" hidden><svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg><span>Introduce un correo válido.</span></p>
+                </div>
+                <div class="field" data-field="pilar">
+                  <label class="field__label" for="c-pilar">Pilar de interés <span class="optional">(opcional)</span></label>
+                  <div class="select-wrap">
+                    <select class="select" id="c-pilar" name="pilar">
+                      <option value="">Selecciona un pilar</option>
+                      <option>Automatización e inteligencia de procesos</option>
+                      <option>Investigación, desarrollo e innovación</option>
+                      <option>Transformación estratégica y gobernanza de IA</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="field" data-field="mensaje">
+                <label class="field__label" for="c-mensaje">Proceso o reto <span class="field__required" aria-hidden="true">*</span></label>
+                <textarea class="textarea" id="c-mensaje" name="mensaje" rows="4" maxlength="4000" required aria-describedby="c-mensaje-error" placeholder="Ej. proceso de facturación, atención al cliente, análisis de documentos…"></textarea>
+                <p class="field__error" id="c-mensaje-error" hidden><svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg><span>Cuéntanos brevemente el proceso.</span></p>
+              </div>
+              <div class="field" data-field="consent">
+                <label class="check">
+                  <input type="checkbox" id="c-consent" name="consentimiento" required aria-describedby="c-consent-error">
+                  <span class="check__box" aria-hidden="true"></span>
+                  <span>Acepto que me contacten para coordinar una reunión sobre esta solicitud.</span>
+                </label>
+                <p class="field__error" id="c-consent-error" hidden><svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg><span>Marca la casilla para continuar.</span></p>
+              </div>
+              <div class="lp-form__foot">
+                <button class="btn btn--primary" type="submit">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-send"></use></svg>
+                  Enviar solicitud
+                </button>
+              </div>
+              <div class="alert alert--success" id="form-success" role="status" hidden>
+                <span class="alert__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg></span>
+                <div class="alert__content"><strong class="alert__title">Solicitud recibida</strong>Gracias. Te contactaremos en la brevedad posible.</div>
+              </div>
+              <div class="alert alert--danger" id="form-error" role="alert" hidden>
+                <span class="alert__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg></span>
+                <div class="alert__content"><strong class="alert__title">No se pudo enviar</strong>Inténtalo de nuevo en unos segundos o escribe a <a class="link" href="mailto:info@innovainteligente.com">info@innovainteligente.com</a>.</div>
+              </div>
+              <div class="alert alert--info" id="form-mailto" role="status" hidden>
+                <span class="alert__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></span>
+                <div class="alert__content"><strong class="alert__title">Abriendo tu correo</strong>Preparamos la solicitud para enviarla por correo.</div>
+              </div>
+            </form>
+
+            <section class="lp-direct" aria-labelledby="directo-title">
+              <h3 class="lp-direct__title" id="directo-title">Contacto directo</h3>
+              <p class="lp-direct__lead">Si prefieres hablar antes de enviar el formulario, escríbenos por cualquiera de estos canales.</p>
+              <div class="lp-direct__grid">
+                <a class="lp-direct__item" href="mailto:info@innovainteligente.com">
+                  <span class="lp-direct__icon" aria-hidden="true"><svg><use href="#i-mail"></use></svg></span>
+                  <span class="lp-direct__text">
+                    <strong>Correo</strong>
+                    <small>info@innovainteligente.com</small>
+                  </span>
+                </a>
+                <a class="lp-direct__item" href="https://wa.me/584143813674" target="_blank" rel="noopener noreferrer">
+                  <span class="lp-direct__icon" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></span>
+                  <span class="lp-direct__text">
+                    <strong>WhatsApp</strong>
+                    <small>Abrir chat</small>
+                  </span>
+                </a>
+                <a class="lp-direct__item" href="https://t.me/+584143813674" target="_blank" rel="noopener noreferrer">
+                  <span class="lp-direct__icon" aria-hidden="true"><svg><use href="#i-telegram"></use></svg></span>
+                  <span class="lp-direct__text">
+                    <strong>Telegram</strong>
+                    <small>Abrir chat</small>
+                  </span>
+                </a>
+              </div>
+            </section>
+          </div>
+
+          <aside class="lp-contact__aside" aria-label="Siguiente paso">
+            <h3 class="lp-contact__aside-title">Qué ocurre después</h3>
+            <ol class="lp-contact__steps">
+              <li><span>01</span>Revisamos el proceso descrito y su contexto operativo.</li>
+              <li><span>02</span>Priorizamos por impacto operativo y ROI, como en la hoja de ruta de IA.</li>
+              <li><span>03</span>Proponemos un siguiente paso: diagnóstico, prueba de concepto o marco de gobernanza.</li>
+            </ol>
+            <div class="lp-contact__visual" aria-hidden="true">
+              <div class="lp-contact__mark"><img src="assets/brand/logo-mark.webp" alt="" width="640" height="640"></div>
+            </div>
+            <div class="lp-contact__quote">
+              <p>«La innovación es transformar el conocimiento en valor económico o social.»</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lp-footer">
+    <div class="container container--wide">
+      <div class="lp-footer__top">
+        <div class="lp-footer__brand">
+          <a class="lp-brand" href="#inicio" aria-label="Innovainteligente, volver al inicio">
+            <span class="lp-brand__tile" aria-hidden="true"><img src="assets/brand/logo-mark.webp" alt="" width="640" height="640"></span>
+            <span class="lp-brand__name">innova<span>inteligente</span>.com</span>
+          </a>
+          <p>Automatización y procesos I+D+i con inteligencia artificial.</p>
+          <div class="cluster cluster--sm">
+            <span class="badge badge--accent badge--dot">Procesos</span>
+            <span class="badge">I+D+i</span>
+            <span class="badge">Gobernanza</span>
+          </div>
+        </div>
+        <nav class="lp-footer__nav" aria-label="Enlaces del pie">
+          <div>
+            <h3>Explorar</h3>
+            <a href="#enfoque">Enfoque</a>
+            <a href="#id">I+D+i</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#ruta">Ruta de adopción</a>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <a href="#faq">Preguntas frecuentes</a>
+            <a href="#contacto">Hablemos</a>
+            <a href="mailto:info@innovainteligente.com">info@innovainteligente.com</a>
+            <a href="https://wa.me/584143813674" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://t.me/+584143813674" target="_blank" rel="noopener noreferrer">Telegram</a>
+          </div>
+        </nav>
+      </div>
+      <div class="lp-footer__bottom">
+        <span>© <span id="year">2026</span> Innovainteligente. Todos los derechos reservados.</span>
+        <span>Procesos · I+D+i · Gobernanza</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="lp-top" id="back-to-top" type="button" aria-label="Volver arriba" hidden>
+    <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>
+  </button>
+
+  <div class="toast-region" id="toast-region" role="region" aria-label="Notificaciones" aria-live="polite"></div>
+
+  <script src="js/landing.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Innovainteligente · Design System v1.0</title>
+  <meta name="description" content="Sistema de diseño de Innovainteligente: tokens, átomos, moléculas y patrones derivados del logotipo. HTML, CSS y JavaScript nativos, sin dependencias externas.">
+  <meta name="author" content="Innovainteligente">
+  <meta name="theme-color" content="#031129" id="meta-theme-color">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Innovainteligente · Design System">
+  <meta property="og:description" content="Lenguaje visual derivado del emblema de red neuronal: tokens, componentes y patrones.">
+  <meta property="og:image" content="assets/brand/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/brand/favicon-180.png">
+  <link rel="preload" href="assets/brand/logo-mark.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/showcase.css">
+  <script src="js/theme-init.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#principal">Saltar al contenido principal</a>
+
+  <!-- Sprite de iconos: 24×24, trazo de 1.75 px, sin dependencias -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5M11 6l-6 6 6 6"/></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 6.2A9.8 9.8 0 0112 6c6.4 0 10 6 10 6a17.4 17.4 0 01-3.2 3.9"/><path d="M6.2 6.2C3.4 8.1 2 12 2 12s3.6 7 10 7a10.2 10.2 0 004.6-1.1"/><path d="M9.9 9.9a3 3 0 004.2 4.2"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9M7 14l5-5 5 5"/><path d="M4 3h16"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.1 0l2-2a5 5 0 00-7.1-7.1l-1 1"/><path d="M14 11a5 5 0 00-7.1 0l-2 2A5 5 0 0012 20.1l1-1"/></symbol>
+      <symbol id="i-alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2L12 3z"/><path d="M12 9v5M12 17.6v.4"/></symbol>
+      <symbol id="i-alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.4v.6"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.4"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12.2l2 2 4-4.2"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5M3 16.5l9 5 9-5"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+      <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+      <symbol id="i-workflow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M10 6.5h4a3 3 0 013 3v4"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 20v-6M11 20V8M16 20v-9M21 20V5"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9.4l-4.2 1.8L12 16l-1.8-4.8L6 9.4l4.2-1.8L12 3z"/><path d="M18.4 14.4l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8z"/></symbol>
+      <symbol id="i-hexagon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6l8.2 4.7v9.4L12 21.4 3.8 16.7V7.3L12 2.6z"/></symbol>
+      <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v3.5M11 10.5l-5 6M13 10.5l5 6M7 18h10"/></symbol>
+      <symbol id="i-atom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.8"/><ellipse cx="12" cy="12" rx="9.5" ry="4.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(120 12 12)"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1111.2 3a6.6 6.6 0 009.8 9.8z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 016.5 2H20v18H6.5A2.5 2.5 0 004 22V4.5z"/><path d="M4 17.5A2.5 2.5 0 016.5 15H20"/></symbol>
+      <symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.7 0 2.5-1.2 2.5-2.5S13.7 16 15 16h2.5A3.5 3.5 0 0021 12.5C21 7.3 17 3 12 3z"/><circle cx="8" cy="9.5" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="16" cy="9.5" r="1"/><circle cx="7.5" cy="14" r="1"/></symbol>
+      <symbol id="i-type" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M12 4v16M8 20h8"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+      <symbol id="i-accessibility" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M4 8h16M12 8v6M12 14l-3 7M12 14l3 7"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 9l3 3-3 3M12 15h5"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.8 7L4 21l2-5.2A8 8 0 1121 12z"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9l-6-6z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1A1.7 1.7 0 004.6 9a1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5l11 7-11 7V5z"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.7 6.3.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.3-.9L12 3z"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></symbol>
+      <symbol id="i-mouse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 7v4"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 10-2.3 5.7M20 5v6h-6"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+      <symbol id="i-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h5"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="ds-header">
+    <div class="container container--wide ds-header__inner">
+      <a class="ds-brand" href="#inicio" aria-label="Innovainteligente, design system, inicio">
+        <span class="ds-brand__tile" aria-hidden="true">
+          <img src="assets/brand/logo-mark.webp" alt="" width="640" height="640">
+        </span>
+        <span class="ds-brand__text">
+          <span class="ds-brand__name">innova<span>inteligente</span>.com</span>
+          <span class="ds-brand__tag">Design System · v1.0.0</span>
+        </span>
+      </a>
+      <div class="ds-header__actions">
+        <span class="badge badge--accent badge--dot">En línea</span>
+        <a class="btn btn--ghost btn--sm" href="#tokens">Tokens</a>
+        <button class="btn btn--icon btn--sm btn--ghost theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a tema claro" aria-pressed="false">
+          <svg class="icon icon--sm icon-moon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>
+          <svg class="icon icon--sm icon-sun" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="ds-mobile-nav" aria-label="Índice rápido del sistema">
+      <a href="#marca">Marca</a>
+      <a href="#color">Color</a>
+      <a href="#tipografia">Tipografía</a>
+      <a href="#espaciado">Espaciado</a>
+      <a href="#movimiento">Movimiento</a>
+      <a href="#iconografia">Iconografía</a>
+      <a href="#botones">Botones</a>
+      <a href="#formularios">Formularios</a>
+      <a href="#seleccion">Selección</a>
+      <a href="#etiquetas">Etiquetas</a>
+      <a href="#retroalimentacion">Feedback</a>
+      <a href="#contenido">Contenido</a>
+      <a href="#navegacion">Navegación</a>
+      <a href="#superposiciones">Overlays</a>
+      <a href="#tarjetas">Tarjetas</a>
+      <a href="#patrones">Patrones</a>
+      <a href="#tokens">Tokens</a>
+      <a href="#accesibilidad">Accesibilidad</a>
+    </nav>
+  </header>
+
+  <div class="container container--wide ds-shell">
+    <aside class="ds-sidebar">
+      <div class="ds-sidebar__title">
+        <span>Índice del sistema</span>
+        <span class="counter" id="nav-count">18</span>
+      </div>
+      <nav class="ds-nav" aria-label="Secciones del design system">
+        <div class="ds-nav__group">
+          <span class="ds-nav__group-title">Fundamentos</span>
+          <a class="ds-nav__link" href="#marca"><span>01</span> Marca</a>
+          <a class="ds-nav__link" href="#color"><span>02</span> Color</a>
+          <a class="ds-nav__link" href="#tipografia"><span>03</span> Tipografía</a>
+          <a class="ds-nav__link" href="#espaciado"><span>04</span> Espaciado y forma</a>
+          <a class="ds-nav__link" href="#movimiento"><span>05</span> Movimiento</a>
+          <a class="ds-nav__link" href="#iconografia"><span>06</span> Iconografía</a>
+        </div>
+        <div class="ds-nav__group">
+          <span class="ds-nav__group-title">Átomos</span>
+          <a class="ds-nav__link" href="#botones"><span>07</span> Botones y enlaces</a>
+          <a class="ds-nav__link" href="#formularios"><span>08</span> Formularios</a>
+          <a class="ds-nav__link" href="#seleccion"><span>09</span> Selección</a>
+          <a class="ds-nav__link" href="#etiquetas"><span>10</span> Etiquetas y datos</a>
+          <a class="ds-nav__link" href="#retroalimentacion"><span>11</span> Retroalimentación</a>
+          <a class="ds-nav__link" href="#contenido"><span>12</span> Contenido</a>
+          <a class="ds-nav__link" href="#navegacion"><span>13</span> Navegación</a>
+        </div>
+        <div class="ds-nav__group">
+          <span class="ds-nav__group-title">Moléculas y patrones</span>
+          <a class="ds-nav__link" href="#superposiciones"><span>14</span> Superposiciones</a>
+          <a class="ds-nav__link" href="#tarjetas"><span>15</span> Tarjetas</a>
+          <a class="ds-nav__link" href="#patrones"><span>16</span> Patrones</a>
+        </div>
+        <div class="ds-nav__group">
+          <span class="ds-nav__group-title">Recursos</span>
+          <a class="ds-nav__link" href="#tokens"><span>17</span> Tokens</a>
+          <a class="ds-nav__link" href="#accesibilidad"><span>18</span> Accesibilidad</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main id="principal" class="ds-main" tabindex="-1">
+      <!-- ============================== PORTADA ============================== -->
+      <section class="ds-hero" id="inicio" aria-labelledby="inicio-title">
+        <div class="ds-hero__copy">
+          <span class="kicker">Automatización y procesos I+D+i con IA</span>
+          <h1 class="ds-hero__title" id="inicio-title">Sistema de diseño <em>innovainteligente</em></h1>
+          <p class="ds-hero__text">Un lenguaje visual construido a partir del emblema de red neuronal del logotipo: azul marino profundo, cian de señal y geometría hexagonal. Incluye tokens, átomos, moléculas y patrones listos para componer interfaces.</p>
+          <div class="ds-hero__meta">
+            <span class="badge badge--accent badge--dot">v1.0.0</span>
+            <span class="badge">WCAG 2.1 AA</span>
+            <span class="badge">Tema oscuro y claro</span>
+            <span class="badge">Sin dependencias</span>
+          </div>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#marca">
+              Explorar el sistema
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#tokens">
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-code"></use></svg>
+              Ver tokens
+            </a>
+          </div>
+          <div class="ds-hero__stats">
+            <div class="stat">
+              <span class="stat__value" id="stat-tokens">—</span>
+              <span class="stat__label">tokens CSS</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value" id="stat-components">—</span>
+              <span class="stat__label">demos de componentes</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value" id="stat-icons">—</span>
+              <span class="stat__label">iconos vectoriales</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value" id="stat-sections">—</span>
+              <span class="stat__label">secciones documentadas</span>
+            </div>
+          </div>
+        </div>
+        <div class="ds-hero__visual" aria-hidden="true">
+          <div class="ds-hero__grid"></div>
+          <div class="ds-hero__orbits">
+            <span class="orbit"></span>
+            <span class="orbit orbit--reverse orbit--inner"></span>
+          </div>
+          <div class="ds-hero__mark">
+            <img src="assets/brand/logo-mark.webp" alt="" width="640" height="640">
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== 01 MARCA ============================== -->
+      <section class="ds-section" id="marca" aria-labelledby="marca-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">01</span> Fundamento · Identidad</div>
+          <h2 class="ds-section__title" id="marca-title">
+            Marca y logotipo
+            <a class="anchor-link" href="#marca" aria-label="Enlace directo a Marca y logotipo">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Todo el sistema parte de <code class="code">Logoinnovaintel150.png</code>. El emblema combina una red neuronal de nodos cian, un hexágono central luminoso y órbitas que sugieren alcance y sistema. El logotipo textual usa una geométrica sans en minúsculas y remata con el bajante <strong>«AUTOMATIZACIÓN Y PROCESOS I+D+i CON IA»</strong> en versalitas espaciadas. Los archivos originales no se modificaron: los derivados viven en <code class="code">assets/brand/</code>.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-hexagon"></use></svg> Construcción del símbolo</h3>
+            <p class="demo__desc">Emblema, logotipo y bajante se tratan como una sola unidad de marca.</p>
+          </div>
+          <div class="demo__stage asset-grid">
+            <div class="asset-card">
+              <div class="asset-card__frame asset-card__frame--wide">
+                <img src="assets/brand/logo-full.webp" alt="Logotipo completo de innovainteligente.com: emblema de red neuronal cian sobre azul marino, el nombre innova inteligente.com y el bajante Automatización y procesos I+D+i con IA" width="760" height="1023" loading="eager">
+              </div>
+              <p class="asset-card__caption">Logotipo principal · <code class="code">logo-full.webp</code></p>
+            </div>
+            <div class="asset-card">
+              <div class="asset-card__frame">
+                <img src="assets/brand/logo-mark.webp" alt="Marca aislada: emblema hexagonal de red neuronal cian y azul" width="640" height="640" loading="lazy">
+              </div>
+              <p class="asset-card__caption">Marca aislada · <code class="code">logo-mark.webp</code></p>
+            </div>
+            <div class="asset-card">
+              <div class="asset-card__frame">
+                <img src="assets/brand/logo-mono.webp" alt="Versión monocroma en plata del logotipo innovainteligente.com" width="760" height="1023" loading="lazy">
+              </div>
+              <p class="asset-card__caption">Monocromo plata · <code class="code">logo-mono.webp</code></p>
+            </div>
+            <div class="asset-card">
+              <div class="asset-card__frame">
+                <img src="assets/brand/favicon-180.png" alt="Icono de aplicación de innovainteligente" width="180" height="180" loading="lazy" style="max-height:7rem;border-radius:var(--radius-md)">
+              </div>
+              <p class="asset-card__caption">Icono de app · <code class="code">favicon-180.png</code></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg> Área de resguardo</h3>
+            <p class="demo__desc">X = altura del emblema. Resguardo mínimo de 0,25X por cada lado; ningún texto ni borde puede invadirlo.</p>
+          </div>
+          <div class="demo__stage">
+            <div class="brand-clearspace" style="--brand-clear: 1.75rem">
+              <div class="logo-tile" style="width: 13rem">
+                <img src="assets/brand/logo-full.webp" alt="Logotipo dentro de su área de resguardo mínima" width="760" height="1023" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="demo__foot"><code>padding = 0,25 × altura del emblema</code><span>·</span><span>tamaño mínimo del logotipo completo: 120 px de ancho</span></div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-alert-triangle"></use></svg> Usos correctos e incorrectos</h3>
+            <p class="demo__desc">Las tres marcas de «no» son demostraciones CSS del propio catálogo; no generan archivos nuevos.</p>
+          </div>
+          <div class="demo__stage demo__stage--grid">
+            <div class="dodont__item dodont__item--do">
+              <span class="dodont__label"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg> Correcto</span>
+              <div class="dodont__canvas"><img src="assets/brand/logo-full.webp" alt="Uso correcto del logotipo sobre fondo azul marino de marca" width="760" height="1023" loading="lazy"></div>
+              <p class="dodont__note">Sobre tinta de marca (<code class="code">#031129</code>) o sobre imágenes oscuras y uniformes. Conserva proporción y contraste.</p>
+            </div>
+            <div class="dodont__item dodont__item--dont">
+              <span class="dodont__label"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-x"></use></svg> No deformar</span>
+              <div class="dodont__canvas"><img class="is-stretched" src="assets/brand/logo-full.webp" alt="Ejemplo incorrecto: logotipo deformado horizontalmente" width="760" height="1023" loading="lazy"></div>
+              <p class="dodont__note">Nunca se escala el logotipo de forma no proporcional ni se rota.</p>
+            </div>
+            <div class="dodont__item dodont__item--dont">
+              <span class="dodont__label"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-x"></use></svg> No recolorear</span>
+              <div class="dodont__canvas"><img class="is-recolored" src="assets/brand/logo-full.webp" alt="Ejemplo incorrecto: logotipo con colores alterados" width="760" height="1023" loading="lazy"></div>
+              <p class="dodont__note">El cian y el azul son parte de la identidad; solo se admite la versión monocroma aprobada.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-scroll">
+          <table class="token-table">
+            <caption>Activos de marca generados (originales intactos)</caption>
+            <thead>
+              <tr><th scope="col">Archivo</th><th scope="col">Medidas</th><th scope="col">Peso</th><th scope="col">Uso</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>logo-full.webp</code></td><td>1200 × 1616</td><td>76 KB</td><td>Logotipo principal en web</td></tr>
+              <tr><td><code>logo-full.png</code></td><td>760 × 1023</td><td>444 KB</td><td>Respaldo con transparencia de formato</td></tr>
+              <tr><td><code>logo-mark.webp</code></td><td>640 × 640</td><td>48 KB</td><td>Marca aislada, cabeceras y pie</td></tr>
+              <tr><td><code>logo-mono.png</code></td><td>760 × 1023</td><td>352 KB</td><td>Versión monocroma plata</td></tr>
+              <tr><td><code>favicon-32/64/180/512.png</code></td><td>32 – 512 px</td><td>4 – 244 KB</td><td>Pestaña, marcadores e icono de app</td></tr>
+              <tr><td><code>og-image.png</code></td><td>1200 × 630</td><td>468 KB</td><td>Tarjeta para redes y enlaces</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============================== 02 COLOR ============================== -->
+      <section class="ds-section" id="color" aria-labelledby="color-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">02</span> Fundamento · Color</div>
+          <h2 class="ds-section__title" id="color-title">
+            Color
+            <a class="anchor-link" href="#color" aria-label="Enlace directo a Color">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">La paleta primaria se muestreó del propio logotipo: tinta <code class="code">#031129</code>, cian señal <code class="code">#00D0F0</code>, azul <code class="code">#0098D0</code> y azul profundo <code class="code">#0070C0</code>. Las rampas y los colores semánticos son derivaciones del sistema y no forman parte del archivo original.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-palette"></use></svg> Rampas de marca</h3>
+            <p class="demo__desc">Haz clic en cualquier paso para copiar su valor hexadecimal.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="stack stack--sm full-width">
+              <h4 class="eyebrow">Tinta · superficies y fondos</h4>
+              <div class="ramp">
+                <button class="ramp__step" type="button" data-copy="#020b1b" style="background:#020b1b"><span>950</span><small>#020B1B</small></button>
+                <button class="ramp__step" type="button" data-copy="#031129" style="background:#031129"><span>900</span><small>#031129</small></button>
+                <button class="ramp__step" type="button" data-copy="#041530" style="background:#041530"><span>850</span><small>#041530</small></button>
+                <button class="ramp__step" type="button" data-copy="#061a36" style="background:#061a36"><span>800</span><small>#061A36</small></button>
+                <button class="ramp__step" type="button" data-copy="#0a2244" style="background:#0a2244"><span>700</span><small>#0A2244</small></button>
+                <button class="ramp__step" type="button" data-copy="#0e2b52" style="background:#0e2b52"><span>600</span><small>#0E2B52</small></button>
+                <button class="ramp__step" type="button" data-copy="#15406f" style="background:#15406f"><span>500</span><small>#15406F</small></button>
+                <button class="ramp__step" type="button" data-copy="#1d5389" style="background:#1d5389"><span>400</span><small>#1D5389</small></button>
+              </div>
+            </div>
+            <div class="stack stack--sm full-width">
+              <h4 class="eyebrow">Cian señal · acento</h4>
+              <div class="ramp">
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#d6f7ff" style="background:#d6f7ff"><span>100</span><small>#D6F7FF</small></button>
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#8bebf9" style="background:#8bebf9"><span>200</span><small>#8BEBF9</small></button>
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#43ddf4" style="background:#43ddf4"><span>300</span><small>#43DDF4</small></button>
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#00d0f0" style="background:#00d0f0"><span>400 ★</span><small>#00D0F0</small></button>
+                <button class="ramp__step" type="button" data-copy="#00b4d0" style="background:#00b4d0"><span>500</span><small>#00B4D0</small></button>
+                <button class="ramp__step" type="button" data-copy="#0090ab" style="background:#0090ab"><span>600</span><small>#0090AB</small></button>
+                <button class="ramp__step" type="button" data-copy="#00738a" style="background:#00738a"><span>700</span><small>#00738A</small></button>
+                <button class="ramp__step" type="button" data-copy="#00566a" style="background:#00566a"><span>800</span><small>#00566A</small></button>
+                <button class="ramp__step" type="button" data-copy="#003d4d" style="background:#003d4d"><span>900</span><small>#003D4D</small></button>
+              </div>
+            </div>
+            <div class="stack stack--sm full-width">
+              <h4 class="eyebrow">Azul · conexiones y apoyo</h4>
+              <div class="ramp">
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#7fd0f2" style="background:#7fd0f2"><span>300</span><small>#7FD0F2</small></button>
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#3fb4e8" style="background:#3fb4e8"><span>400</span><small>#3FB4E8</small></button>
+                <button class="ramp__step" type="button" data-copy="#0098d0" style="background:#0098d0"><span>500 ★</span><small>#0098D0</small></button>
+                <button class="ramp__step" type="button" data-copy="#0070c0" style="background:#0070c0"><span>600 ★</span><small>#0070C0</small></button>
+                <button class="ramp__step" type="button" data-copy="#005596" style="background:#005596"><span>700</span><small>#005596</small></button>
+                <button class="ramp__step" type="button" data-copy="#003e70" style="background:#003e70"><span>800</span><small>#003E70</small></button>
+              </div>
+            </div>
+            <div class="stack stack--sm full-width">
+              <h4 class="eyebrow">Plata · texto y metales</h4>
+              <div class="ramp">
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#f7fbff" style="background:#f7fbff"><span>050</span><small>#F7FBFF</small></button>
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#eef5ff" style="background:#eef5ff"><span>100</span><small>#EEF5FF</small></button>
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#dce7f5" style="background:#dce7f5"><span>200</span><small>#DCE7F5</small></button>
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#c2d3e8" style="background:#c2d3e8"><span>300</span><small>#C2D3E8</small></button>
+                <button class="ramp__step ramp__step--light" type="button" data-copy="#9fb4cd" style="background:#9fb4cd"><span>400</span><small>#9FB4CD</small></button>
+                <button class="ramp__step" type="button" data-copy="#7a90ac" style="background:#7a90ac"><span>500</span><small>#7A90AC</small></button>
+                <button class="ramp__step" type="button" data-copy="#5b7391" style="background:#5b7391"><span>600</span><small>#5B7391</small></button>
+                <button class="ramp__step" type="button" data-copy="#40567a" style="background:#40567a"><span>700</span><small>#40567A</small></button>
+              </div>
+            </div>
+            <p class="notice-inline">
+              <svg aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+              <span>★ = color muestreado del logotipo original. Los demás pasos se derivaron ajustando luminosidad y saturación para completar rampas usables.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg> Colores semánticos</h3>
+            <p class="demo__desc">Añadidos por el sistema (no provienen del logo). Tienen variante oscura y clara.</p>
+          </div>
+          <div class="demo__stage demo__stage--grid">
+            <div class="swatch" style="--swatch: var(--color-success)">
+              <div class="swatch__chip"></div>
+              <div class="swatch__body"><span class="swatch__name">--color-success</span><span class="swatch__value">#2FD59B · #0A6B52</span></div>
+            </div>
+            <div class="swatch" style="--swatch: var(--color-warning)">
+              <div class="swatch__chip"></div>
+              <div class="swatch__body"><span class="swatch__name">--color-warning</span><span class="swatch__value">#FFB547 · #8A5A00</span></div>
+            </div>
+            <div class="swatch" style="--swatch: var(--color-danger)">
+              <div class="swatch__chip"></div>
+              <div class="swatch__body"><span class="swatch__name">--color-danger</span><span class="swatch__value">#FF6B7A · #B3263B</span></div>
+            </div>
+            <div class="swatch" style="--swatch: var(--color-info)">
+              <div class="swatch__chip"></div>
+              <div class="swatch__body"><span class="swatch__name">--color-info</span><span class="swatch__value">#4CC9F0 · #0B6E8A</span></div>
+            </div>
+            <div class="swatch" style="--swatch: var(--color-accent)">
+              <div class="swatch__chip"></div>
+              <div class="swatch__body"><span class="swatch__name">--color-accent</span><span class="swatch__value">#00D0F0 · #006A86</span></div>
+            </div>
+            <div class="swatch" style="--swatch: var(--color-border-strong)">
+              <div class="swatch__chip"></div>
+              <div class="swatch__body"><span class="swatch__name">--color-border-strong</span><span class="swatch__value">borde · énfasis</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg> Tokens semánticos por tema</h3>
+            <p class="demo__desc">Los componentes nunca usan hex directos: consumen estos nombres y el tema se resuelve solo.</p>
+          </div>
+          <div class="table-scroll">
+            <table class="token-table">
+              <thead>
+                <tr><th scope="col">Token</th><th scope="col">Tema oscuro</th><th scope="col">Tema claro</th><th scope="col">Uso</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>--color-bg</code></td><td><span class="swatch-dot" style="background:#031129"></span><code>#031129</code></td><td><span class="swatch-dot" style="background:#f7fafd"></span><code>#F7FAFD</code></td><td>Fondo de página</td></tr>
+                <tr><td><code>--color-surface-1</code></td><td><span class="swatch-dot" style="background:#041530"></span><code>#041530</code></td><td><span class="swatch-dot" style="background:#ffffff"></span><code>#FFFFFF</code></td><td>Tarjetas y campos</td></tr>
+                <tr><td><code>--color-surface-2</code></td><td><span class="swatch-dot" style="background:#061a36"></span><code>#061A36</code></td><td><span class="swatch-dot" style="background:#eef4fc"></span><code>#EEF4FC</code></td><td>Superficie elevada</td></tr>
+                <tr><td><code>--color-surface-3</code></td><td><span class="swatch-dot" style="background:#0a2244"></span><code>#0A2244</code></td><td><span class="swatch-dot" style="background:#e3edf9"></span><code>#E3EDF9</code></td><td>Control activo suave</td></tr>
+                <tr><td><code>--color-text</code></td><td><span class="swatch-dot" style="background:#eef5ff"></span><code>#EEF5FF</code></td><td><span class="swatch-dot" style="background:#06203d"></span><code>#06203D</code></td><td>Texto principal</td></tr>
+                <tr><td><code>--color-text-secondary</code></td><td><span class="swatch-dot" style="background:#b7c9df"></span><code>#B7C9DF</code></td><td><span class="swatch-dot" style="background:#3d5a78"></span><code>#3D5A78</code></td><td>Texto de apoyo</td></tr>
+                <tr><td><code>--color-text-tertiary</code></td><td><span class="swatch-dot" style="background:#8aa0bb"></span><code>#8AA0BB</code></td><td><span class="swatch-dot" style="background:#4b647e"></span><code>#4B647E</code></td><td>Textos sutiles</td></tr>
+                <tr><td><code>--color-border</code></td><td><span class="swatch-dot" style="background:#3a5677"></span><code>rgba(150,190,230,.24)</code></td><td><span class="swatch-dot" style="background:#cbdcef"></span><code>#CBDCEF</code></td><td>Bordes de control</td></tr>
+                <tr><td><code>--color-accent</code></td><td><span class="swatch-dot" style="background:#00d0f0"></span><code>#00D0F0</code></td><td><span class="swatch-dot" style="background:#006a86"></span><code>#006A86</code></td><td>Acento de marca</td></tr>
+                <tr><td><code>--color-success</code></td><td><span class="swatch-dot" style="background:#2fd59b"></span><code>#2FD59B</code></td><td><span class="swatch-dot" style="background:#0a6b52"></span><code>#0A6B52</code></td><td>Éxito</td></tr>
+                <tr><td><code>--color-warning</code></td><td><span class="swatch-dot" style="background:#ffb547"></span><code>#FFB547</code></td><td><span class="swatch-dot" style="background:#8a5a00"></span><code>#8A5A00</code></td><td>Advertencia</td></tr>
+                <tr><td><code>--color-danger</code></td><td><span class="swatch-dot" style="background:#ff6b7a"></span><code>#FF6B7A</code></td><td><span class="swatch-dot" style="background:#b3263b"></span><code>#B3263B</code></td><td>Error o riesgo</td></tr>
+                <tr><td><code>--color-info</code></td><td><span class="swatch-dot" style="background:#4cc9f0"></span><code>#4CC9F0</code></td><td><span class="swatch-dot" style="background:#0b6e8a"></span><code>#0B6E8A</code></td><td>Información</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ 03 TIPOGRAFÍA ============================ -->
+      <section class="ds-section" id="tipografia" aria-labelledby="tipografia-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">03</span> Fundamento · Tipografía</div>
+          <h2 class="ds-section__title" id="tipografia-title">
+            Tipografía
+            <a class="anchor-link" href="#tipografia" aria-label="Enlace directo a Tipografía">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Dos familias autoalojadas: <strong>Poppins</strong> para titulares y marca —su geometría circular dialoga con el emblema— e <strong>Inter</strong> para interfaz y texto corrido. Ambas se sirven desde <code class="code">assets/fonts/</code> en WOFF2, sin peticiones externas.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-type"></use></svg> Familias</h3>
+            <p class="demo__desc">Tokens: <code class="code">--font-display</code>, <code class="code">--font-sans</code>, <code class="code">--font-mono</code>.</p>
+          </div>
+          <div class="demo__stage demo__stage--grid">
+            <div class="card">
+              <span class="eyebrow">Display · Poppins</span>
+              <p class="font-display" style="font-size:2rem;font-weight:700;line-height:1.1;letter-spacing:-0.03em">innova<br>inteligente</p>
+              <p class="t-small">Titulares, botones, etiquetas de marca y cifras destacadas. Pesos 400 a 800.</p>
+              <span class="badge">Geométrica</span>
+            </div>
+            <div class="card">
+              <span class="eyebrow">Texto · Inter</span>
+              <p style="font-size:1.1rem;line-height:1.55">Automatización y procesos I+D+i con inteligencia artificial.</p>
+              <p class="t-small">Cuerpo de texto, formularios, tablas y documentación. Alta legibilidad en tamaños pequeños.</p>
+              <span class="badge">Interfaz</span>
+            </div>
+            <div class="card">
+              <span class="eyebrow">Monoespaciada</span>
+              <p class="font-mono" style="font-size:1rem;line-height:1.6">--color-accent:<br>&nbsp;&nbsp;#00D0F0;</p>
+              <p class="t-small">Tokens, código, medidas y datos tabulares.</p>
+              <span class="badge">Datos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-chart"></use></svg> Escala tipográfica</h3>
+            <p class="demo__desc">Rem sobre base de 16 px; los titulares usan <code class="code">clamp()</code> para adaptarse sin saltos.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="type-specimen">
+              <div class="type-row"><span class="type-row__label">7xl</span><span class="type-row__sample" data-size="7xl" style="font-size:var(--text-7xl)">Innovación</span><span class="type-row__meta">4.5rem · 72px</span></div>
+              <div class="type-row"><span class="type-row__label">6xl</span><span class="type-row__sample" style="font-size:var(--text-6xl)">Innovación</span><span class="type-row__meta">3.75rem · 60px</span></div>
+              <div class="type-row"><span class="type-row__label">5xl</span><span class="type-row__sample" style="font-size:var(--text-5xl)">Innovación</span><span class="type-row__meta">3rem · 48px</span></div>
+              <div class="type-row"><span class="type-row__label">4xl</span><span class="type-row__sample" style="font-size:var(--text-4xl)">Innovación</span><span class="type-row__meta">2.25rem · 36px</span></div>
+              <div class="type-row"><span class="type-row__label">3xl</span><span class="type-row__sample" style="font-size:var(--text-3xl)">Innovación</span><span class="type-row__meta">1.875rem · 30px</span></div>
+              <div class="type-row"><span class="type-row__label">2xl</span><span class="type-row__sample" style="font-size:var(--text-2xl)">Innovación</span><span class="type-row__meta">1.5rem · 24px</span></div>
+              <div class="type-row"><span class="type-row__label">xl</span><span class="type-row__sample" style="font-size:var(--text-xl)">Innovación</span><span class="type-row__meta">1.25rem · 20px</span></div>
+              <div class="type-row"><span class="type-row__label">lg</span><span class="type-row__sample" style="font-size:var(--text-lg);font-family:var(--font-sans);font-weight:500">Innovación</span><span class="type-row__meta">1.125rem · 18px</span></div>
+              <div class="type-row"><span class="type-row__label">md</span><span class="type-row__sample" style="font-size:var(--text-md);font-family:var(--font-sans);font-weight:400">Innovación</span><span class="type-row__meta">1rem · 16px</span></div>
+              <div class="type-row"><span class="type-row__label">sm</span><span class="type-row__sample" style="font-size:var(--text-sm);font-family:var(--font-sans);font-weight:400">Innovación</span><span class="type-row__meta">0.875rem · 14px</span></div>
+              <div class="type-row"><span class="type-row__label">xs</span><span class="type-row__sample" style="font-size:var(--text-xs);font-family:var(--font-sans);font-weight:400">Innovación</span><span class="type-row__meta">0.75rem · 12px</span></div>
+              <div class="type-row"><span class="type-row__label">2xs</span><span class="type-row__sample" style="font-size:var(--text-2xs);font-family:var(--font-sans);font-weight:400">Innovación</span><span class="type-row__meta">0.6875rem · 11px</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg> Pesos y estilos de marca</h3>
+            <p class="demo__desc">El bajante del logo se convierte en el token de «kicker»: versalitas con tracking amplio.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="type-specimen">
+              <div class="type-row"><span class="type-row__label">400</span><span class="type-row__sample" style="font-weight:400;font-size:var(--text-2xl)">Automatización</span><span class="type-row__meta">Regular</span></div>
+              <div class="type-row"><span class="type-row__label">500</span><span class="type-row__sample" style="font-weight:500;font-size:var(--text-2xl)">Automatización</span><span class="type-row__meta">Medium</span></div>
+              <div class="type-row"><span class="type-row__label">600</span><span class="type-row__sample" style="font-weight:600;font-size:var(--text-2xl)">Automatización</span><span class="type-row__meta">Semibold</span></div>
+              <div class="type-row"><span class="type-row__label">700</span><span class="type-row__sample" style="font-weight:700;font-size:var(--text-2xl)">Automatización</span><span class="type-row__meta">Bold</span></div>
+              <div class="type-row"><span class="type-row__label">800</span><span class="type-row__sample" style="font-weight:800;font-size:var(--text-2xl)">Automatización</span><span class="type-row__meta">ExtraBold</span></div>
+            </div>
+            <div class="divider--brand" role="presentation"></div>
+            <div class="stack stack--sm full-width">
+              <span class="kicker">Automatización y procesos I+D+i con IA</span>
+              <p class="t-lead">Lead: párrafo de entrada con 1.7 de interlineado para introducir una sección con aire.</p>
+              <p class="t-body">Cuerpo: texto corrido de interfaz. Máximo recomendado de 68 caracteres por línea para mantener la lectura cómoda.</p>
+              <p class="t-small">Small: metadatos, ayudas de formulario y notas al pie.</p>
+              <p class="t-caption">Caption: la capa más pequeña; nunca por debajo de 11 px y solo para información secundaria.</p>
+              <p class="t-h3">Titular de sección con <span class="text-gradient">degradado de marca</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-book"></use></svg> Texto corrido</h3>
+            <p class="demo__desc">Contenido real del documento de la landing, aplicado con la clase <code class="code">.prose</code>.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="prose">
+              <p><strong>I+D+i</strong> es la abreviatura de Investigación, Desarrollo e Innovación. La I+D se enfoca en la creación o mejora del conocimiento y la tecnología; la innovación es la introducción exitosa de esas nuevas ideas en el mercado o en la sociedad, es decir, transformar el conocimiento en valor económico o social.</p>
+              <ul>
+                <li><strong>Investigación básica:</strong> exploración teórica que busca nuevos conocimientos sin un fin comercial inmediato.</li>
+                <li><strong>Investigación aplicada:</strong> estudios dirigidos a resolver un problema específico o a encontrar aplicaciones prácticas.</li>
+                <li><strong>Desarrollo tecnológico:</strong> aplicación práctica para diseñar, construir, probar y perfeccionar un producto, material, dispositivo o sistema.</li>
+              </ul>
+              <p>Según el documento de contenido de la landing, la fórmula <strong>I + D + i</strong> añade una «i» pequeña que representa la innovación.</p>
+            </div>
+            <p class="t-caption">Texto de muestra aplicado con la clase <code class="code">.prose</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= 04 ESPACIADO Y FORMA ========================= -->
+      <section class="ds-section" id="espaciado" aria-labelledby="espaciado-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">04</span> Fundamento · Espacio y forma</div>
+          <h2 class="ds-section__title" id="espaciado-title">
+            Espaciado y forma
+            <a class="anchor-link" href="#espaciado" aria-label="Enlace directo a Espaciado y forma">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Escala de espacio con base de 4 px, radios de esquina derivados del hexágono y sombras teñidas de azul marino. La retícula usa contenedores de 640, 840, 1120 y 1280 px con canal variable.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg> Escala de espaciado</h3>
+            <p class="demo__desc">De 4 a 128 px. Usa los tokens; evita valores sueltos en los componentes.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="space-demo">
+              <div class="space-row"><span>--space-1</span><span class="space-row__bar" style="--space-w: var(--space-1)"></span><span>4px</span></div>
+              <div class="space-row"><span>--space-2</span><span class="space-row__bar" style="--space-w: var(--space-2)"></span><span>8px</span></div>
+              <div class="space-row"><span>--space-3</span><span class="space-row__bar" style="--space-w: var(--space-3)"></span><span>12px</span></div>
+              <div class="space-row"><span>--space-4</span><span class="space-row__bar" style="--space-w: var(--space-4)"></span><span>16px</span></div>
+              <div class="space-row"><span>--space-6</span><span class="space-row__bar" style="--space-w: var(--space-6)"></span><span>24px</span></div>
+              <div class="space-row"><span>--space-8</span><span class="space-row__bar" style="--space-w: var(--space-8)"></span><span>32px</span></div>
+              <div class="space-row"><span>--space-12</span><span class="space-row__bar" style="--space-w: var(--space-12)"></span><span>48px</span></div>
+              <div class="space-row"><span>--space-16</span><span class="space-row__bar" style="--space-w: var(--space-16)"></span><span>64px</span></div>
+              <div class="space-row"><span>--space-24</span><span class="space-row__bar" style="--space-w: var(--space-24)"></span><span>96px</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-hexagon"></use></svg> Radios de esquina</h3>
+            <p class="demo__desc">El hexágono se reserva para iconos de marca; el resto de la interfaz usa radios suaves.</p>
+          </div>
+          <div class="demo__stage">
+            <div class="shape-grid full-width">
+              <div class="shape-card"><div class="shape-sample" style="border-radius: var(--radius-xs)"></div><code>--radius-xs · 6px</code></div>
+              <div class="shape-card"><div class="shape-sample" style="border-radius: var(--radius-sm)"></div><code>--radius-sm · 10px</code></div>
+              <div class="shape-card"><div class="shape-sample" style="border-radius: var(--radius-md)"></div><code>--radius-md · 14px</code></div>
+              <div class="shape-card"><div class="shape-sample" style="border-radius: var(--radius-lg)"></div><code>--radius-lg · 20px</code></div>
+              <div class="shape-card"><div class="shape-sample" style="border-radius: var(--radius-xl)"></div><code>--radius-xl · 28px</code></div>
+              <div class="shape-card"><div class="shape-sample" style="border-radius: var(--radius-2xl)"></div><code>--radius-2xl · 36px</code></div>
+              <div class="shape-card"><div class="shape-sample" style="border-radius: var(--radius-pill)"></div><code>--radius-pill</code></div>
+              <div class="shape-card"><div class="shape-sample" style="clip-path: var(--hex-clip); border: 0; background: var(--gradient-brand)"></div><code>--hex-clip</code></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg> Elevación</h3>
+            <p class="demo__desc">Sombras con tinte de tinta, no negro puro; el acento añade halo cian en elementos activos.</p>
+          </div>
+          <div class="demo__stage">
+            <div class="shadow-grid full-width">
+              <div class="shadow-card" style="box-shadow: var(--shadow-xs)"><code>--shadow-xs</code></div>
+              <div class="shadow-card" style="box-shadow: var(--shadow-sm)"><code>--shadow-sm</code></div>
+              <div class="shadow-card" style="box-shadow: var(--shadow-md)"><code>--shadow-md</code></div>
+              <div class="shadow-card" style="box-shadow: var(--shadow-lg)"><code>--shadow-lg</code></div>
+              <div class="shadow-card" style="box-shadow: var(--shadow-xl)"><code>--shadow-xl</code></div>
+              <div class="shadow-card" style="box-shadow: var(--shadow-glow)"><code>--shadow-glow</code></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg> Retícula y contenedores</h3>
+            <p class="demo__desc">12 columnas, canal de 24 px en escritorio y gutter fluido con <code class="code">clamp()</code>.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="grid-demo" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="table-scroll">
+              <table class="token-table">
+                <thead><tr><th scope="col">Token</th><th scope="col">Valor</th><th scope="col">Uso</th></tr></thead>
+                <tbody>
+                  <tr><td><code>--container-sm</code></td><td>640 px</td><td>Textos y formularios</td></tr>
+                  <tr><td><code>--container-md</code></td><td>840 px</td><td>Contenido editorial</td></tr>
+                  <tr><td><code>--container-lg</code></td><td>1120 px</td><td>Ancho estándar de página</td></tr>
+                  <tr><td><code>--container-xl</code></td><td>1280 px</td><td>Catálogos y tableros</td></tr>
+                  <tr><td><code>--gutter</code></td><td>clamp(1rem, 4vw, 2.5rem)</td><td>Margen lateral fluido</td></tr>
+                  <tr><td><code>--section-space</code></td><td>clamp(3.5rem, 8vw, 7rem)</td><td>Aire entre secciones</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="notice-inline">
+              <svg aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+              <span>Puntos de quiebre usados en el sistema: 48rem (768 px), 60rem (960 px), 62rem (992 px) y 70rem (1120 px). El catálogo colapsa el índice lateral en 70rem.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ 05 MOVIMIENTO ============================ -->
+      <section class="ds-section" id="movimiento" aria-labelledby="movimiento-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">05</span> Fundamento · Movimiento</div>
+          <h2 class="ds-section__title" id="movimiento-title">
+            Movimiento
+            <a class="anchor-link" href="#movimiento" aria-label="Enlace directo a Movimiento">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">El movimiento acompaña, no distrae: duraciones cortas para respuesta inmediata y curvas enfáticas para entradas. Todo se desactiva con <code class="code">prefers-reduced-motion</code>.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-zap"></use></svg> Duraciones y curvas</h3>
+            <p class="demo__desc">Pasa el cursor sobre cada tarjeta para acelerar la animación.</p>
+          </div>
+          <div class="demo__stage">
+            <div class="motion-grid full-width">
+              <div class="motion-card">
+                <span class="eyebrow">--duration-fast · 150ms</span>
+                <div class="motion-card__track"><span class="motion-card__ball" style="animation-duration: 1.1s; animation-timing-function: var(--ease-standard)"></span></div>
+                <code style="font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--color-text-tertiary)">--ease-standard</code>
+              </div>
+              <div class="motion-card">
+                <span class="eyebrow">--duration-normal · 220ms</span>
+                <div class="motion-card__track"><span class="motion-card__ball" style="animation-duration: 1.4s; animation-timing-function: var(--ease-emphasized)"></span></div>
+                <code style="font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--color-text-tertiary)">--ease-emphasized</code>
+              </div>
+              <div class="motion-card">
+                <span class="eyebrow">--duration-slow · 340ms</span>
+                <div class="motion-card__track"><span class="motion-card__ball" style="animation-duration: 1.8s; animation-timing-function: var(--ease-spring)"></span></div>
+                <code style="font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--color-text-tertiary)">--ease-spring</code>
+              </div>
+              <div class="motion-card">
+                <span class="eyebrow">--ease-linear</span>
+                <div class="motion-card__track"><span class="motion-card__ball" style="animation-duration: 2.2s; animation-timing-function: linear"></span></div>
+                <code style="font-family:var(--font-mono);font-size:var(--text-2xs);color:var(--color-text-tertiary)">--ease-linear</code>
+              </div>
+            </div>
+          </div>
+          <div class="demo__foot"><span>Regla:</span><code>interacción ≤ 150ms · transición 220–340ms · ambientación &gt; 1s</code></div>
+        </div>
+
+        <div class="table-scroll">
+          <table class="token-table">
+            <thead><tr><th scope="col">Token</th><th scope="col">Valor</th><th scope="col">Uso</th></tr></thead>
+            <tbody>
+              <tr><td><code>--duration-instant</code></td><td>80 ms</td><td>Cambio de estado por clic</td></tr>
+              <tr><td><code>--duration-fast</code></td><td>150 ms</td><td>Hover, foco, color</td></tr>
+              <tr><td><code>--duration-normal</code></td><td>220 ms</td><td>Apertura de menús y tarjetas</td></tr>
+              <tr><td><code>--duration-slow</code></td><td>340 ms</td><td>Modales y toasts</td></tr>
+              <tr><td><code>--duration-atmospheric</code></td><td>1200 ms</td><td>Órbitas y halos de marca</td></tr>
+              <tr><td><code>--ease-standard</code></td><td>cubic-bezier(.2,0,.2,1)</td><td>Uso general</td></tr>
+              <tr><td><code>--ease-emphasized</code></td><td>cubic-bezier(.2,.9,.15,1)</td><td>Entradas con intención</td></tr>
+              <tr><td><code>--ease-spring</code></td><td>cubic-bezier(.34,1.56,.64,1)</td><td>Rebote sutil de controles</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =========================== 06 ICONOGRAFÍA =========================== -->
+      <section class="ds-section" id="iconografia" aria-labelledby="iconografia-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">06</span> Fundamento · Iconografía</div>
+          <h2 class="ds-section__title" id="iconografia-title">
+            Iconografía
+            <a class="anchor-link" href="#iconografia" aria-label="Enlace directo a Iconografía">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Un sprite SVG de 60 símbolos con retícula de 24 × 24, trazo de 1,75 px, extremos redondeados y <code class="code">currentColor</code>. Heredan el color del contexto y no requieren fuente de iconos.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg> Set base</h3>
+            <p class="demo__desc">Uso: <code class="code">&lt;svg class="icon"&gt;&lt;use href="#i-nombre"&gt;&lt;/svg&gt;</code></p>
+          </div>
+          <div class="demo__stage">
+            <div class="icon-grid full-width" id="icon-grid">
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>arrow-right</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg>arrow-up-right</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-arrow-left"></use></svg>arrow-left</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>chevron-down</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-chevron-right"></use></svg>chevron-right</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg>check</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg>check-circle</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-x"></use></svg>x</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg>plus</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-minus"></use></svg>minus</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-search"></use></svg>search</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg>mail</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-lock"></use></svg>lock</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-eye"></use></svg>eye</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-eye-off"></use></svg>eye-off</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-user"></use></svg>user</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-download"></use></svg>download</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-upload"></use></svg>upload</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg>copy</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>link</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>share</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg>external</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-alert-triangle"></use></svg>alert</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg>alert-circle</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>info</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg>shield</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg>layers</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-zap"></use></svg>zap</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-cpu"></use></svg>cpu</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-database"></use></svg>database</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-workflow"></use></svg>workflow</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-chart"></use></svg>chart</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-sparkles"></use></svg>sparkles</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-hexagon"></use></svg>hexagon</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-network"></use></svg>network</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-atom"></use></svg>atom</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>sun</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>moon</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>menu</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-code"></use></svg>code</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-book"></use></svg>book</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-palette"></use></svg>palette</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-type"></use></svg>type</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg>grid</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-accessibility"></use></svg>accessibility</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-terminal"></use></svg>terminal</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-globe"></use></svg>globe</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-message"></use></svg>message</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-file"></use></svg>file</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-settings"></use></svg>settings</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-trash"></use></svg>trash</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-calendar"></use></svg>calendar</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-clock"></use></svg>clock</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-play"></use></svg>play</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-star"></use></svg>star</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-filter"></use></svg>filter</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-mouse"></use></svg>mouse</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-refresh"></use></svg>refresh</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-send"></use></svg>send</span>
+              <span class="icon-cell"><svg class="icon icon--lg" aria-hidden="true" focusable="false"><use href="#i-more"></use></svg>more</span>
+            </div>
+          </div>
+          <div class="demo__foot"><span id="icon-set-count">60 símbolos · retícula 24 px · trazo 1,75 px</span></div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg> Tamaños y color</h3>
+            <p class="demo__desc">Los iconos heredan <code class="code">currentColor</code>: nunca se fija el color dentro del SVG.</p>
+          </div>
+          <div class="demo__stage">
+            <svg class="icon icon--xs" style="color:var(--color-text-tertiary)" aria-hidden="true" focusable="false"><use href="#i-network"></use></svg>
+            <svg class="icon icon--sm" style="color:var(--color-text-secondary)" aria-hidden="true" focusable="false"><use href="#i-network"></use></svg>
+            <svg class="icon" style="color:var(--color-text)" aria-hidden="true" focusable="false"><use href="#i-network"></use></svg>
+            <svg class="icon icon--lg" style="color:var(--color-accent)" aria-hidden="true" focusable="false"><use href="#i-network"></use></svg>
+            <svg class="icon icon--xl" style="color:var(--color-accent)" aria-hidden="true" focusable="false"><use href="#i-network"></use></svg>
+            <span class="cluster cluster--sm" style="gap:var(--space-1)">
+              <span class="hex" style="--hex-size:2.5rem"><svg aria-hidden="true" focusable="false"><use href="#i-cpu"></use></svg></span>
+              <span class="hex hex--outline" style="--hex-size:2.5rem"><svg aria-hidden="true" focusable="false"><use href="#i-database"></use></svg></span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== 07 BOTONES ============================== -->
+      <section class="ds-section" id="botones" aria-labelledby="botones-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">07</span> Átomo · Acción</div>
+          <h2 class="ds-section__title" id="botones-title">
+            Botones y enlaces
+            <a class="anchor-link" href="#botones" aria-label="Enlace directo a Botones y enlaces">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Altura mínima de 44 px, radio de píldora y tipografía Poppins con tracking amplio. La jerarquía es explícita: un solo botón primario por bloque de decisión.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg> Variantes</h3>
+            <p class="demo__desc">Primario, contorno, tenue, fantasma, peligro y enlace.</p>
+          </div>
+          <div class="demo__stage">
+            <button class="btn btn--primary" type="button">Solicitar diagnóstico</button>
+            <button class="btn btn--outline" type="button">Ver servicios</button>
+            <button class="btn btn--soft" type="button">Descargar ficha</button>
+            <button class="btn btn--ghost" type="button">Ahora no</button>
+            <button class="btn btn--danger" type="button">Eliminar</button>
+            <button class="btn btn--link" type="button">Términos y condiciones</button>
+          </div>
+          <div class="demo__foot"><code>.btn · .btn--primary · .btn--outline · .btn--soft · .btn--ghost · .btn--danger · .btn--link</code></div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg> Tamaños, iconos y estados</h3>
+            <p class="demo__desc">El estado de carga conserva el ancho del botón y anuncia con <code class="code">aria-busy</code>.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="cluster">
+              <button class="btn btn--primary btn--sm" type="button">Pequeño</button>
+              <button class="btn btn--primary" type="button">Mediano</button>
+              <button class="btn btn--primary btn--lg" type="button">Grande</button>
+            </div>
+            <div class="cluster">
+              <button class="btn btn--primary" type="button">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-send"></use></svg>
+                Enviar propuesta
+              </button>
+              <button class="btn btn--outline" type="button">
+                Descargar
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-download"></use></svg>
+              </button>
+              <button class="btn btn--primary" type="button" id="btn-loading-demo" data-loading-demo>
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-refresh"></use></svg>
+                <span>Pulsa para simular carga</span>
+              </button>
+              <button class="btn btn--primary" type="button" disabled>Deshabilitado</button>
+              <button class="btn btn--outline" type="button" aria-disabled="true">No disponible</button>
+            </div>
+            <div class="cluster">
+              <button class="btn btn--icon btn--outline" type="button" aria-label="Buscar">
+                <svg aria-hidden="true" focusable="false"><use href="#i-search"></use></svg>
+              </button>
+              <button class="btn btn--icon btn--soft" type="button" aria-label="Configuración">
+                <svg aria-hidden="true" focusable="false"><use href="#i-settings"></use></svg>
+              </button>
+              <button class="btn btn--icon btn--ghost btn--sm" type="button" aria-label="Más opciones">
+                <svg aria-hidden="true" focusable="false"><use href="#i-more"></use></svg>
+              </button>
+              <button class="fab" type="button" aria-label="Iniciar conversación">
+                <svg aria-hidden="true" focusable="false"><use href="#i-message"></use></svg>
+              </button>
+            </div>
+            <div class="btn-group btn-group--joined" role="group" aria-label="Vista de resultados">
+              <button class="btn btn--sm" type="button" aria-pressed="true">Día</button>
+              <button class="btn btn--sm" type="button" aria-pressed="false">Semana</button>
+              <button class="btn btn--sm" type="button" aria-pressed="false">Mes</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-link"></use></svg> Enlaces</h3>
+            <p class="demo__desc">Siempre subrayados por defecto para no depender solo del color; el foco es visible con teclado.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <p class="t-body">Texto con un <a class="link" href="#inicio">enlace de marca</a>, un <a class="link link--subtle" href="#inicio">enlace discreto</a> y un <a class="link link--arrow" href="#formularios">enlace con flecha</a>.</p>
+            <p class="t-small">Enlace externo: <a class="link" href="#inicio">documentación del sistema <svg class="icon icon--xs" style="vertical-align:-0.1em" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ 08 FORMULARIOS ============================ -->
+      <section class="ds-section" id="formularios" aria-labelledby="formularios-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">08</span> Átomo · Entrada de datos</div>
+          <h2 class="ds-section__title" id="formularios-title">
+            Formularios
+            <a class="anchor-link" href="#formularios" aria-label="Enlace directo a Formularios">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Campos de 46 px de alto, etiqueta siempre visible y mensajes conectados con <code class="code">aria-describedby</code>. El error nunca se comunica solo con color: lleva icono y texto.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-file"></use></svg> Campos y estados</h3>
+            <p class="demo__desc">Laboratorio con todos los tipos de entrada del sistema.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="field-lab">
+              <div class="field">
+                <label class="field__label" for="f-nombre">Nombre completo</label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-user"></use></svg></span>
+                  <input class="input input--with-icon" id="f-nombre" name="nombre" type="text" placeholder="Ej. Ana Pérez" autocomplete="name">
+                </div>
+                <p class="field__hint">Como aparece en tu documento de identidad.</p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-email">Correo corporativo</label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></span>
+                  <input class="input input--with-icon" id="f-email" name="email" type="email" placeholder="nombre@empresa.com" autocomplete="email" inputmode="email">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-pass">Contraseña</label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-lock"></use></svg></span>
+                  <input class="input input--with-icon input--with-action" id="f-pass" name="password" type="password" value="innovainteligente" autocomplete="current-password">
+                  <button class="field__action" type="button" data-toggle-password="f-pass" aria-label="Mostrar contraseña" aria-pressed="false">
+                    <svg class="icon icon--sm" data-eye-on aria-hidden="true" focusable="false"><use href="#i-eye"></use></svg>
+                    <svg class="icon icon--sm" data-eye-off aria-hidden="true" focusable="false" style="display:none"><use href="#i-eye-off"></use></svg>
+                  </button>
+                </div>
+                <p class="field__hint">Mínimo 12 caracteres. Se muestra cómo alternar la visibilidad.</p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-search">Buscar en el catálogo</label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-search"></use></svg></span>
+                  <input class="input input--search input--with-action" id="f-search" name="buscar" type="search" placeholder="Ej. automatización" data-search-input>
+                  <button class="field__action search-clear" type="button" data-clear-target="f-search" aria-label="Limpiar búsqueda" hidden>
+                    <svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-x"></use></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-select">Pilar de servicio</label>
+                <div class="select-wrap">
+                  <select class="select" id="f-select" name="pilar">
+                    <option value="">Selecciona un pilar</option>
+                    <option>Automatización e inteligencia de procesos</option>
+                    <option>Investigación, desarrollo e innovación</option>
+                    <option>Transformación estratégica y gobernanza de IA</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-date">Fecha de reunión</label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-calendar"></use></svg></span>
+                  <input class="input input--with-icon" id="f-date" name="fecha" type="date">
+                </div>
+              </div>
+
+              <div class="field field--invalid">
+                <label class="field__label" for="f-err">Correo con error</label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></span>
+                  <input class="input input--with-icon" id="f-err" name="email_err" type="email" value="ana@" aria-invalid="true" aria-describedby="f-err-msg">
+                </div>
+                <p class="field__error" id="f-err-msg">
+                  <svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg>
+                  Falta el dominio del correo. Ejemplo: ana@empresa.com
+                </p>
+              </div>
+
+              <div class="field field--valid">
+                <label class="field__label" for="f-ok">Correo validado</label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg></span>
+                  <input class="input input--with-icon" id="f-ok" name="email_ok" type="email" value="contacto@innovainteligente.com">
+                </div>
+                <p class="field__hint">El dominio está verificado.</p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-disabled">Campo deshabilitado</label>
+                <div class="field__control">
+                  <input class="input" id="f-disabled" type="text" value="No editable" disabled>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-readonly">Campo de solo lectura</label>
+                <div class="field__control">
+                  <input class="input" id="f-readonly" type="text" value="Plan Enterprise" readonly>
+                </div>
+              </div>
+            </div>
+
+            <div class="field-lab">
+              <div class="field">
+                <label class="field__label" for="f-sm">Tamaño pequeño</label>
+                <input class="input input--sm" id="f-sm" type="text" placeholder="input--sm">
+              </div>
+              <div class="field">
+                <label class="field__label" for="f-lg">Tamaño grande</label>
+                <input class="input input--lg" id="f-lg" type="text" placeholder="input--lg">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="f-msg">Cuéntanos tu proceso <span class="optional">(opcional)</span></label>
+              <textarea class="textarea" id="f-msg" name="mensaje" rows="4" placeholder="Describe el proceso que quieres automatizar…" aria-describedby="f-msg-hint"></textarea>
+              <p class="field__hint" id="f-msg-hint">Máximo 600 caracteres. No incluyas datos sensibles.</p>
+            </div>
+
+            <label class="file-field" for="f-file">
+              <span class="file-field__icon"><svg aria-hidden="true" focusable="false"><use href="#i-upload"></use></svg></span>
+              <span class="t-small"><strong>Adjunta un documento</strong> o arrástralo aquí</span>
+              <span class="t-caption">PDF, DOCX o XLSX · hasta 10 MB</span>
+              <span class="file-field__name" data-file-name hidden></span>
+              <input id="f-file" name="adjunto" type="file" accept=".pdf,.docx,.xlsx">
+            </label>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-send"></use></svg> Formulario compuesto con validación</h3>
+            <p class="demo__desc">Demostración funcional: valida nombre y correo antes de simular el envío.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <form class="form-demo" id="demo-form" novalidate>
+              <div class="field" data-field="nombre">
+                <label class="field__label" for="demo-name">Nombre <span class="field__required" aria-hidden="true">*</span></label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-user"></use></svg></span>
+                  <input class="input input--with-icon" id="demo-name" name="nombre" type="text" autocomplete="name" required aria-describedby="demo-name-error demo-name-hint">
+                </div>
+                <p class="field__hint" id="demo-name-hint">Nombre y apellido.</p>
+                <p class="field__error" id="demo-name-error" hidden>
+                  <svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg>
+                  <span>Escribe tu nombre para continuar.</span>
+                </p>
+              </div>
+              <div class="field" data-field="email">
+                <label class="field__label" for="demo-email">Correo <span class="field__required" aria-hidden="true">*</span></label>
+                <div class="field__control">
+                  <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></span>
+                  <input class="input input--with-icon" id="demo-email" name="email" type="email" autocomplete="email" required aria-describedby="demo-email-error">
+                </div>
+                <p class="field__error" id="demo-email-error" hidden>
+                  <svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg>
+                  <span>Introduce un correo válido, por ejemplo nombre@empresa.com.</span>
+                </p>
+              </div>
+              <div class="field" data-field="consent">
+                <label class="check">
+                  <input type="checkbox" id="demo-consent" name="consentimiento" required
+                         aria-describedby="demo-consent-error">
+                  <span class="check__box" aria-hidden="true"></span>
+                  <span>Acepto que me contacten para coordinar una reunión de diagnóstico.</span>
+                </label>
+                <p class="field__error" id="demo-consent-error" hidden>
+                  <svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg>
+                  <span>Marca la casilla para autorizar el contacto de esta demostración.</span>
+                </p>
+              </div>
+              <div class="form-demo__foot">
+                <button class="btn btn--primary" type="submit">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-send"></use></svg>
+                  Solicitar diagnóstico
+                </button>
+                <span class="field__hint">Demostración local: no envía datos a ningún servidor.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= 09 SELECCIÓN ============================= -->
+      <section class="ds-section" id="seleccion" aria-labelledby="seleccion-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">09</span> Átomo · Selección</div>
+          <h2 class="ds-section__title" id="seleccion-title">
+            Controles de selección
+            <a class="anchor-link" href="#seleccion" aria-label="Enlace directo a Controles de selección">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Casillas, radios, interruptores, deslizadores y control segmentado. Todos admiten foco visible, teclado y estado deshabilitado.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg> Casillas, radios e interruptores</h3>
+            <p class="demo__desc">La casilla indeterminada se demuestra pulsando el botón inferior.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="auto-grid">
+              <div class="stack">
+                <span class="eyebrow">Checkbox</span>
+                <label class="check"><input type="checkbox" name="c1"><span class="check__box" aria-hidden="true"></span><span>Opción sin marcar</span></label>
+                <label class="check"><input type="checkbox" name="c2" checked><span class="check__box" aria-hidden="true"></span><span>Opción marcada</span></label>
+                <label class="check"><input type="checkbox" name="c3" id="check-indeterminate"><span class="check__box" aria-hidden="true"></span><span id="check-indeterminate-label">Selección parcial</span></label>
+                <label class="check"><input type="checkbox" name="c4" checked disabled><span class="check__box" aria-hidden="true"></span><span>Deshabilitada</span></label>
+                <button class="btn btn--sm btn--ghost" type="button" data-indeterminate="check-indeterminate">Alternar estado indeterminado</button>
+              </div>
+              <div class="stack">
+                <span class="eyebrow">Radio</span>
+                <label class="radio"><input type="radio" name="r1" checked><span class="radio__dot" aria-hidden="true"></span><span>Automatización</span></label>
+                <label class="radio"><input type="radio" name="r1"><span class="radio__dot" aria-hidden="true"></span><span>I+D+i</span></label>
+                <label class="radio"><input type="radio" name="r1"><span class="radio__dot" aria-hidden="true"></span><span>Gobernanza de IA</span></label>
+                <label class="radio"><input type="radio" name="r2" disabled><span class="radio__dot" aria-hidden="true"></span><span>Deshabilitado</span></label>
+              </div>
+              <div class="stack">
+                <span class="eyebrow">Switch</span>
+                <label class="switch"><input type="checkbox" role="switch" checked><span class="switch__track"><span class="switch__thumb"></span></span><span>Notificaciones activas</span></label>
+                <label class="switch"><input type="checkbox" role="switch"><span class="switch__track"><span class="switch__thumb"></span></span><span>Avisos semanales</span></label>
+                <label class="switch"><input type="checkbox" role="switch" disabled><span class="switch__track"><span class="switch__thumb"></span></span><span>Deshabilitado</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg> Deslizador y segmentado</h3>
+            <p class="demo__desc">El deslizador actualiza su relleno con la variable <code class="code">--range-fill</code>.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="range">
+              <div class="range__head">
+                <label for="demo-range">Nivel de automatización del proceso</label>
+                <span class="range__value" data-range-output>60%</span>
+              </div>
+              <input class="range__input" id="demo-range" type="range" min="0" max="100" step="5" value="60" style="--range-fill: 60%">
+            </div>
+            <div class="segmented" role="group" aria-label="Vista de la agenda">
+              <label><input type="radio" name="seg" checked>Hoy</label>
+              <label><input type="radio" name="seg">Esta semana</label>
+              <label><input type="radio" name="seg">Este mes</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= 10 ETIQUETAS ============================= -->
+      <section class="ds-section" id="etiquetas" aria-labelledby="etiquetas-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">10</span> Átomo · Datos breves</div>
+          <h2 class="ds-section__title" id="etiquetas-title">
+            Etiquetas y datos
+            <a class="anchor-link" href="#etiquetas" aria-label="Enlace directo a Etiquetas y datos">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Insignias de estado, chips removibles, puntos de actividad, avatares, teclas, contadores y descripciones emergentes.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-star"></use></svg> Insignias y chips</h3>
+            <p class="demo__desc">Las insignias añaden información; los chips permiten quitar un filtro.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="cluster">
+              <span class="badge">Neutra</span>
+              <span class="badge badge--accent">Marca</span>
+              <span class="badge badge--success">Aprobado</span>
+              <span class="badge badge--warning">En revisión</span>
+              <span class="badge badge--danger">Bloqueado</span>
+              <span class="badge badge--info">Informativo</span>
+              <span class="badge badge--solid">Sólida</span>
+              <span class="badge badge--success badge--dot">Producción</span>
+            </div>
+            <div class="cluster">
+              <span class="chip"><span class="chip__label">Automatización</span><button class="chip__remove" type="button" aria-label="Quitar filtro Automatización"><svg aria-hidden="true" focusable="false"><use href="#i-x"></use></svg></button></span>
+              <span class="chip chip--accent"><span class="chip__label">I+D+i</span><button class="chip__remove" type="button" aria-label="Quitar filtro I+D+i"><svg aria-hidden="true" focusable="false"><use href="#i-x"></use></svg></button></span>
+              <span class="chip"><span class="chip__label">Gobernanza de IA</span><button class="chip__remove" type="button" aria-label="Quitar filtro Gobernanza de IA"><svg aria-hidden="true" focusable="false"><use href="#i-x"></use></svg></button></span>
+            </div>
+            <div class="cluster">
+              <span class="state-label"><span class="status-dot status-dot--live"></span>Operativo</span>
+              <span class="state-label"><span class="status-dot status-dot--warning"></span>Degradado</span>
+              <span class="state-label"><span class="status-dot status-dot--danger"></span>Caído</span>
+              <span class="state-label"><span class="status-dot status-dot--neutral"></span>Sin datos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-user"></use></svg> Avatares, contadores y teclas</h3>
+            <p class="demo__desc">Los avatares usan iniciales cuando no hay fotografía disponible.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="cluster">
+              <span class="avatar avatar--xs">IA</span>
+              <span class="avatar avatar--sm">RPA</span>
+              <span class="avatar">IDP</span>
+              <span class="avatar avatar--lg avatar--accent">LLM</span>
+              <span class="avatar avatar--xl avatar--ring">API</span>
+              <span class="avatar-group">
+                <span class="avatar avatar--sm">IA</span>
+                <span class="avatar avatar--sm">RPA</span>
+                <span class="avatar avatar--sm avatar--accent">+9</span>
+              </span>
+            </div>
+            <div class="cluster">
+              <span class="counter">3</span>
+              <span class="counter">14</span>
+              <span class="badge badge--accent"><svg aria-hidden="true" focusable="false"><use href="#i-book"></use></svg> Documentación</span>
+              <span class="cluster cluster--sm">
+                <kbd class="kbd">Ctrl</kbd><span class="t-caption">+</span><kbd class="kbd">K</kbd>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-message"></use></svg> Descripción emergente</h3>
+            <p class="demo__desc">Aparece al pasar el cursor o al enfocar con teclado; también en táctil al enfocar.</p>
+          </div>
+          <div class="demo__stage">
+            <span class="tooltip">
+              <button class="tooltip__trigger" type="button" aria-describedby="tt-rpa">
+                <svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+                ¿Qué es RPA?
+              </button>
+              <span id="tt-rpa" role="tooltip">Automatización robótica de procesos: bots que ejecutan tareas repetitivas entre sistemas.</span>
+            </span>
+            <span class="tooltip">
+              <button class="tooltip__trigger" type="button" aria-describedby="tt-idp">
+                <svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+                ¿Qué es IDP?
+              </button>
+              <span id="tt-idp" role="tooltip">Procesamiento inteligente de documentos: extracción y clasificación de datos con OCR e IA.</span>
+            </span>
+            <span class="tooltip tooltip--bottom">
+              <button class="tooltip__trigger" type="button" aria-describedby="tt-rep">
+                <svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+                Repositorio
+              </button>
+              <span id="tt-rep" role="tooltip">Carpeta local del proyecto: index.html, css/, js/ y assets/.</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= 11 RETROALIMENTACIÓN ========================= -->
+      <section class="ds-section" id="retroalimentacion" aria-labelledby="retro-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">11</span> Átomo · Feedback</div>
+          <h2 class="ds-section__title" id="retro-title">
+            Retroalimentación
+            <a class="anchor-link" href="#retroalimentacion" aria-label="Enlace directo a Retroalimentación">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Alertas persistentes para contexto, toasts para confirmaciones breves, progreso para operaciones largas y esqueletos para la carga de contenido.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg> Alertas</h3>
+            <p class="demo__desc">Cada variante lleva icono y texto; nunca se distingue solo por color.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="alert" role="status">
+              <span class="alert__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-info"></use></svg></span>
+              <div class="alert__content"><strong class="alert__title">Diagnóstico inicial</strong>Revisamos tus procesos para identificar oportunidades de automatización con IA.</div>
+            </div>
+            <div class="alert alert--success" role="status">
+              <span class="alert__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg></span>
+              <div class="alert__content"><strong class="alert__title">Propuesta enviada</strong>Recibirás la propuesta técnica en tu correo corporativo.</div>
+            </div>
+            <div class="alert alert--warning" role="alert">
+              <span class="alert__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-alert-triangle"></use></svg></span>
+              <div class="alert__content"><strong class="alert__title">Documento incompleto</strong>Faltan dos páginas del contrato. Vuelve a cargar el archivo.</div>
+            </div>
+            <div class="alert alert--danger" role="alert" id="alert-dismissible">
+              <span class="alert__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-alert-circle"></use></svg></span>
+              <div class="alert__content"><strong class="alert__title">No se pudo conectar</strong>Revisa la conexión y vuelve a intentarlo. Esta alerta se puede cerrar.</div>
+              <button class="alert__close" type="button" data-dismiss-alert aria-label="Cerrar alerta"><svg aria-hidden="true" focusable="false"><use href="#i-x"></use></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-message"></use></svg> Toasts</h3>
+            <p class="demo__desc">Se apilan en la esquina inferior derecha y se anuncian con <code class="code">aria-live</code>.</p>
+          </div>
+          <div class="demo__stage">
+            <button class="btn btn--outline btn--sm" type="button" data-toast="info">Toast informativo</button>
+            <button class="btn btn--outline btn--sm" type="button" data-toast="success">Toast de éxito</button>
+            <button class="btn btn--outline btn--sm" type="button" data-toast="warning">Toast de aviso</button>
+            <button class="btn btn--outline btn--sm" type="button" data-toast="danger">Toast de error</button>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-chart"></use></svg> Progreso y carga</h3>
+            <p class="demo__desc">Barras con <code class="code">--value</code>, anillo cónico, spinners y esqueleto.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="progress">
+              <div class="progress__head"><span>Automatización de facturas</span><span>60%</span></div>
+              <div class="progress__track"><div class="progress__bar" style="--value: 60%"></div></div>
+            </div>
+            <div class="progress progress--lg">
+              <div class="progress__head"><span>Análisis documental</span><span>82%</span></div>
+              <div class="progress__track"><div class="progress__bar" style="--value: 82%"></div></div>
+            </div>
+            <div class="progress progress--sm progress--striped">
+              <div class="progress__head"><span>Entrenamiento del modelo</span><span>En curso</span></div>
+              <div class="progress__track"><div class="progress__bar" style="--value: 35%"></div></div>
+            </div>
+            <div class="cluster" style="align-items:center;gap:var(--space-8)">
+              <div class="ring" style="--value: 68; --ring-size: 6rem" role="img" aria-label="Progreso: 68 por ciento">
+                <span class="ring__label">68%</span>
+              </div>
+              <div class="cluster">
+                <span class="spinner spinner--sm" role="status" aria-label="Cargando"></span>
+                <span class="spinner" role="status" aria-label="Cargando"></span>
+                <span class="spinner spinner--lg" role="status" aria-label="Cargando"></span>
+              </div>
+            </div>
+            <div class="card" aria-hidden="true" style="max-width: 30rem">
+              <div class="cluster">
+                <div class="skeleton skeleton--circle" style="width:2.75rem;height:2.75rem"></div>
+                <div class="stack stack--sm flex-1">
+                  <div class="skeleton skeleton--title"></div>
+                  <div class="skeleton skeleton--text" style="width:80%"></div>
+                </div>
+              </div>
+              <div class="skeleton skeleton--media"></div>
+              <div class="stack stack--sm">
+                <div class="skeleton skeleton--text" style="width:100%"></div>
+                <div class="skeleton skeleton--text" style="width:92%"></div>
+                <div class="skeleton skeleton--text" style="width:64%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-filter"></use></svg> Estado vacío</h3>
+            <p class="demo__desc">Explica qué falta y ofrece la acción para resolverlo.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="empty">
+              <span class="empty__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-file"></use></svg></span>
+              <p class="empty__title">Aún no hay documentos procesados</p>
+              <p class="empty__text">Carga el primer archivo para que el motor de IDP extraiga los datos y los clasifique.</p>
+              <button class="btn btn--primary btn--sm" type="button">Cargar documento</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= 12 CONTENIDO ============================= -->
+      <section class="ds-section" id="contenido" aria-labelledby="contenido-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">12</span> Átomo · Contenido</div>
+          <h2 class="ds-section__title" id="contenido-title">
+            Contenido y estructura
+            <a class="anchor-link" href="#contenido" aria-label="Enlace directo a Contenido y estructura">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Separadores —incluido el filete con rombo del logotipo—, código, citas y tablas de datos.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-minus"></use></svg> Separadores</h3>
+            <p class="demo__desc">El separador de marca replica el remate del logotipo bajo el nombre.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <hr class="divider">
+            <div class="divider--brand" role="presentation"></div>
+            <div class="cluster"><span class="t-small">Elemento</span><span class="divider--vertical" role="presentation"></span><span class="t-small">Elemento</span></div>
+            <p class="t-caption"><code class="code">.divider</code> · <code class="code">.divider--brand</code> · <code class="code">.divider--vertical</code></p>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-code"></use></svg> Código</h3>
+            <p class="demo__desc">Bloque con encabezado y botón de copiado funcional.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <p class="t-body">Token en línea: <code class="code">var(--color-accent)</code>. Corrige el contraste de <code class="code">--color-text-tertiary</code>.</p>
+            <div class="codeblock">
+              <div class="codeblock__head">
+                <span class="codeblock__title"><svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-code"></use></svg> tokens.css</span>
+                <button class="copy-btn" type="button" data-copy=":root {
+  --color-accent: #00D0F0;
+  --radius-pill: 999px;
+  --space-4: 1rem;
+  --duration-fast: 150ms;
+}" aria-label="Copiar fragmento de tokens">
+                  <svg aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg> Copiar
+                </button>
+              </div>
+              <pre><code><span class="tok-comment">/* Ejemplo de consumo de tokens */</span>
+:root {
+  <span class="tok-prop">--color-accent</span>: <span class="tok-val">#00D0F0</span>;
+  <span class="tok-prop">--radius-pill</span>: <span class="tok-val">999px</span>;
+  <span class="tok-prop">--space-4</span>: <span class="tok-val">1rem</span>;
+  <span class="tok-prop">--duration-fast</span>: <span class="tok-val">150ms</span>;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-book"></use></svg> Cita</h3>
+            <p class="demo__desc">Con fuente explícita; no se usan testimonios inventados.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <blockquote class="quote">
+              La innovación es la introducción exitosa de nuevas ideas en el mercado o en la sociedad: transformar el conocimiento en valor económico o social.
+              <cite class="quote__source">Contenido de la landing · sección I+D+i</cite>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-database"></use></svg> Tabla de datos</h3>
+            <p class="demo__desc">Cifras congruentes con el documento de contenido: 3 pilares y 14 servicios.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="table-wrap">
+              <table class="table">
+                <caption>Pilares de servicio y número de servicios descritos.</caption>
+                <thead>
+                  <tr><th scope="col">Pilar</th><th scope="col">Servicios</th><th scope="col">Enfoque</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Automatización e inteligencia de procesos</td><td class="num">5</td><td>Eliminar tareas repetitivas y reducir errores</td></tr>
+                  <tr><td>Investigación, desarrollo e innovación</td><td class="num">5</td><td>Soluciones a medida y nuevos modelos</td></tr>
+                  <tr><td>Transformación estratégica y gobernanza de IA</td><td class="num">4</td><td>Adopción ética, segura y rentable</td></tr>
+                  <tr><td><strong>Total</strong></td><td class="num"><strong>14</strong></td><td>3 pilares de oferta</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= 13 NAVEGACIÓN ============================= -->
+      <section class="ds-section" id="navegacion" aria-labelledby="navegacion-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">13</span> Átomo · Orientación</div>
+          <h2 class="ds-section__title" id="navegacion-title">
+            Navegación
+            <a class="anchor-link" href="#navegacion" aria-label="Enlace directo a Navegación">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Pestañas con navegación por flechas, acordeón nativo, migas de pan, paginación, menú desplegable y pasos de proceso.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg> Pestañas</h3>
+            <p class="demo__desc">Flechas ← → para cambiar de pestaña; cada panel recibe el foco.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="tabs" id="demo-tabs">
+              <div class="tabs__list" role="tablist" aria-label="Pilares de servicio">
+                <button class="tab" id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1" tabindex="0">Automatización</button>
+                <button class="tab" id="tab-2" role="tab" aria-selected="false" aria-controls="panel-2" tabindex="-1">I+D+i</button>
+                <button class="tab" id="tab-3" role="tab" aria-selected="false" aria-controls="panel-3" tabindex="-1">Gobernanza</button>
+              </div>
+              <div class="tabs__panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+                <p>Servicios que buscan eliminar tareas repetitivas, reducir errores humanos y acelerar los flujos de trabajo diarios: RPA con IA, procesamiento inteligente de documentos, optimización de cadena de suministro, integración de sistemas y automatización de atención al cliente.</p>
+              </div>
+              <div class="tabs__panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
+                <p>Enfocado en crear soluciones tecnológicas únicas: desarrollo de modelos de IA a medida, pruebas de concepto y prototipado rápido, consultoría y gestión de fondos de I+D+i, analítica predictiva y generación de propiedad intelectual.</p>
+              </div>
+              <div class="tabs__panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" tabindex="0" hidden>
+                <p>Estructura la adopción de la tecnología de manera ética, segura y rentable: auditoría de madurez digital, hoja de ruta de IA, gobernanza de datos y ética, capacitación y cambio cultural.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-book"></use></svg> Acordeón</h3>
+            <p class="demo__desc">Basado en <code class="code">&lt;details&gt;</code>: funciona sin JavaScript.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="accordion">
+              <details class="accordion__item" open>
+                <summary class="accordion__trigger">
+                  Automatización e inteligencia de procesos
+                  <span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span>
+                </summary>
+                <div class="accordion__content">
+                  <p>RPA con IA, procesamiento inteligente de documentos (IDP), optimización de cadena de suministro, integración de sistemas e interoperabilidad, y agentes conversacionales para atención al cliente y ventas.</p>
+                </div>
+              </details>
+              <details class="accordion__item">
+                <summary class="accordion__trigger">
+                  Investigación, desarrollo e innovación
+                  <span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span>
+                </summary>
+                <div class="accordion__content">
+                  <p>Modelos de IA a medida (machine learning, visión por computador y LLM), pruebas de concepto y MVP, consultoría y gestión de fondos de I+D+i, analítica predictiva y prescriptiva, y registro de propiedad intelectual.</p>
+                </div>
+              </details>
+              <details class="accordion__item">
+                <summary class="accordion__trigger">
+                  Transformación estratégica y gobernanza de IA
+                  <span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span>
+                </summary>
+                <div class="accordion__content">
+                  <p>Auditoría de madurez digital, hoja de ruta de IA priorizada por ROI e impacto, gobernanza de datos y ética (privacidad, seguridad, sesgos y arquitecturas RAG) y capacitación con gestión del cambio.</p>
+                </div>
+              </details>
+              <details class="accordion__item">
+                <summary class="accordion__trigger">
+                  ¿Por qué es importante el I+D?
+                  <span class="accordion__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span>
+                </summary>
+                <div class="accordion__content">
+                  <p>Según el documento de contenido: permite a las empresas diferenciarse mediante avances tecnológicos, impulsa el crecimiento económico de los países que invierten mayor porcentaje de su PIB en I+D y ayuda a resolver problemas de salud, sostenibilidad y eficiencia industrial.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg> Migas, paginación y menú</h3>
+            <p class="demo__desc">El menú desplegable se cierra con Escape o al hacer clic fuera.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <nav class="breadcrumb" aria-label="Migas de pan">
+              <ol>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#botones">Servicios</a></li>
+                <li><span aria-current="page">Automatización</span></li>
+              </ol>
+            </nav>
+            <nav aria-label="Paginación de resultados">
+              <ul class="pagination">
+                <li><a class="pagination__link" href="#navegacion" aria-disabled="true" aria-label="Página anterior">←</a></li>
+                <li><a class="pagination__link" href="#navegacion" aria-current="page" aria-label="Página 1">1</a></li>
+                <li><a class="pagination__link" href="#navegacion" aria-label="Página 2">2</a></li>
+                <li><a class="pagination__link" href="#navegacion" aria-label="Página 3">3</a></li>
+                <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
+                <li><a class="pagination__link" href="#navegacion" aria-label="Página 8">8</a></li>
+                <li><a class="pagination__link" href="#navegacion" aria-label="Página siguiente">→</a></li>
+              </ul>
+            </nav>
+            <div class="dropdown" data-dropdown>
+              <button class="btn btn--outline" type="button" id="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="dropdown-menu" data-dropdown-toggle>
+                Acciones rápidas
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>
+              </button>
+              <div class="dropdown__menu" id="dropdown-menu" role="menu" aria-labelledby="dropdown-toggle">
+                <span class="dropdown__label">Documento</span>
+                <button class="dropdown__item" type="button" role="menuitem"><svg aria-hidden="true" focusable="false"><use href="#i-download"></use></svg>Descargar</button>
+                <button class="dropdown__item" type="button" role="menuitem"><svg aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg>Duplicar</button>
+                <button class="dropdown__item" type="button" role="menuitem"><svg aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Compartir enlace</button>
+                <div class="dropdown__separator" role="separator"></div>
+                <button class="dropdown__item" type="button" role="menuitem"><svg aria-hidden="true" focusable="false"><use href="#i-trash"></use></svg>Archivar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-workflow"></use></svg> Pasos de proceso</h3>
+            <p class="demo__desc">Estados completado, activo y pendiente; el número indica el orden.</p>
+          </div>
+          <div class="demo__stage">
+            <ol class="stepper full-width">
+              <li class="stepper__item stepper__item--done"><span class="stepper__index">✓</span><span class="stepper__label">Diagnóstico</span></li>
+              <li class="stepper__item stepper__item--active"><span class="stepper__index">2</span><span class="stepper__label">Diseño de la hoja de ruta</span></li>
+              <li class="stepper__item"><span class="stepper__index">3</span><span class="stepper__label">Implementación</span></li>
+              <li class="stepper__item"><span class="stepper__index">4</span><span class="stepper__label">Medición</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================== 14 SUPERPOSICIONES =========================== -->
+      <section class="ds-section" id="superposiciones" aria-labelledby="superposiciones-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">14</span> Molécula · Superposiciones</div>
+          <h2 class="ds-section__title" id="superposiciones-title">
+            Superposiciones
+            <a class="anchor-link" href="#superposiciones" aria-label="Enlace directo a Superposiciones">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Diálogo modal con trampa de foco, cierre con Escape y retorno del foco al disparador. El fondo se atenúa con desenfoque y nunca se pierde el contexto.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg> Diálogo modal</h3>
+            <p class="demo__desc">Prueba Tab dentro del diálogo y Escape para cerrar.</p>
+          </div>
+          <div class="demo__stage">
+            <button class="btn btn--primary" type="button" data-modal-open="demo-modal">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-sparkles"></use></svg>
+              Abrir diálogo de demostración
+            </button>
+            <div class="notice-inline full-width">
+              <svg aria-hidden="true" focusable="false"><use href="#i-accessibility"></use></svg>
+              <span>El diálogo usa <code class="code">role="dialog"</code>, <code class="code">aria-modal="true"</code> y devuelve el foco al botón que lo abrió.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== 15 TARJETAS ============================== -->
+      <section class="ds-section" id="tarjetas" aria-labelledby="tarjetas-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">15</span> Molécula · Contenedores</div>
+          <h2 class="ds-section__title" id="tarjetas-title">
+            Tarjetas
+            <a class="anchor-link" href="#tarjetas" aria-label="Enlace directo a Tarjetas">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Superficies para agrupar información relacionada. La elevación y el borde indican interactividad; las tarjetas de servicio usan contenido real del documento de la landing.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg> Variantes base</h3>
+            <p class="demo__desc">Plana, interactiva y con borde de degradado.</p>
+          </div>
+          <div class="demo__stage demo__stage--grid">
+            <article class="card">
+              <span class="card__meta">Tarjeta plana</span>
+              <h4 class="card__title">Diagnóstico de procesos</h4>
+              <p class="card__text">Identificación de cuellos de botella e inventario de procesos candidatos a automatización.</p>
+              <div class="card__footer"><span class="t-caption">Borde sutil</span><span class="badge">Neutra</span></div>
+            </article>
+            <article class="card card--interactive">
+              <span class="card__meta">Tarjeta interactiva</span>
+              <h4 class="card__title">Hoja de ruta de IA</h4>
+              <p class="card__text">Prioriza proyectos según retorno de inversión e impacto operativo.</p>
+              <div class="card__footer"><a class="link link--arrow" href="#patrones">Ver patrón</a><span class="badge badge--accent">Activa</span></div>
+            </article>
+            <article class="card card--glow">
+              <span class="card__meta">Tarjeta destacada</span>
+              <h4 class="card__title">Gobernanza de datos</h4>
+              <p class="card__text">Políticas de privacidad, seguridad, auditoría de sesgos y arquitecturas RAG para entornos corporativos seguros.</p>
+              <div class="card__footer"><span class="t-caption">Borde degradado</span><span class="badge badge--info">Marca</span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-cpu"></use></svg> Tarjetas de servicio</h3>
+            <p class="demo__desc">Descripciones tomadas del contenido de la landing, sin datos añadidos.</p>
+          </div>
+          <div class="demo__stage demo__stage--grid">
+            <article class="card card--interactive">
+              <div class="card__head">
+                <span class="card__icon card__icon--solid" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-workflow"></use></svg></span>
+                <span class="badge badge--accent">Procesos</span>
+              </div>
+              <h4 class="card__title">RPA + IA</h4>
+              <p class="card__text">Bots inteligentes que integran sistemas legados, procesan documentos estructurados y no estructurados y automatizan flujos operativos end-to-end.</p>
+              <ul class="card__list">
+                <li>Integración de sistemas legados</li>
+                <li>Documentos, contratos y correos</li>
+                <li>Flujos operativos completos</li>
+              </ul>
+            </article>
+            <article class="card card--interactive">
+              <div class="card__head">
+                <span class="card__icon card__icon--solid" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-file"></use></svg></span>
+                <span class="badge badge--accent">Procesos</span>
+              </div>
+              <h4 class="card__title">IDP · Documentos</h4>
+              <p class="card__text">OCR avanzado impulsado por IA para extraer, clasificar y procesar grandes volúmenes de datos en papel o PDF.</p>
+              <ul class="card__list">
+                <li>Extracción de campos</li>
+                <li>Clasificación documental</li>
+                <li>Volúmenes altos</li>
+              </ul>
+            </article>
+            <article class="card card--interactive">
+              <div class="card__head">
+                <span class="card__icon card__icon--solid" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-chart"></use></svg></span>
+                <span class="badge badge--accent">I+D+i</span>
+              </div>
+              <h4 class="card__title">Analítica predictiva</h4>
+              <p class="card__text">Modelado de datos para predecir comportamientos de mercado, fuga de clientes, mantenimiento predictivo o riesgo financiero.</p>
+              <ul class="card__list">
+                <li>Predicción de churn</li>
+                <li>Mantenimiento predictivo</li>
+                <li>Riesgo financiero</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-chart"></use></svg> Tarjetas de cifra</h3>
+            <p class="demo__desc">Cifras derivadas del documento de contenido, no métricas de negocio inventadas.</p>
+          </div>
+          <div class="demo__stage">
+            <div class="auto-grid auto-grid--sm full-width">
+              <div class="stat"><span class="stat__value">3</span><span class="stat__label">pilares de servicio</span></div>
+              <div class="stat"><span class="stat__value">14</span><span class="stat__label">servicios descritos</span></div>
+              <div class="stat"><span class="stat__value">3</span><span class="stat__label">fases de I+D</span></div>
+              <div class="stat"><span class="stat__value">2</span><span class="stat__label">temas de color</span></div>
+            </div>
+          </div>
+          <div class="demo__foot"><span>Cifras del contenido editorial del proyecto.</span></div>
+        </div>
+      </section>
+
+      <!-- ============================== 16 PATRONES ============================== -->
+      <section class="ds-section" id="patrones" aria-labelledby="patrones-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">16</span> Molécula · Composición</div>
+          <h2 class="ds-section__title" id="patrones-title">
+            Patrones de composición
+            <a class="anchor-link" href="#patrones" aria-label="Enlace directo a Patrones de composición">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Los átomos se combinan en patrones. La previsualización usa el ambiente <code class="code">.theme-ink</code> para mantener la superficie oscura de marca aunque el catálogo esté en tema claro.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-layers"></use></svg> Portada de landing</h3>
+            <p class="demo__desc">Composición con logotipo, titular, bajante, CTA y tres pilares de servicio.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="landing-preview theme-ink">
+              <div class="landing-preview__bar">
+                <span class="landing-preview__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span class="landing-preview__url">innovainteligente.com</span>
+              </div>
+              <div class="landing-preview__body">
+                <div class="landing-preview__grid" aria-hidden="true"></div>
+                <div class="landing-preview__nav">
+                  <span class="landing-preview__brand">
+                    <img src="assets/brand/logo-mark.webp" alt="" width="640" height="640">
+                    <span class="landing-preview__brand-name">innova<span>inteligente</span>.com</span>
+                  </span>
+                  <span class="landing-preview__links" aria-hidden="true">
+                    <span>Servicios</span><span>I+D+i</span><span>Gobernanza</span><span>Contacto</span>
+                  </span>
+                </div>
+                <div class="landing-preview__hero">
+                  <div>
+                    <span class="kicker">Automatización y procesos I+D+i con IA</span>
+                    <h3 class="landing-preview__title">Convertimos procesos complejos en <span>operaciones inteligentes</span></h3>
+                    <p class="landing-preview__text">Agencia especializada en automatización, procesos e I+D+i impulsados por inteligencia artificial: optimización operativa inmediata e innovación tecnológica a largo plazo.</p>
+                    <div class="landing-preview__actions">
+                      <span class="btn btn--primary">Solicitar diagnóstico</span>
+                      <span class="btn btn--outline">Ver servicios</span>
+                    </div>
+                  </div>
+                  <div class="landing-preview__mark" aria-hidden="true">
+                    <img src="assets/brand/logo-mark.webp" alt="" width="640" height="640">
+                  </div>
+                </div>
+                <div class="landing-preview__pillars">
+                  <div class="landing-preview__pillar">
+                    <span class="badge">01</span>
+                    <h4>Automatización de procesos</h4>
+                    <p>RPA con IA, IDP, cadena de suministro, integración de sistemas y agentes conversacionales.</p>
+                  </div>
+                  <div class="landing-preview__pillar">
+                    <span class="badge">02</span>
+                    <h4>Investigación e innovación</h4>
+                    <p>Modelos a medida, PoC y prototipado, fondos de I+D+i, analítica predictiva y propiedad intelectual.</p>
+                  </div>
+                  <div class="landing-preview__pillar">
+                    <span class="badge">03</span>
+                    <h4>Estrategia y gobernanza</h4>
+                    <p>Auditoría de madurez, hoja de ruta de IA, gobernanza de datos y capacitación del equipo.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="t-caption">Previsualización estática, sin enlaces reales. El texto proviene del documento de contenido de la landing.</p>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-send"></use></svg> Banda de llamada a la acción</h3>
+            <p class="demo__desc">Un único mensaje y una única acción principal.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="cta-band full-width">
+              <div class="cta-band__copy">
+                <span class="kicker">Siguiente paso</span>
+                <h3 class="cta-band__title">Identifiquemos juntos los procesos que tu equipo puede automatizar</h3>
+                <p class="t-small">Diagnóstico de madurez digital y hoja de ruta priorizada por impacto operativo.</p>
+              </div>
+              <button class="btn btn--primary btn--lg" type="button" data-modal-open="demo-modal">
+                Agendar diagnóstico
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-grid"></use></svg> Encabezado de sección</h3>
+            <p class="demo__desc">Patrón reutilizable para todas las secciones internas de producto.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="section-head">
+              <span class="kicker">I+D+i</span>
+              <h3 class="section-head__title">De la investigación básica al desarrollo tecnológico</h3>
+              <p class="section-head__text">El concepto de I+D abarca tres etapas: investigación básica, investigación aplicada y desarrollo tecnológico. La fórmula I+D+i añade la innovación: la introducción exitosa de esas ideas en el mercado o en la sociedad.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============================== 17 TOKENS =============================== -->
+      <section class="ds-section" id="tokens" aria-labelledby="tokens-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">17</span> Recurso · Tokens</div>
+          <h2 class="ds-section__title" id="tokens-title">
+            Explorador de tokens
+            <a class="anchor-link" href="#tokens" aria-label="Enlace directo a Explorador de tokens">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Se leen en vivo del documento: los <span id="token-count-inline">—</span> valores de <code class="code">:root</code> cambian con el tema y se exportan a JSON cuando los necesites.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-terminal"></use></svg> Catálogo de variables</h3>
+            <p class="demo__desc">Filtra por nombre, copia un valor o descarga el conjunto completo.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="token-explorer">
+              <div class="token-toolbar">
+                <div class="field">
+                  <label class="field__label visually-hidden" for="token-search">Filtrar tokens</label>
+                  <div class="field__control">
+                    <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-search"></use></svg></span>
+                    <input class="input input--search" id="token-search" type="search" placeholder="Filtrar: color, space, radius, ease…" autocomplete="off">
+                  </div>
+                </div>
+                <button class="btn btn--outline btn--sm" type="button" id="copy-theme-json">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg>
+                  Copiar JSON
+                </button>
+                <button class="btn btn--primary btn--sm" type="button" id="download-tokens">
+                  <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-download"></use></svg>
+                  Descargar tokens.json
+                </button>
+              </div>
+              <p class="t-caption"><span id="token-count">—</span> tokens · <span id="token-filter-count">—</span> visibles</p>
+              <div class="token-scroll" id="token-explorer" role="region" aria-label="Lista de tokens del sistema" tabindex="0">
+                <noscript><p class="t-small" style="padding:1rem">Activa JavaScript para explorar los tokens en vivo. También están en <code class="code">css/tokens.css</code>.</p></noscript>
+              </div>
+            </div>
+            <p class="notice-inline">
+              <svg aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+              <span>El JSON exportado incluye los valores tal como están declarados, incluidas las referencias a otros tokens (por ejemplo <code class="code">var(--brand-cyan-400)</code>). La resolución final la hace el navegador.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ 18 ACCESIBILIDAD ============================ -->
+      <section class="ds-section" id="accesibilidad" aria-labelledby="a11y-title">
+        <header class="ds-section__head">
+          <div class="ds-section__eyebrow"><span class="ds-section__index">18</span> Recurso · Calidad</div>
+          <h2 class="ds-section__title" id="a11y-title">
+            Accesibilidad
+            <a class="anchor-link" href="#accesibilidad" aria-label="Enlace directo a Accesibilidad">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-link"></use></svg>
+            </a>
+          </h2>
+          <p class="ds-section__text">Objetivo WCAG 2.1 nivel AA. Los contrastes se calculan en vivo con los valores reales del tema activo, no con aproximaciones.</p>
+        </header>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-accessibility"></use></svg> Contraste en vivo</h3>
+            <p class="demo__desc">Cambia de tema con el botón de la cabecera y observa cómo se recalculan los ratios.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="contrast-panel" id="contrast-panel">
+              <noscript><p class="t-small">El panel de contraste requiere JavaScript.</p></noscript>
+            </div>
+          </div>
+          <div class="demo__foot"><span>Fórmula WCAG 2.1: (L1 + 0,05) / (L2 + 0,05)</span></div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg> Lista de verificación</h3>
+            <p class="demo__desc">Estado implementado en este catálogo.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <ul class="checklist">
+              <li>Foco visible de 2 px con desplazamiento en todos los elementos interactivos.</li>
+              <li>Objetivos táctiles: 44 × 44 px en acciones principales (botones, campos y controles); acciones compactas (copiar, ancla, cerrar) ≥ 24 × 24 px, mínimo de WCAG 2.2 AA.</li>
+              <li>HTML semántico con hitos <code class="code">header</code>, <code class="code">nav</code>, <code class="code">main</code>, <code class="code">aside</code> y <code class="code">footer</code>.</li>
+              <li>Enlace «Saltar al contenido» como primer elemento enfocable.</li>
+              <li>Etiquetas de formulario asociadas y errores anunciados con <code class="code">aria-describedby</code>.</li>
+              <li>Toasts dentro de una región con <code class="code">aria-live="polite"</code>.</li>
+              <li>Diálogo modal con trampa de foco, Escape y retorno del foco.</li>
+              <li><code class="code">prefers-reduced-motion</code> desactiva animaciones y desplazamiento suave.</li>
+              <li>Tema inicial según <code class="code">prefers-color-scheme</code> y preferencia guardada.</li>
+              <li>Texto alternativo descriptivo en el logotipo; decoraciones con <code class="code">aria-hidden</code>.</li>
+            </ul>
+            <p class="t-caption">La matriz completa de pares y ratios está en <code class="code">docs/paleta-y-contraste.md</code>.</p>
+          </div>
+        </div>
+
+        <div class="demo">
+          <div class="demo__head">
+            <h3 class="demo__title"><svg aria-hidden="true" focusable="false"><use href="#i-mouse"></use></svg> Teclado y foco</h3>
+            <p class="demo__desc">Pulsa Tab para recorrer; el contorno cian indica la posición.</p>
+          </div>
+          <div class="demo__stage demo__stage--column">
+            <div class="cluster">
+              <button class="btn btn--outline btn--sm" type="button">Primero</button>
+              <input class="input input--sm" type="text" placeholder="Campo de texto" style="max-width:12rem" aria-label="Campo de demostración de foco">
+              <a class="link" href="#accesibilidad">Enlace</a>
+              <button class="btn btn--primary btn--sm" type="button">Último</button>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <caption>Teclas soportadas</caption>
+                <thead><tr><th scope="col">Tecla</th><th scope="col">Acción</th><th scope="col">Componente</th></tr></thead>
+                <tbody>
+                  <tr><td><kbd class="kbd">Tab</kbd> / <kbd class="kbd">Shift</kbd>+<kbd class="kbd">Tab</kbd></td><td>Recorrer elementos enfocables</td><td>Global</td></tr>
+                  <tr><td><kbd class="kbd">←</kbd> <kbd class="kbd">→</kbd></td><td>Cambiar de pestaña</td><td>Pestañas, segmentado</td></tr>
+                  <tr><td><kbd class="kbd">Esc</kbd></td><td>Cerrar superposición</td><td>Modal, menú</td></tr>
+                  <tr><td><kbd class="kbd">Enter</kbd> / <kbd class="kbd">Espacio</kbd></td><td>Activar control</td><td>Botones, casillas, switch</td></tr>
+                  <tr><td><kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd></td><td>Navegar el menú</td><td>Desplegable</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="ds-footer">
+    <div class="container container--wide">
+      <div class="ds-footer__inner">
+        <div class="ds-footer__brand">
+          <img src="assets/brand/logo-mark.webp" alt="Marca de innovainteligente" width="640" height="640" loading="lazy">
+          <span class="ds-brand__name">innova<span>inteligente</span>.com</span>
+          <p class="ds-footer__text">Design System v1.0.0. Construido a partir de <code class="code">Logoinnovaintel150.png</code>. HTML, CSS y JavaScript nativos: sin frameworks, sin fuentes externas y sin peticiones de red.</p>
+          <div class="cluster cluster--sm">
+            <span class="badge badge--accent badge--dot">Tema dual</span>
+            <span class="badge">WCAG 2.1 AA</span>
+            <span class="badge" id="footer-icon-count">60 iconos</span>
+          </div>
+        </div>
+        <div class="ds-footer__cols">
+          <div class="ds-footer__col">
+            <h3>Fundamentos</h3>
+            <a href="#marca">Marca</a>
+            <a href="#color">Color</a>
+            <a href="#tipografia">Tipografía</a>
+            <a href="#espaciado">Espaciado</a>
+            <a href="#movimiento">Movimiento</a>
+          </div>
+          <div class="ds-footer__col">
+            <h3>Átomos</h3>
+            <a href="#botones">Botones</a>
+            <a href="#formularios">Formularios</a>
+            <a href="#seleccion">Selección</a>
+            <a href="#etiquetas">Etiquetas</a>
+            <a href="#retroalimentacion">Feedback</a>
+          </div>
+          <div class="ds-footer__col">
+            <h3>Recursos</h3>
+            <a href="#patrones">Patrones</a>
+            <a href="#tokens">Tokens</a>
+            <a href="#accesibilidad">Accesibilidad</a>
+            <a href="docs/design-system.md">Documentación</a>
+            <a href="docs/paleta-y-contraste.md">Paleta y contraste</a>
+          </div>
+        </div>
+      </div>
+      <div class="ds-footer__bottom">
+        <span>© <span id="footer-year">2026</span> Innovainteligente · Diseño y sistema de componentes</span>
+        <span>Archivos originales del logotipo intactos · Derivados en <code class="code">assets/brand/</code></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Diálogo modal de demostración -->
+  <div class="modal-overlay" id="demo-modal" data-modal aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title" aria-describedby="demo-modal-desc">
+      <div class="modal__head">
+        <div>
+          <h2 class="modal__title" id="demo-modal-title">Diagnóstico con IA</h2>
+          <p class="modal__subtitle">Diálogo de demostración · sin envío de datos</p>
+        </div>
+        <button class="modal__close" type="button" data-modal-close aria-label="Cerrar diálogo">
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-x"></use></svg>
+        </button>
+      </div>
+      <div class="modal__body" id="demo-modal-desc">
+        <div class="stack stack--sm">
+          <p>Este diálogo muestra el patrón completo: fondo atenuado, foco atrapado, cierre con <kbd class="kbd">Esc</kbd> y devolución del foco al botón de origen.</p>
+          <p class="t-small">El contenido es una demostración del sistema de diseño; no representa una oferta comercial ni envía información a ningún servidor.</p>
+          <div class="field">
+            <label class="field__label" for="modal-email">Correo de contacto</label>
+            <div class="field__control">
+              <span class="field__icon" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></span>
+              <input class="input input--with-icon" id="modal-email" type="email" placeholder="nombre@empresa.com" autocomplete="email">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal__foot">
+        <button class="btn btn--ghost" type="button" data-modal-close>Cancelar</button>
+        <button class="btn btn--primary" type="button" data-modal-confirm>Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Región de notificaciones -->
+  <div class="toast-region" id="toast-region" role="region" aria-label="Notificaciones" aria-live="polite"></div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

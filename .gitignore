@@ -1,0 +1,12 @@
+# Secretos y datos locales
+.env
+.env.local
+server/data/*.sqlite3
+server/data/*.sqlite3-*
+server/data/leads.json
+server/__pycache__/
+**/__pycache__/
+*.pyc
+
+# Artefactos de revisión
+Revisar/
