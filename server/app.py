@@ -291,7 +291,8 @@ def send_notification(lead: dict) -> str:
                 tls = ctx.wrap_socket(raw, server_hostname=SMTP_SERVER_HOSTNAME)
                 smtp = smtplib.SMTP()
                 smtp.sock = tls
-                smtp.file = tls.makefile("rb")
+                smtp.file = None
+                smtp.getreply()
             else:
                 smtp = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=12)
         else:
