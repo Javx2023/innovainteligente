@@ -23,6 +23,8 @@ Variables:
     SMTP_FROM        Remitente. Por defecto SMTP_USER o no-reply@innovainteligente.com.
     SMTP_TLS         1 (por defecto) para STARTTLS.
     SMTP_SSL         1 para conexión SSL directa.
+    SMTP_SERVER_HOSTNAME  Nombre (SNI) a validar en el certificado TLS cuando
+                     SMTP_HOST es una IP interna (opcional).
 
 El servidor escucha en 127.0.0.1 por defecto: el panel y la API no deben
 exponerse a Internet sin autenticación adicional.
@@ -40,6 +42,7 @@ import mimetypes
 import os
 import re
 import smtplib
+import socket
 import sqlite3
 import ssl
 import sys
@@ -80,6 +83,7 @@ SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 SMTP_FROM = os.environ.get("SMTP_FROM", "").strip() or SMTP_USER or "no-reply@innovainteligente.com"
 SMTP_TLS = os.environ.get("SMTP_TLS", "1") not in {"0", "false", "False", ""}
 SMTP_SSL = os.environ.get("SMTP_SSL", "0") in {"1", "true", "True"}
+SMTP_SERVER_HOSTNAME = os.environ.get("SMTP_SERVER_HOSTNAME", "").strip()
 
 EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]{2,}$")
 EMAIL_CONFIGURED = bool(SMTP_HOST)
@@ -281,7 +285,15 @@ def send_notification(lead: dict) -> str:
 
     try:
         if SMTP_SSL:
-            smtp = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=12)
+            if SMTP_SERVER_HOSTNAME:
+                ctx = ssl.create_default_context()
+                raw = socket.create_connection((SMTP_HOST, SMTP_PORT), timeout=12)
+                tls = ctx.wrap_socket(raw, server_hostname=SMTP_SERVER_HOSTNAME)
+                smtp = smtplib.SMTP()
+                smtp.sock = tls
+                smtp.file = tls.makefile("rb")
+            else:
+                smtp = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=12)
         else:
             smtp = smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=12)
         with smtp:
