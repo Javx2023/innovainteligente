@@ -486,7 +486,7 @@ class Handler(BaseHTTPRequestHandler):
         if path in ("/", ""):
             self.redirect("/landing/")
             return
-        if path in ("/landing", "/dashboard"):
+        if path in ("/landing", "/dashboard", "/ofertas"):
             self.redirect(path + "/")
             return
 
