@@ -60,6 +60,7 @@ DEFAULT_DATA_DIR = Path(__file__).resolve().parent / "data"
 STATIC_ROOTS = {
     "/landing/": PROJECT_ROOT / "landing",
     "/dashboard/": PROJECT_ROOT / "dashboard",
+    "/ofertas/": PROJECT_ROOT / "ofertas",
 }
 
 PILLARS = {

@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA local para la Dirección de Distribución y Ventas · Innovainteligente</title>
+<meta name="description" content="Propuesta de un servidor de IA local con base de conocimiento documental y dashboard de operaciones para la Dirección de Distribución y Ventas de una empresa energética de nivel nacional (nombre no revelado).">
+<meta name="author" content="Innovainteligente">
+<link rel="canonical" href="https://innovainteligente.com/ofertas/">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IA local para la Dirección de Distribución y Ventas · Innovainteligente">
+<meta property="og:description" content="Servidor de IA local con base de conocimiento documental, copiloto con citas y dashboard de operaciones. Propuesta MVP 2026.">
+<meta property="og:image" content="https://innovainteligente.com/ofertas/assets/og-image.png">
+<meta property="og:url" content="https://innovainteligente.com/ofertas/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="keywords" content="IA local, RAG, Qwen, DeepSeek, AMD Strix Halo, dashboard, distribución, ventas, petróleo">
+<meta name="dcterms.created" content="2026-10-27">
+<style>
+@font-face{font-family:Poppins;src:url(assets/fonts/poppins-400.woff2) format("woff2");font-weight:400;font-style:normal;}
+@font-face{font-family:Poppins;src:url(assets/fonts/poppins-500.woff2) format("woff2");font-weight:500;font-style:normal;}
+@font-face{font-family:Poppins;src:url(assets/fonts/poppins-600.woff2) format("woff2");font-weight:600;font-style:normal;}
+@font-face{font-family:Poppins;src:url(assets/fonts/poppins-700.woff2) format("woff2");font-weight:700;font-style:normal;}
+@font-face{font-family:Poppins;src:url(assets/fonts/poppins-800.woff2) format("woff2");font-weight:800;font-style:normal;}
+@font-face{font-family:Inter;src:url(assets/fonts/inter-var.woff2) format("woff2-variations");font-weight:400 800;font-style:normal;}
+
+@page{size:13.333in 7.5in;margin:0;}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{font-family:Inter,sans-serif;background:#020b1b;color:#eef5ff;-webkit-font-smoothing:antialiased;}
+.slide{position:relative;width:1280px;height:720px;overflow:hidden;background:#031129;page-break-after:always;break-after:page;}
+.slide:last-child{page-break-after:auto;break-after:auto;}
+.slide::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,208,240,.10) 1px,transparent 1px);background-size:26px 26px;opacity:.42;pointer-events:none;}
+.slide::after{content:"";position:absolute;width:760px;height:760px;right:-280px;top:-420px;background:radial-gradient(circle,rgba(0,208,240,.13),rgba(0,208,240,0) 66%);pointer-events:none;}
+.frame{position:absolute;inset:0;padding:40px 56px 64px;display:flex;flex-direction:column;z-index:2;}
+.kicker{font-family:Poppins;font-weight:600;font-size:10px;letter-spacing:.26em;color:#00d0f0;text-transform:uppercase;margin:0 0 9px;}
+.h2{bookmark-level:1;bookmark-label:content(text);font-family:Poppins;font-weight:600;font-size:29px;line-height:1.12;letter-spacing:-.015em;margin:0 0 10px;color:#f7fbff;}
+.h2 .cyan{color:#00d0f0;}
+.lead{font-size:12px;line-height:1.55;color:#b7c9df;max-width:930px;margin:0;}
+.lead b{color:#eef5ff;font-weight:600;}
+.header{flex:none;}
+.footer{position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(150,190,230,.16);padding-top:8px;font-size:7.5px;letter-spacing:.12em;color:#5b7391;z-index:3;text-transform:uppercase;}
+.footer .brand{color:#8aa0bb;letter-spacing:.08em;}
+.footer .brand b{color:#00d0f0;font-weight:600;}
+.footer .pg{color:#8aa0bb;}
+.num{font-family:Poppins;font-weight:700;color:#00d0f0;}
+
+/* ===== Portada ===== */
+.cover .glow1{position:absolute;width:860px;height:860px;left:-280px;bottom:-460px;background:radial-gradient(circle,rgba(0,152,208,.22),rgba(0,152,208,0) 62%);}
+.cover .top{display:flex;justify-content:space-between;align-items:center;}
+.cover .brandline{font-family:Poppins;font-weight:600;font-size:12px;letter-spacing:.26em;color:#8bebf9;}
+.cover .tag{font-size:9px;letter-spacing:.2em;color:#8aa0bb;border:1px solid rgba(0,208,240,.35);border-radius:999px;padding:6px 14px;}
+.cover .main{display:flex;flex:1;align-items:center;gap:8px;}
+.cover .left{width:738px;}
+.cover .h1{bookmark-level:1;bookmark-label:"Portada";font-family:Poppins;font-weight:600;font-size:45px;line-height:1.12;letter-spacing:-.02em;margin:0 0 20px;color:#f7fbff;}
+.cover .h1 .cyan{color:#00d0f0;}
+.cover .sub{font-size:15px;line-height:1.55;color:#b7c9df;margin:0 0 28px;max-width:640px;}
+.cover .meta{display:flex;gap:38px;border-top:1px solid rgba(150,190,230,.2);padding-top:16px;}
+.cover .meta .k{font-size:8px;letter-spacing:.2em;color:#8aa0bb;margin-bottom:5px;text-transform:uppercase;}
+.cover .meta .v{font-size:12px;color:#eef5ff;font-weight:500;}
+.cover .right{flex:1;display:flex;justify-content:center;}
+.cover .right img{width:342px;height:auto;display:block;}
+
+/* ===== Genéricos ===== */
+.row{display:flex;gap:16px;}
+.col{flex:1;min-width:0;}
+.card{background:linear-gradient(160deg,rgba(10,34,68,.92),rgba(6,26,54,.92));border:1px solid rgba(150,190,230,.18);border-radius:12px;padding:15px 16px;}
+.card h3{font-family:Poppins;font-weight:600;font-size:13px;letter-spacing:-.005em;color:#f7fbff;margin:0 0 6px;}
+.card p{font-size:9.6px;line-height:1.5;color:#b7c9df;margin:0;}
+.card .n{font-family:Poppins;font-weight:700;font-size:10px;color:#00d0f0;letter-spacing:.08em;margin-bottom:8px;}
+.chip{display:inline-block;font-size:7.5px;letter-spacing:.02em;color:#8bebf9;background:rgba(0,208,240,.08);border:1px solid rgba(0,208,240,.28);border-radius:999px;padding:4px 9px;margin:0 4px 4px 0;}
+.check{display:inline-flex;width:14px;height:14px;border-radius:50%;background:rgba(47,213,155,.14);border:1px solid rgba(47,213,155,.45);color:#7df0c6;font-size:8px;align-items:center;justify-content:center;flex:none;font-weight:700;}
+.mono{font-family:"DejaVu Sans Mono",monospace;font-size:8px;color:#8bebf9;}
+
+/* ===== Lámina 2 ===== */
+.s2 .body{display:flex;gap:16px;flex:1;margin-top:16px;min-height:0;}
+.s2 .ask{width:352px;flex:none;background:linear-gradient(165deg,rgba(0,152,208,.13),rgba(6,26,54,.92));border:1px solid rgba(0,208,240,.3);border-radius:14px;padding:18px;display:flex;flex-direction:column;}
+.s2 .ask .who{font-size:7.5px;letter-spacing:.18em;color:#00d0f0;margin-bottom:8px;}
+.s2 .ask .q{font-family:Poppins;font-weight:500;font-size:14px;line-height:1.4;color:#f7fbff;margin:0;}
+.s2 .ask .div{border-top:1px solid rgba(150,190,230,.18);margin:14px 0;}
+.s2 .ask .lbl{font-size:7.5px;letter-spacing:.16em;color:#8aa0bb;text-transform:uppercase;margin-bottom:5px;}
+.s2 .ask .txt{font-size:9.4px;line-height:1.5;color:#b7c9df;margin:0 0 10px;}
+.s2 .ask .bad{margin-top:16px;font-size:9px;line-height:1.45;color:#ffcf85;border-left:2px solid #ffb547;padding-left:8px;}
+.s2 .pain{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:11px;}
+.s2 .pain .card{display:flex;flex-direction:column;}
+.s2 .pain .card .n{font-size:9px;margin-bottom:6px;}
+.s2 .pain .card h3{font-size:12.5px;margin-bottom:5px;}
+.s2 .quote{margin-top:12px;background:rgba(0,208,240,.07);border-left:3px solid #00d0f0;border-radius:0 8px 8px 0;padding:10px 16px;font-family:Poppins;font-weight:500;font-size:14px;color:#d6f7ff;display:flex;justify-content:space-between;align-items:center;}
+.s2 .quote span{font-family:Inter;font-weight:400;font-size:8px;color:#8aa0bb;letter-spacing:.04em;text-transform:none;}
+
+/* ===== Lámina 3 ===== */
+.s3 .body{display:flex;gap:16px;flex:1;margin-top:14px;min-height:0;}
+.s3 .caps{width:718px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:11px;}
+.s3 .caps .card{display:flex;flex-direction:column;}
+.s3 .caps .card .n{font-size:9px;}
+.s3 .caps .card h3{font-size:15px;margin-bottom:5px;}
+.s3 .caps .card p{font-size:9.4px;}
+.s3 .local{flex:1;display:flex;flex-direction:column;background:linear-gradient(165deg,rgba(10,34,68,.92),rgba(4,21,48,.95));border:1px solid rgba(150,190,230,.18);border-radius:14px;padding:16px;}
+.s3 .local h3{font-family:Poppins;font-weight:600;font-size:12px;color:#f7fbff;margin:0 0 10px;letter-spacing:.02em;}
+.s3 .local .item{display:flex;gap:8px;align-items:flex-start;margin-bottom:9px;}
+.s3 .local .item .t{font-size:9.2px;line-height:1.42;color:#b7c9df;}
+.s3 .local .item .t b{display:block;color:#eef5ff;font-size:9.6px;font-weight:600;margin-bottom:1px;}
+.s3 .services{margin-top:12px;padding:10px 14px;border:1px solid rgba(150,190,230,.14);border-radius:10px;background:rgba(6,26,54,.7);}
+.s3 .services .lbl{font-size:7.3px;letter-spacing:.16em;color:#8aa0bb;text-transform:uppercase;margin-right:8px;}
+.s3 .services .chip{font-size:7.1px;padding:3px 8px;margin:0 3px 0 0;}
+
+/* ===== Lámina 4 ===== */
+.s4 .arch{display:flex;align-items:stretch;gap:0;margin-top:20px;height:300px;}
+.s4 .layer{width:176px;flex:none;background:linear-gradient(165deg,rgba(10,34,68,.92),rgba(6,26,54,.92));border:1px solid rgba(150,190,230,.18);border-radius:12px;padding:14px 13px;display:flex;flex-direction:column;}
+.s4 .layer.src{border-color:rgba(0,208,240,.34);}
+.s4 .layer .n{font-family:Poppins;font-weight:700;font-size:9px;color:#00d0f0;letter-spacing:.1em;}
+.s4 .layer h3{font-family:Poppins;font-weight:600;font-size:11.5px;color:#f7fbff;margin:5px 0 8px;line-height:1.2;}
+.s4 .layer ul{margin:0;padding-left:11px;}
+.s4 .layer li{font-size:7.6px;line-height:1.5;color:#b7c9df;margin-bottom:3px;}
+.s4 .arrow{width:22px;flex:none;display:flex;align-items:center;justify-content:center;color:#00d0f0;font-size:15px;opacity:.8;}
+.s4 .principles{display:flex;gap:8px;margin-top:16px;}
+.s4 .principles .p{flex:1;background:rgba(0,208,240,.06);border:1px solid rgba(0,208,240,.18);border-radius:9px;padding:8px 10px;}
+.s4 .principles .p b{display:block;font-family:Poppins;font-weight:600;font-size:9px;color:#8bebf9;margin-bottom:2px;}
+.s4 .principles .p span{font-size:7.6px;line-height:1.4;color:#b7c9df;}
+
+/* ===== Lámina 5 ===== */
+.s5 .body{display:flex;gap:16px;flex:1;margin-top:14px;min-height:0;}
+.s5 .cases{width:722px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:9px;}
+.s5 .cases .card{padding:11px 12px;}
+.s5 .cases .card .n{font-size:8px;margin-bottom:3px;}
+.s5 .cases .card h3{font-size:10.5px;margin-bottom:3px;}
+.s5 .cases .card p{font-size:8.3px;line-height:1.42;}
+.s5 .chat{flex:1;background:linear-gradient(165deg,rgba(10,34,68,.94),rgba(4,21,48,.96));border:1px solid rgba(0,208,240,.24);border-radius:14px;padding:15px;display:flex;flex-direction:column;}
+.s5 .chat .who{font-size:7.2px;letter-spacing:.16em;color:#00d0f0;margin-bottom:7px;}
+.s5 .chat .q{background:rgba(0,208,240,.09);border:1px solid rgba(0,208,240,.24);border-radius:9px;padding:9px 10px;font-size:9px;line-height:1.45;color:#eef5ff;}
+.s5 .chat .a{margin-top:9px;font-size:8.8px;line-height:1.55;color:#b7c9df;border-left:2px solid #0098d0;padding-left:9px;}
+.s5 .chat .cite{margin-top:8px;font-size:7.4px;line-height:1.6;color:#8bebf9;}
+.s5 .chat .meta{margin-top:auto;padding-top:8px;border-top:1px solid rgba(150,190,230,.14);font-size:7.2px;color:#8aa0bb;}
+.s5 .note{font-size:7.6px;color:#8aa0bb;margin-top:9px;}
+.s5 .note b{color:#b7c9df;font-weight:500;}
+
+/* ===== Lámina 6 · Dashboard ===== */
+.s6 .dash{position:relative;margin-top:8px;height:520px;flex:none;background:#041530;border:1px solid rgba(0,208,240,.22);border-radius:14px;overflow:hidden;}
+.s6 .chrome{height:24px;background:#061a36;border-bottom:1px solid rgba(150,190,230,.14);display:flex;align-items:center;padding:0 11px;gap:5px;}
+.s6 .cdot{width:5px;height:5px;border-radius:50%;background:#ff6b7a;}
+.s6 .cdot.y{background:#ffb547;}.s6 .cdot.g{background:#2fd59b;}
+.s6 .url{margin-left:9px;font-size:7px;color:#8aa0bb;letter-spacing:.05em;}
+.s6 .live{margin-left:auto;font-size:6.3px;color:#2fd59b;letter-spacing:.14em;}
+.s6 .dbody{display:flex;height:496px;}
+.s6 .side{width:146px;background:#031129;border-right:1px solid rgba(150,190,230,.12);padding:11px 9px;flex:none;}
+.s6 .mini{display:flex;align-items:center;gap:6px;margin-bottom:12px;}
+.s6 .mini img{width:21px;height:21px;object-fit:contain;}
+.s6 .mini span{font-family:Poppins;font-weight:600;font-size:7px;line-height:1.1;color:#eef5ff;}
+.s6 .nav{font-size:7.2px;color:#8aa0bb;}
+.s6 .nav div{padding:5px 6px;border-radius:5px;margin-bottom:1px;display:flex;justify-content:space-between;}
+.s6 .nav div.on{background:rgba(0,208,240,.13);color:#8bebf9;border:1px solid rgba(0,208,240,.3);}
+.s6 .nav b{font-weight:600;color:#ffb547;font-size:6.3px;}
+.s6 .sys{margin-top:10px;border-top:1px solid rgba(150,190,230,.12);padding-top:7px;font-size:5.8px;color:#8aa0bb;line-height:1.6;}
+.s6 .main{flex:1;padding:11px 13px;min-width:0;}
+.s6 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;height:54px;}
+.s6 .kpi{background:linear-gradient(160deg,#0a2244,#061a36);border:1px solid rgba(0,208,240,.16);border-radius:8px;padding:6px 8px;}
+.s6 .kpi .k{font-size:5.8px;letter-spacing:.1em;color:#8aa0bb;text-transform:uppercase;}
+.s6 .kpi .v{font-family:Poppins;font-weight:600;font-size:14px;color:#f7fbff;margin-top:1px;}
+.s6 .kpi .d{font-size:5.8px;color:#2fd59b;margin-top:0;}
+.s6 .kpi .d.w{color:#ffb547;}
+.s6 .grid2{display:grid;grid-template-columns:1.45fr 1fr;gap:7px;margin-top:7px;height:186px;}
+.s6 .card2{background:linear-gradient(160deg,#081f3f,#061a36);border:1px solid rgba(0,208,240,.16);border-radius:9px;padding:8px 9px;min-width:0;}
+.s6 .card2 h3{font-family:Poppins;font-weight:600;font-size:7.4px;letter-spacing:.08em;color:#c2d3e8;margin:0 0 1px;text-transform:uppercase;}
+.s6 .card2 .sub{font-size:5.5px;color:#8aa0bb;margin-bottom:5px;}
+.s6 .bars{display:flex;align-items:flex-end;gap:4px;height:98px;border-bottom:1px solid rgba(150,190,230,.18);margin-top:8px;position:relative;}
+.s6 .bar{flex:1;background:linear-gradient(180deg,#00d0f0,#0070c0);border-radius:2px 2px 0 0;opacity:.9;}
+.s6 .bar.dim{opacity:.35;}
+.s6 .target{position:absolute;left:0;right:0;top:40px;border-top:1px dashed rgba(255,181,71,.55);}
+.s6 .blab{display:flex;justify-content:space-between;font-size:5px;color:#8aa0bb;margin-top:3px;}
+.s6 .mix{margin-top:6px;}
+.s6 .mix .row{display:flex;align-items:center;gap:5px;margin-bottom:5px;font-size:5.9px;color:#b7c9df;}
+.s6 .mix .lbl{width:48px;color:#8aa0bb;font-size:5.5px;}
+.s6 .mix .track{flex:1;height:6px;background:#031129;border-radius:3px;overflow:hidden;}
+.s6 .mix .fill{height:6px;border-radius:3px;background:linear-gradient(90deg,#00d0f0,#0098d0);}
+.s6 .mix .pct{width:24px;text-align:right;font-size:5.5px;color:#eef5ff;}
+.s6 .row3{display:grid;grid-template-columns:1.45fr 1fr;gap:7px;margin-top:7px;height:208px;}
+.s6 .tbl{width:100%;border-collapse:collapse;font-size:5.7px;color:#b7c9df;margin-top:3px;}
+.s6 .tbl th{font-size:5px;letter-spacing:.1em;color:#8aa0bb;text-align:left;font-weight:500;padding-bottom:3px;border-bottom:1px solid rgba(150,190,230,.16);}
+.s6 .tbl td{padding:4px 0;border-bottom:1px solid rgba(150,190,230,.08);}
+.s6 .chip2{font-size:4.8px;border-radius:3px;padding:1px 4px;border:1px solid rgba(47,213,155,.4);color:#7df0c6;background:rgba(47,213,155,.1);}
+.s6 .chip2.w{border-color:rgba(255,181,71,.4);color:#ffcf85;background:rgba(255,181,71,.1);}
+.s6 .q{background:rgba(0,208,240,.09);border:1px solid rgba(0,208,240,.25);border-radius:6px;padding:6px;font-size:6.3px;line-height:1.45;color:#eef5ff;}
+.s6 .q .who{font-size:5px;color:#00d0f0;letter-spacing:.12em;margin-bottom:1px;}
+.s6 .a{margin-top:5px;font-size:6.1px;line-height:1.5;color:#b7c9df;border-left:2px solid #0098d0;padding-left:5px;}
+.s6 .cite{font-size:5.2px;color:#8bebf9;margin-top:3px;line-height:1.6;}
+.s6 .meta2{display:flex;gap:7px;margin-top:auto;padding-top:5px;border-top:1px solid rgba(150,190,230,.14);font-size:5.2px;color:#8aa0bb;}
+.s6 .meta2 b{color:#2fd59b;}
+.s6 .cap{font-size:6.5px;color:#5b7391;text-align:right;margin-top:5px;}
+.s6 .badge{position:absolute;width:18px;height:18px;border-radius:50%;background:#00d0f0;color:#021019;font-family:Poppins;font-weight:700;font-size:8px;display:flex;align-items:center;justify-content:center;z-index:4;}
+.s6 .badge.b1{left:205px;top:104px;}
+.s6 .badge.b2{left:205px;top:285px;}
+.s6 .badge.b3{left:640px;top:396px;}
+.s6 .badge.b4{left:88px;top:426px;}
+
+/* ===== Lámina 7 ===== */
+.s7 .body{display:flex;gap:14px;margin-top:12px;height:356px;}
+.s7 .scope{flex:1;min-width:0;}
+.s7 .scope .item{display:flex;gap:9px;margin-bottom:8px;}
+.s7 .scope .item .n{width:17px;height:17px;border-radius:50%;background:rgba(0,208,240,.12);border:1px solid rgba(0,208,240,.35);color:#8bebf9;font-family:Poppins;font-weight:600;font-size:7.5px;display:flex;align-items:center;justify-content:center;flex:none;}
+.s7 .scope .item .t{font-size:8.8px;line-height:1.45;color:#b7c9df;}
+.s7 .scope .item .t b{color:#eef5ff;font-weight:600;}
+.s7 .scope .crit{margin-top:9px;display:flex;gap:5px;flex-wrap:wrap;}
+.s7 .scope .crit .chip{font-size:6.9px;padding:3px 8px;}
+.s7 .spec{width:414px;flex:none;background:linear-gradient(165deg,rgba(0,152,208,.15),rgba(6,26,54,.95));border:1px solid rgba(0,208,240,.32);border-radius:13px;padding:14px 16px;display:flex;flex-direction:column;}
+.s7 .spec .top{display:flex;justify-content:space-between;align-items:flex-start;}
+.s7 .spec .lbl{font-size:7px;letter-spacing:.18em;color:#00d0f0;text-transform:uppercase;}
+.s7 .spec .big{font-family:Poppins;font-weight:700;font-size:26px;color:#f7fbff;line-height:1;margin-top:2px;}
+.s7 .spec .big span{font-size:11px;font-weight:500;color:#8bebf9;}
+.s7 .spec .note{font-size:6.5px;color:#8aa0bb;margin-top:2px;}
+.s7 .spec .rows{margin-top:8px;border-top:1px solid rgba(150,190,230,.16);padding-top:6px;}
+.s7 .spec .r{display:flex;justify-content:space-between;font-size:7.4px;line-height:1.55;color:#b7c9df;}
+.s7 .spec .r span{color:#8aa0bb;}
+.s7 .spec .r b{font-weight:500;color:#eef5ff;}
+.s7 .spec .price{margin-top:auto;border-top:1px solid rgba(0,208,240,.22);padding-top:7px;display:flex;justify-content:space-between;align-items:flex-end;}
+.s7 .spec .price .p{font-family:Poppins;font-weight:700;font-size:16px;color:#8bebf9;}
+.s7 .spec .price .s{font-size:6px;color:#8aa0bb;text-align:right;line-height:1.4;}
+.s7 .tl{margin-top:10px;height:88px;position:relative;padding:0 2px;}
+.s7 .tl .line{position:absolute;left:0;right:0;top:22px;height:2px;background:linear-gradient(90deg,#00d0f0,#0070c0);opacity:.45;}
+.s7 .tl .phases{display:flex;position:relative;}
+.s7 .tl .ph{flex:1;padding-top:0;}
+.s7 .tl .dot{width:9px;height:9px;border-radius:50%;background:#031129;border:2px solid #00d0f0;margin:18px auto 6px;}
+.s7 .tl .ph .t{text-align:center;font-family:Poppins;font-weight:600;font-size:7.4px;color:#eef5ff;}
+.s7 .tl .ph .d{text-align:center;font-size:6.2px;color:#8aa0bb;margin-top:2px;}
+
+/* ===== Lámina 8 ===== */
+.s8 .body{display:flex;gap:20px;flex:1;margin-top:14px;min-height:0;}
+.s8 .perim{width:390px;flex:none;position:relative;display:flex;align-items:center;justify-content:center;}
+.s8 .circle{position:absolute;border-radius:50%;border:1px solid rgba(0,208,240,.28);}
+.s8 .c1{width:340px;height:340px;background:radial-gradient(circle,rgba(0,208,240,.05),rgba(0,208,240,0) 70%);}
+.s8 .c2{width:260px;height:260px;border-color:rgba(0,152,208,.35);}
+.s8 .c3{width:180px;height:180px;border-color:rgba(0,208,240,.45);}
+.s8 .core{width:104px;height:104px;border-radius:50%;background:radial-gradient(circle,#00d0f0,#0070c0);color:#021019;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Poppins;font-weight:700;font-size:10px;line-height:1.1;text-align:center;}
+.s8 .core span{font-size:6px;font-weight:500;letter-spacing:.08em;margin-top:3px;}
+.s8 .plabel{position:absolute;font-size:6.6px;color:#8aa0bb;letter-spacing:.1em;text-transform:uppercase;}
+.s8 .pl1{top:18px;left:50%;transform:translateX(-50%);}
+.s8 .pl2{top:64px;left:50%;transform:translateX(-50%);}
+.s8 .pl3{top:112px;left:50%;transform:translateX(-50%);}
+.s8 .commit{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start;}
+.s8 .commit .card{padding:10px 12px;}
+.s8 .commit .card h3{font-size:10.2px;margin-bottom:3px;}
+.s8 .commit .card p{font-size:8px;line-height:1.45;}
+.s8 .prop{margin-top:8px;grid-column:1/3;background:rgba(47,213,155,.07);border:1px solid rgba(47,213,155,.3);border-radius:9px;padding:9px 12px;font-size:8px;line-height:1.5;color:#b7c9df;}
+.s8 .prop b{color:#7df0c6;}
+
+/* ===== Lámina 9 ===== */
+.s9 .body{display:flex;gap:16px;margin-top:14px;flex:1;min-height:0;}
+.s9 .inv{width:700px;flex:none;}
+.s9 .tbl2{width:100%;border-collapse:collapse;font-size:8px;}
+.s9 .tbl2 th{font-size:6.6px;letter-spacing:.12em;color:#8aa0bb;text-align:left;font-weight:500;text-transform:uppercase;padding:0 0 6px;border-bottom:1px solid rgba(150,190,230,.18);}
+.s9 .tbl2 td{padding:8px 0;border-bottom:1px solid rgba(150,190,230,.1);vertical-align:top;color:#b7c9df;line-height:1.4;}
+.s9 .tbl2 td b{color:#eef5ff;font-weight:600;}
+.s9 .tbl2 .amt{text-align:right;font-family:Poppins;font-weight:600;font-size:8px;color:#8bebf9;white-space:nowrap;}
+.s9 .tbl2 .amt.pend{color:#ffcf85;font-family:Inter;font-weight:400;font-size:7.4px;}
+.s9 .muted{font-size:6.5px;color:#8aa0bb;line-height:1.5;margin-top:7px;}
+.s9 .mods{flex:1;display:flex;flex-direction:column;gap:8px;}
+.s9 .mod{background:linear-gradient(160deg,rgba(10,34,68,.92),rgba(6,26,54,.92));border:1px solid rgba(150,190,230,.18);border-radius:10px;padding:11px 13px;}
+.s9 .mod h3{font-family:Poppins;font-weight:600;font-size:10.5px;color:#f7fbff;margin:0 0 3px;}
+.s9 .mod p{font-size:7.8px;line-height:1.45;color:#b7c9df;margin:0;}
+.s9 .mod .tag{font-size:6.3px;letter-spacing:.1em;color:#00d0f0;text-transform:uppercase;margin-bottom:3px;}
+.s9 .bottom{display:flex;gap:12px;margin-top:10px;height:48px;}
+.s9 .bottom .b{flex:1;background:rgba(0,208,240,.06);border:1px solid rgba(0,208,240,.2);border-radius:9px;padding:8px 12px;display:flex;flex-direction:column;justify-content:center;}
+.s9 .bottom .b .k{font-size:6.2px;letter-spacing:.14em;color:#8aa0bb;text-transform:uppercase;}
+.s9 .bottom .b .v{font-size:8.2px;color:#eef5ff;margin-top:2px;}
+.s9 .bottom .b .v b{color:#8bebf9;}
+
+/* ===== Lámina 10 ===== */
+.s10 .road{position:relative;margin-top:16px;height:150px;}
+.s10 .road .line{position:absolute;left:0;right:0;top:34px;height:3px;background:linear-gradient(90deg,#00d0f0,#0070c0);opacity:.5;}
+.s10 .road .steps{display:flex;position:relative;}
+.s10 .road .step{flex:1;text-align:center;padding:0 6px;}
+.s10 .road .dot{width:13px;height:13px;border-radius:50%;background:#031129;border:3px solid #00d0f0;margin:28px auto 8px;}
+.s10 .road .step .n{font-family:Poppins;font-weight:700;font-size:7px;color:#00d0f0;letter-spacing:.1em;}
+.s10 .road .step .t{font-family:Poppins;font-weight:600;font-size:9px;color:#eef5ff;margin-top:2px;line-height:1.2;}
+.s10 .road .step .d{font-size:6.5px;color:#8aa0bb;margin-top:2px;line-height:1.3;}
+.s10 .bottom{display:flex;gap:16px;margin-top:6px;flex:1;}
+.s10 .need{flex:1;}
+.s10 .need h3,.s10 .decision h3{font-family:Poppins;font-weight:600;font-size:11px;color:#f7fbff;margin:0 0 7px;}
+.s10 .need .it{display:flex;gap:7px;font-size:8.2px;line-height:1.45;color:#b7c9df;margin-bottom:6px;}
+.s10 .decision{width:430px;flex:none;background:linear-gradient(165deg,rgba(0,208,240,.12),rgba(6,26,54,.95));border:1px solid rgba(0,208,240,.3);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;}
+.s10 .decision p{font-size:8.4px;line-height:1.5;color:#b7c9df;margin:0 0 8px;}
+.s10 .decision .cta{font-family:Poppins;font-weight:600;font-size:15px;color:#8bebf9;margin-top:auto;}
+.s10 .decision .contact{font-size:7.4px;color:#8aa0bb;margin-top:4px;line-height:1.5;}
+
+/* ===== Anexos ===== */
+.annex .body{display:flex;gap:18px;flex:1;margin-top:10px;min-height:0;}
+.annex .tbl{width:100%;border-collapse:collapse;font-size:7.2px;}
+.annex .tbl th{font-size:6px;letter-spacing:.1em;color:#8aa0bb;text-align:left;font-weight:500;text-transform:uppercase;padding:0 0 5px;border-bottom:1px solid rgba(150,190,230,.18);}
+.annex .tbl td{padding:4px 0;border-bottom:1px solid rgba(150,190,230,.08);color:#b7c9df;vertical-align:top;line-height:1.35;}
+.annex .tbl td b{color:#eef5ff;font-weight:600;}
+.annex .tbl .c{text-align:right;white-space:nowrap;color:#8bebf9;}
+.annex h3{font-family:Poppins;font-weight:600;font-size:9.5px;color:#8bebf9;letter-spacing:.1em;text-transform:uppercase;margin:0 0 6px;}
+.annex .box{background:rgba(6,26,54,.75);border:1px solid rgba(150,190,230,.16);border-radius:10px;padding:10px 12px;}
+.annex .note{font-size:6.6px;line-height:1.5;color:#8aa0bb;margin-top:5px;}
+.annex .src{font-size:6.3px;line-height:1.6;color:#8aa0bb;}
+.annex .src b{color:#b7c9df;font-weight:500;}
+
+
+/* ===== Ajustes de densidad y correcciones ===== */
+.s2 .pain .card .tagline{margin-top:auto;border-top:1px solid rgba(150,190,230,.14);padding-top:6px;font-size:7.3px;letter-spacing:.03em;color:#8bebf9;}
+.s2 .ask .chips{margin-top:10px;}
+.s2 .ask .chips .chip{font-size:6.6px;padding:3px 7px;}
+.s3 .caps .card .tags{margin-top:auto;border-top:1px solid rgba(150,190,230,.14);padding-top:6px;font-size:6.8px;color:#8bebf9;letter-spacing:.03em;}
+.s3 .local .bottombadge{margin-top:auto;background:rgba(47,213,155,.08);border:1px solid rgba(47,213,155,.3);border-radius:7px;padding:6px 9px;font-size:7.2px;color:#7df0c6;text-align:center;letter-spacing:.04em;}
+.s4 .arch{height:242px;}
+.s4 .layer .out{margin-top:auto;border-top:1px solid rgba(150,190,230,.14);padding-top:5px;font-size:6.5px;color:#8bebf9;letter-spacing:.04em;}
+.s4 .flow{display:flex;gap:8px;margin-top:12px;height:56px;}
+.s4 .flow .f{flex:1;background:rgba(0,208,240,.05);border:1px solid rgba(0,208,240,.16);border-radius:8px;padding:6px 9px;display:flex;flex-direction:column;justify-content:center;}
+.s4 .flow .f .k{font-size:6px;letter-spacing:.14em;color:#8aa0bb;text-transform:uppercase;}
+.s4 .flow .f .v{font-size:7.4px;color:#eef5ff;margin-top:2px;}
+.s4 .flow .ar{display:flex;align-items:center;color:#00d0f0;font-size:12px;}
+.s5 .cases .card .ex{margin-top:auto;border-top:1px solid rgba(150,190,230,.12);padding-top:5px;font-size:6.8px;color:#8bebf9;font-style:italic;line-height:1.35;}
+.s5 .chat .guar{margin-top:8px;border-top:1px solid rgba(150,190,230,.14);padding-top:7px;}
+.s5 .chat .guar .g{display:flex;gap:6px;font-size:7.2px;line-height:1.4;color:#b7c9df;margin-bottom:4px;}
+.s5 .chat .guar .g b{color:#8bebf9;font-weight:500;flex:none;}
+.s7 .body{height:300px;}
+.s7 .strip{display:flex;gap:9px;margin-top:8px;height:84px;}
+.s7 .strip .box{flex:1;background:rgba(6,26,54,.75);border:1px solid rgba(150,190,230,.16);border-radius:9px;padding:8px 10px;}
+.s7 .strip .box .lbl{font-size:6.2px;letter-spacing:.14em;color:#8aa0bb;text-transform:uppercase;margin-bottom:5px;}
+.s7 .strip .box .chip{font-size:6.6px;padding:3px 7px;}
+.s7 .strip .box .txt{font-size:7.2px;line-height:1.45;color:#b7c9df;}
+.s7 .tl{height:80px;}
+.s8 .circle{left:50%;top:50%;transform:translate(-50%,-50%);}
+.s8 .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+.s8 .commit{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+.s8 .prop{grid-column:1/3;min-width:0;width:100%;}
+.s8 .barsafe{grid-column:1/3;background:rgba(0,208,240,.06);border:1px solid rgba(0,208,240,.2);border-radius:9px;padding:8px 12px;font-size:7.4px;color:#8bebf9;letter-spacing:.03em;text-align:center;}
+.s9 .tbl2 td{padding:13px 0;}
+.s9 .notincl{margin-top:4px;background:rgba(255,181,71,.05);border:1px solid rgba(255,181,71,.22);border-radius:9px;padding:9px 12px;}
+.s9 .notincl .lbl{font-size:6.2px;letter-spacing:.14em;color:#ffcf85;text-transform:uppercase;margin-bottom:5px;}
+.s9 .notincl .g{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:7.2px;color:#b7c9df;}
+.s9 .mod{flex:1;display:flex;flex-direction:column;}
+.s9 .mod ul{margin:5px 0 0;padding-left:11px;}
+.s9 .mod li{font-size:7.1px;line-height:1.45;color:#b7c9df;margin-bottom:2px;}
+.s10 .road{height:120px;}
+.s10 .gantt{margin-top:4px;height:132px;background:rgba(6,26,54,.55);border:1px solid rgba(150,190,230,.14);border-radius:10px;padding:9px 12px;}
+.s10 .gantt .gtitle{display:flex;justify-content:space-between;font-size:6.2px;letter-spacing:.12em;color:#8aa0bb;text-transform:uppercase;margin-bottom:4px;}
+.s10 .grow{display:flex;align-items:center;height:18px;}
+.s10 .grow .gl{width:100px;flex:none;font-size:6.8px;color:#8aa0bb;}
+.s10 .grow .gt{flex:1;height:9px;background:rgba(0,208,240,.06);border-radius:4px;position:relative;overflow:hidden;}
+.s10 .grow .gb{position:absolute;top:0;height:9px;border-radius:4px;background:linear-gradient(90deg,#00d0f0,#0070c0);font-size:5.8px;color:#021019;text-align:center;line-height:9px;font-weight:600;}
+.s10 .grow .gb.alt{background:linear-gradient(90deg,#0098d0,#005596);color:#eef5ff;}
+.s10 .gantt .foot{font-size:6.2px;color:#8aa0bb;margin-top:2px;}
+.s10 .bottom{height:208px;}
+.s10 .decision{padding:12px 15px;}
+.annex .tbl td{padding:5px 0;font-size:7.4px;}
+.annex .bottomrow{display:flex;gap:10px;margin-top:8px;}
+.annex .bottomrow .box{flex:1;}
+.annex .gloss{font-size:6.6px;line-height:1.55;color:#8aa0bb;}
+.annex .gloss b{color:#b7c9df;font-weight:500;}
+
+
+/* Correcciones de posicionamiento (WeasyPrint no soporta margin:auto en flex) */
+.s2 .pain .card{position:relative;padding-bottom:32px;}
+.s2 .pain .card .tagline{position:absolute;left:16px;right:16px;bottom:10px;margin-top:0;}
+.s3 .caps .card{position:relative;padding-bottom:32px;}
+.s3 .caps .card .tags{position:absolute;left:16px;right:16px;bottom:10px;margin-top:0;}
+.s3 .local{position:relative;padding-bottom:48px;}
+.s3 .local .bottombadge{position:absolute;left:16px;right:16px;bottom:14px;margin-top:0;}
+.s4 .layer{position:relative;padding-bottom:30px;}
+.s4 .layer .out{position:absolute;left:13px;right:13px;bottom:10px;margin-top:0;}
+.s5 .cases .card{position:relative;padding-bottom:38px;}
+.s5 .cases .card .ex{position:absolute;left:12px;right:12px;bottom:10px;margin-top:0;}
+.s5 .rightcol{width:430px;flex:none;display:flex;flex-direction:column;gap:9px;}
+.s5 .rightcol .chat{flex:none;}
+.s5 .rightcol .trace{flex:1;background:linear-gradient(165deg,rgba(10,34,68,.92),rgba(4,21,48,.96));border:1px solid rgba(150,190,230,.18);border-radius:14px;padding:13px 15px;}
+.s5 .rightcol .trace h3{font-family:Poppins;font-weight:600;font-size:10.5px;color:#f7fbff;margin:0 0 6px;}
+.s5 .rightcol .trace .g{display:flex;gap:7px;font-size:7.8px;line-height:1.45;color:#b7c9df;margin-bottom:5px;}
+.s5 .rightcol .trace .g b{color:#8bebf9;font-weight:500;flex:none;width:56px;}
+.s5 .rightcol .trace .sug{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px;border-top:1px solid rgba(150,190,230,.14);padding-top:7px;}
+.s5 .rightcol .trace .sug .lbl{width:100%;font-size:6px;letter-spacing:.14em;color:#8aa0bb;text-transform:uppercase;}
+.s7 .spec{position:relative;padding-bottom:68px;}
+.s7 .spec .price{position:absolute;left:16px;right:16px;bottom:12px;margin-top:0;}
+.s9 .mod{padding-bottom:10px;}
+.s10 .decision{position:relative;padding-bottom:66px;}
+.s10 .decision .cta{position:absolute;left:15px;right:15px;bottom:30px;margin-top:0;}
+.s10 .decision .contact{position:absolute;left:15px;right:15px;bottom:11px;margin-top:0;}
+.s4 .proof{display:flex;gap:8px;margin-top:14px;height:86px;}
+.s4 .proof .p{flex:1;background:rgba(47,213,155,.05);border:1px solid rgba(47,213,155,.22);border-radius:9px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;}
+.s4 .proof .p .k{font-family:Poppins;font-weight:600;font-size:11px;color:#7df0c6;}
+.s4 .proof .p .v{font-size:7.4px;line-height:1.45;color:#b7c9df;margin-top:3px;}
+
+
+.s5 .chat .cite{margin-top:9px;line-height:1.9;}
+.s5 .trace .meta3{margin-top:6px;border-top:1px solid rgba(150,190,230,.12);padding-top:6px;display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;}
+.s5 .trace .meta3 div{font-size:6.6px;color:#8aa0bb;}
+.s5 .trace .meta3 b{color:#b7c9df;font-weight:500;}
+.s7 .scope{position:relative;padding-bottom:34px;}
+.s7 .scope .closenote{position:absolute;left:0;right:0;bottom:0;font-size:7.2px;line-height:1.4;color:#8bebf9;border-top:1px solid rgba(150,190,230,.14);padding-top:6px;}
+.s8 .audit{margin-top:8px;height:70px;background:rgba(6,26,54,.7);border:1px solid rgba(150,190,230,.14);border-radius:9px;padding:8px 12px;}
+.s8 .audit .lbl{font-size:6.2px;letter-spacing:.14em;color:#8aa0bb;text-transform:uppercase;margin-bottom:6px;}
+.s8 .audit .items{display:flex;gap:10px;}
+.s8 .audit .items div{flex:1;font-size:7.3px;line-height:1.4;color:#b7c9df;}
+.s8 .audit .items b{display:block;color:#8bebf9;font-weight:500;font-size:7.5px;margin-bottom:1px;}
+.s9 .impl{margin-top:7px;background:rgba(0,208,240,.05);border:1px solid rgba(0,208,240,.18);border-radius:9px;padding:8px 12px;}
+.s9 .impl .lbl{font-size:6.2px;letter-spacing:.14em;color:#8bebf9;text-transform:uppercase;margin-bottom:4px;}
+.s9 .impl .g{font-size:7.3px;line-height:1.5;color:#b7c9df;}
+.s10 .gantt{height:148px;}
+.s10 .grow{height:16px;}
+.s10 .bottom{height:188px;}
+.s10 .decision .checks{margin-top:8px;}
+.s10 .decision .checks div{display:flex;gap:6px;font-size:7.6px;line-height:1.45;color:#b7c9df;margin-bottom:4px;}
+.annexbar{display:flex;gap:10px;margin-top:8px;height:62px;flex:none;}
+.annexbar .ab{flex:1;background:rgba(0,208,240,.05);border:1px solid rgba(0,208,240,.18);border-radius:9px;padding:9px 12px;display:flex;flex-direction:column;justify-content:center;}
+.annexbar .ab .k{font-family:Poppins;font-weight:600;font-size:9px;color:#8bebf9;}
+.annexbar .ab .v{font-size:7px;line-height:1.45;color:#b7c9df;margin-top:2px;}
+.annexbar .ab .n{font-family:Poppins;font-weight:700;font-size:14px;color:#00d0f0;line-height:1;}
+
+
+.s5 .chat .cite{margin-top:14px;line-height:2;}
+.s7 .why{margin-top:7px;border-top:1px solid rgba(150,190,230,.14);padding-top:6px;}
+.s7 .why .w{font-size:7.2px;line-height:1.5;color:#b7c9df;margin-bottom:2px;}
+.s7 .why .w b{color:#8bebf9;font-weight:500;}
+.s7 .spec .includes{margin-top:8px;background:rgba(0,208,240,.06);border:1px solid rgba(0,208,240,.16);border-radius:7px;padding:6px 8px;font-size:6.7px;line-height:1.5;color:#b7c9df;}
+.s9 .compare{margin-top:7px;background:rgba(0,208,240,.05);border:1px solid rgba(0,208,240,.16);border-radius:9px;padding:8px 12px;display:flex;gap:14px;}
+.s9 .compare .c{flex:1;font-size:7.2px;line-height:1.45;color:#b7c9df;}
+.s9 .compare .c b{display:block;color:#8bebf9;font-weight:500;font-size:7.4px;margin-bottom:1px;}
+.s10 .need .risk{margin-top:7px;background:rgba(255,181,71,.06);border-left:2px solid #ffb547;padding:6px 9px;font-size:7.2px;line-height:1.45;color:#ffcf85;}
+.s10 .decision .next{margin-top:8px;font-size:7.2px;line-height:1.45;color:#8bebf9;}
+.annex .src .urls{display:block;margin-top:5px;font-size:5.9px;line-height:1.55;color:#5b7391;word-break:break-all;}
+
+
+.s2 .ask .stat{margin-top:10px;background:rgba(0,208,240,.07);border:1px solid rgba(0,208,240,.2);border-radius:7px;padding:7px 9px;display:flex;align-items:baseline;gap:8px;}
+.s2 .ask .stat b{font-family:Poppins;font-weight:700;font-size:15px;color:#8bebf9;white-space:nowrap;}
+.s2 .ask .stat span{font-size:7px;line-height:1.4;color:#b7c9df;}
+
+
+.s9 .phase2{margin-top:7px;background:rgba(139,235,249,.05);border:1px solid rgba(139,235,249,.2);border-radius:9px;padding:8px 12px;}
+.s9 .phase2 .lbl{font-size:6.2px;letter-spacing:.14em;color:#8bebf9;text-transform:uppercase;margin-bottom:4px;}
+.s9 .phase2 .g{font-size:7.2px;line-height:1.45;color:#b7c9df;}
+
+
+.s9 .body{display:flex;gap:14px;margin-top:8px;flex:1;min-height:0;}
+.s9 .inv2{width:748px;flex:none;min-width:0;}
+.s9 .tbl3{width:100%;border-collapse:collapse;font-size:7.2px;}
+.s9 .tbl3 th{font-size:6px;letter-spacing:.1em;color:#8aa0bb;text-align:left;font-weight:500;text-transform:uppercase;padding:0 0 5px;border-bottom:1px solid rgba(150,190,230,.18);}
+.s9 .tbl3 td{padding:5px 0;border-bottom:1px solid rgba(150,190,230,.08);color:#b7c9df;vertical-align:top;line-height:1.35;}
+.s9 .tbl3 td b{color:#eef5ff;font-weight:600;}
+.s9 .tbl3 .r{text-align:right;white-space:nowrap;}
+.s9 .tbl3 .h{text-align:right;white-space:nowrap;color:#8aa0bb;}
+.s9 .tbl3 .sub td{border-top:1px solid rgba(150,190,230,.3);border-bottom:none;padding-top:6px;color:#eef5ff;}
+.s9 .tbl3 .total td{border-top:1px solid rgba(0,208,240,.45);border-bottom:none;padding-top:7px;font-family:Poppins;font-weight:600;font-size:8.6px;color:#8bebf9;}
+.s9 .tbl3 .total .r{font-size:9.4px;}
+.s9 .summary{flex:1;display:flex;flex-direction:column;background:linear-gradient(165deg,rgba(0,208,240,.12),rgba(6,26,54,.95));border:1px solid rgba(0,208,240,.3);border-radius:11px;padding:12px 14px;}
+.s9 .summary .lbl{font-size:6.2px;letter-spacing:.14em;color:#8aa0bb;text-transform:uppercase;margin-bottom:2px;}
+.s9 .summary .big{font-family:Poppins;font-weight:700;font-size:22px;color:#f7fbff;line-height:1;margin-bottom:2px;}
+.s9 .summary .big span{font-size:8px;font-weight:400;color:#8aa0bb;}
+.s9 .summary .small{font-size:7.2px;color:#b7c9df;line-height:1.45;}
+.s9 .summary .sep{border-top:1px solid rgba(150,190,230,.15);margin:8px 0;padding-top:7px;}
+.s9 .summary .row{display:flex;justify-content:space-between;align-items:baseline;font-size:7.4px;color:#b7c9df;margin-bottom:3px;}
+.s9 .summary .row b{color:#8bebf9;font-weight:600;}
+.s9 .summary .note{font-size:6.2px;line-height:1.5;color:#8aa0bb;margin-top:auto;border-top:1px solid rgba(150,190,230,.15);padding-top:6px;}
+
+
+.s9 .tbl3{font-size:7.6px;}
+.s9 .tbl3 td{padding:6px 0;}
+.s9 .calc{margin-top:8px;background:rgba(0,208,240,.05);border:1px solid rgba(0,208,240,.18);border-radius:8px;padding:7px 10px;}
+.s9 .calc .lbl{font-size:6px;letter-spacing:.14em;color:#8bebf9;text-transform:uppercase;margin-bottom:3px;}
+.s9 .calc .g{font-size:6.8px;line-height:1.45;color:#b7c9df;}
+.s9 .ph2{margin-top:7px;background:rgba(255,181,71,.05);border:1px solid rgba(255,181,71,.2);border-radius:8px;padding:7px 10px;}
+.s9 .ph2 .lbl{font-size:6px;letter-spacing:.14em;color:#ffcf85;text-transform:uppercase;margin-bottom:3px;}
+.s9 .ph2 .g{font-size:6.8px;line-height:1.45;color:#b7c9df;}
+.s9 .summary .phasebox{margin-top:7px;background:rgba(255,181,71,.05);border:1px solid rgba(255,181,71,.22);border-radius:8px;padding:7px 9px;}
+.s9 .summary .phasebox .lbl{color:#ffcf85;}
+.s9 .summary .phasebox .small{font-size:6.6px;}
+
+
+.s9 .deliv{display:flex;gap:6px;margin-top:7px;}
+.s9 .deliv .d{flex:1;background:rgba(47,213,155,.05);border:1px solid rgba(47,213,155,.22);border-radius:7px;padding:6px 8px;}
+.s9 .deliv .d b{display:block;font-family:Poppins;font-weight:600;font-size:7.6px;color:#7df0c6;margin-bottom:2px;}
+.s9 .deliv .d span{font-size:6.7px;line-height:1.4;color:#b7c9df;}
+.s9 .summary .team{margin-top:7px;background:rgba(0,208,240,.05);border:1px solid rgba(0,208,240,.16);border-radius:8px;padding:6px 9px;font-size:6.6px;line-height:1.45;color:#b7c9df;}
+.s9 .summary .team b{color:#8bebf9;font-weight:500;}
+
+
+.a3 .body{display:flex;gap:16px;flex:1;margin-top:6px;min-height:0;}
+.a3 .col{min-width:0;}
+.a3 h3{font-family:Poppins;font-weight:600;font-size:8.4px;color:#8bebf9;letter-spacing:.1em;text-transform:uppercase;margin:7px 0 4px;}
+.a3 .tbl{width:100%;border-collapse:collapse;font-size:6.55px;}
+.a3 .tbl th{font-size:5.6px;letter-spacing:.09em;color:#8aa0bb;text-align:left;font-weight:500;text-transform:uppercase;padding:0 0 3px;border-bottom:1px solid rgba(150,190,230,.18);}
+.a3 .tbl td{padding:3px 0;border-bottom:1px solid rgba(150,190,230,.07);color:#b7c9df;line-height:1.3;vertical-align:top;}
+.a3 .tbl td b{color:#eef5ff;font-weight:500;}
+.a3 .tbl .f{text-align:right;white-space:nowrap;color:#8aa0bb;font-size:5.7px;}
+.a3 .annexbar{height:54px;}
+
+
+.a3 .roles{display:flex;gap:8px;margin-top:7px;height:92px;flex:none;}
+.a3 .role{flex:1;background:rgba(0,208,240,.05);border:1px solid rgba(0,208,240,.18);border-radius:8px;padding:8px 10px;}
+.a3 .role .k{font-family:Poppins;font-weight:600;font-size:7.2px;color:#8bebf9;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;}
+.a3 .role .v{font-size:6.4px;line-height:1.45;color:#b7c9df;}
+
+/* ===== Pantalla ===== */
+@media screen{
+  body{display:flex;flex-direction:column;align-items:center;gap:18px;padding:64px 20px 40px;}
+  .slide{border-radius:8px;box-shadow:0 24px 70px rgba(0,0,0,.6);}
+  .screenbar{position:fixed;top:0;left:0;right:0;height:46px;background:rgba(2,11,27,.92);border-bottom:1px solid rgba(0,208,240,.2);display:flex;align-items:center;gap:14px;padding:0 20px;z-index:99;backdrop-filter:blur(8px);}
+  .screenbar .b{font-family:Poppins;font-weight:600;font-size:10px;letter-spacing:.18em;color:#8bebf9;}
+  .screenbar .sp{flex:1;}
+  .screenbar a,.screenbar button{font-family:Inter;font-size:11px;color:#b7c9df;text-decoration:none;background:rgba(0,208,240,.08);border:1px solid rgba(0,208,240,.28);border-radius:999px;padding:6px 13px;cursor:pointer;}
+  .screenbar a:hover,.screenbar button:hover{color:#00d0f0;border-color:#00d0f0;}
+  .screenbar .cnt{font-size:10px;color:#8aa0bb;letter-spacing:.08em;}
+  .hint{font-size:10px;color:#5b7391;margin-top:6px;}
+}
+@media print{
+  body{background:#031129;display:block;padding:0;}
+  .slide{border-radius:0;box-shadow:none;margin:0;zoom:1 !important;}
+  .screenbar,.hint{display:none !important;}
+}
+</style>
+</head>
+<body>
+<nav class="screenbar">
+  <span class="b">INNOVAINTELIGENTE · PROPUESTA</span>
+  <span class="sp"></span>
+  <span class="cnt" id="cnt">01 / 13</span>
+  <a href="propuesta-ia-local.pdf" target="_blank" download>Descargar PDF</a>
+  <button onclick="window.print()">Imprimir</button>
+</nav>
+
+<!-- ============ 01 · PORTADA ============ -->
+<section class="slide cover" id="s1">
+  <div class="glow1"></div>
+  <div class="frame">
+    <div class="top">
+      <div class="brandline">INNOVAINTELIGENTE.COM</div>
+      <div class="tag">PROPUESTA CONFIDENCIAL · OCTUBRE 2026</div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="kicker">SOLUCIÓN DE IA LOCAL · MVP</div>
+        <div class="h1">Inteligencia artificial local<br>para la Dirección de<br><span class="cyan">Distribución y Ventas</span></div>
+        <div class="sub">Un centro de conocimiento documental que responde con evidencia, dentro de su infraestructura y sin enviar un solo dato a internet.</div>
+        <div class="meta">
+          <div><div class="k">Preparado para</div><div class="v">Dirección de Distribución y Ventas</div></div>
+          <div><div class="k">Cliente</div><div class="v">Empresa energética de nivel nacional</div></div>
+          <div><div class="k">Oferente</div><div class="v">Innovainteligente</div></div>
+        </div>
+      </div>
+      <div class="right"><img src="assets/logo-mark.png" alt="Innovainteligente"></div>
+    </div>
+    <div class="footer">
+      <div class="brand">AUTOMATIZACIÓN · I+D+i · GOBERNANZA DE IA &nbsp;·&nbsp; <b>INNOVAINTELIGENTE.COM</b></div>
+      <div class="pg">10 LÁMINAS + 3 ANEXOS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · EL RETO ============ -->
+<section class="slide s2" id="s2">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">01 · EL RETO</div>
+      <div class="h2">El conocimiento está, pero <span class="cyan">no se puede consultar</span></div>
+      <p class="lead">La Dirección decide con información que existe, pero dispersa en contratos, reportes, actas, PDF y archivos físicos. Cada consulta depende de quién la tenga o de cuánto tarde en buscarla.</p>
+    </div>
+    <div class="body">
+      <div class="ask">
+        <div class="who">LA PREGUNTA DE GERENCIA</div>
+        <p class="q">“¿Cómo cerró el despacho de Oriente en septiembre frente a la meta y qué contratos se vieron afectados?”</p>
+        <div class="div"></div>
+        <div class="lbl">Hoy, para responder</div>
+        <p class="txt">Hay que ubicar el reporte correcto, confirmar la versión vigente, cruzar el contrato y pedirle el dato a quien lo trabajó.</p>
+        <div class="lbl">Resultado</div>
+        <p class="txt">Respuestas distintas, sin cita única y sin trazabilidad para la auditoría.</p>
+        <div class="chips"><span class="chip">ERP/CRM</span><span class="chip">Archivos</span><span class="chip">Correo</span><span class="chip">Papel</span></div>
+        <div class="stat"><b>≈ 5 TB</b><span>de documentos, reportes, PDF y archivos físicos según el levantamiento preliminar.</span></div>
+        <div class="bad">La información existe. Lo que falta es un acceso único, verificable y en segundos.</div>
+      </div>
+      <div class="pain">
+        <div class="card"><div class="n">01</div><h3>Dispersión documental</h3><p>Contratos, reportes, actas y PDF conviven en carpetas, correos, equipos y papel, sin un índice único.</p><div class="tagline">Cada área guarda su propia versión.</div></div>
+        <div class="card"><div class="n">02</div><h3>Dependencia de personas</h3><p>El conocimiento crítico vive en pocas personas; si no están, la respuesta se detiene.</p><div class="tagline">El reemplazo no está documentado.</div></div>
+        <div class="card"><div class="n">03</div><h3>Tiempo de respuesta</h3><p>Una pregunta de gerencia tarda días en convertirse en una respuesta verificable y trazable.</p><div class="tagline">La reunión se decide sin el dato.</div></div>
+        <div class="card"><div class="n">04</div><h3>Riesgo y confidencialidad</h3><p>La información estratégica no puede salir a la nube, y el papel se deteriora sin ser auditable.</p><div class="tagline">La nube está fuera de discusión.</div></div>
+      </div>
+    </div>
+    <div class="quote">“Lo que no se puede consultar, no se puede gobernar.” <span>Las cifras se cuantifican en la Fase 0 · diagnóstico</span></div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · PROPUESTA CONFIDENCIAL</div><div class="pg">02 / 13</div></div>
+</section>
+
+<!-- ============ 03 · LA PROPUESTA ============ -->
+<section class="slide s3" id="s3">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">02 · LA PROPUESTA</div>
+      <div class="h2">Un cerebro documental que <span class="cyan">vive en su sede</span></div>
+      <p class="lead">Instalamos un servidor de IA local que lee, ordena y conecta la documentación de la Dirección; responde en lenguaje natural con citas verificables y no envía un solo dato a internet.</p>
+    </div>
+    <div class="body">
+      <div class="caps">
+        <div class="card"><div class="n">01 · COMPRENDE</div><h3>Lee lo que la empresa ya tiene</h3><p>OCR e IDP sobre PDF, escaneos y papel; clasifica, extrae metadatos y detecta duplicados.</p><div class="tags">PDF · escaneos · papel</div></div>
+        <div class="card"><div class="n">02 · ORGANIZA</div><h3>Un índice único y semántico</h3><p>Base vectorial con búsqueda híbrida: significado + palabras clave + filtros por área, fecha y clasificación.</p><div class="tags">Qdrant · índice híbrido</div></div>
+        <div class="card"><div class="n">03 · RESPONDE</div><h3>Copiloto con evidencia</h3><p>Modelo local Qwen3.5 con RAG, reranking y citas de documento, página y fecha en cada respuesta.</p><div class="tags">Citas · confianza alta</div></div>
+        <div class="card"><div class="n">04 · VIGILA</div><h3>Dashboard de operación y de IA</h3><p>Ventas, despacho, inventario, clientes, documentos, calidad de las respuestas y salud del sistema.</p><div class="tags">KPIs · alertas · auditoría</div></div>
+      </div>
+      <div class="local">
+        <h3>Por qué local</h3>
+        <div class="item"><span class="check">✓</span><div class="t"><b>Confidencialidad</b>El dato no sale del perímetro de la empresa.</div></div>
+        <div class="item"><span class="check">✓</span><div class="t"><b>Disponibilidad</b>Opera sin internet y sin depender de terceros.</div></div>
+        <div class="item"><span class="check">✓</span><div class="t"><b>Control</b>La empresa es dueña del dato, del índice y del modelo.</div></div>
+        <div class="item"><span class="check">✓</span><div class="t"><b>Costo predecible</b>Sin cobro por token ni por consulta.</div></div>
+        <div class="item"><span class="check">✓</span><div class="t"><b>Soberanía tecnológica</b>Componentes abiertos, auditables y reemplazables.</div></div>
+        <div class="bottombadge">100 % on-premise · 0 llamadas externas</div>
+      </div>
+    </div>
+    <div class="services">
+      <span class="lbl">Servicios activados</span>
+      <span class="chip">02 · IDP</span><span class="chip">04 · Integración</span><span class="chip">07 · MVP</span><span class="chip">11 · Diagnóstico</span><span class="chip">12 · Hoja de ruta</span><span class="chip">13 · Gobernanza</span><span class="chip">14 · Capacitación</span>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · PROPUESTA CONFIDENCIAL</div><div class="pg">03 / 13</div></div>
+</section>
+
+<!-- ============ 04 · ARQUITECTURA ============ -->
+<section class="slide s4" id="s4">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">03 · ARQUITECTURA</div>
+      <div class="h2">Del documento a la respuesta, <span class="cyan">por capas</span></div>
+      <p class="lead">Una arquitectura modular y auditable que se integra con lo que ya existe y no obliga a reemplazar sistemas.</p>
+    </div>
+    <div class="arch">
+      <div class="layer src"><div class="n">01</div><h3>Fuentes</h3><ul><li>ERP y CRM</li><li>Servidores de archivos</li><li>Correo y PDF</li><li>Archivo físico</li></ul><div class="out">→ documentos y páginas</div></div>
+      <div class="arrow">›</div>
+      <div class="layer"><div class="n">02</div><h3>Ingesta</h3><ul><li>OCR y layout</li><li>Clasificación</li><li>Metadatos</li><li>Deduplicación</li></ul><div class="out">→ texto y metadatos</div></div>
+      <div class="arrow">›</div>
+      <div class="layer"><div class="n">03</div><h3>Conocimiento</h3><ul><li>Almacén documental</li><li>Qdrant</li><li>Embeddings</li><li>Índice híbrido</li></ul><div class="out">→ vectores y fragmentos</div></div>
+      <div class="arrow">›</div>
+      <div class="layer"><div class="n">04</div><h3>Inteligencia</h3><ul><li>Qwen3.5 local</li><li>RAG</li><li>Reranking</li><li>Citas validadas</li></ul><div class="out">→ respuesta citada</div></div>
+      <div class="arrow">›</div>
+      <div class="layer"><div class="n">05</div><h3>Experiencia</h3><ul><li>Copiloto web</li><li>API interna</li><li>Dashboard</li><li>Alertas</li></ul><div class="out">→ decisiones</div></div>
+      <div class="arrow">›</div>
+      <div class="layer"><div class="n">06</div><h3>Gobierno</h3><ul><li>Roles (RBAC)</li><li>Auditoría</li><li>Cifrado y respaldo</li><li>Monitoreo</li></ul><div class="out">→ control y trazabilidad</div></div>
+    </div>
+    <div class="principles">
+      <div class="p"><b>Local-first</b><span>Sin dependencia de nube ni llamadas externas.</span></div>
+      <div class="p"><b>Modular</b><span>Escala por etapas sin rehacer la base.</span></div>
+      <div class="p"><b>Trazable</b><span>Cada respuesta con su fuente y su página.</span></div>
+      <div class="p"><b>Interoperable</b><span>API y conectores con los sistemas existentes.</span></div>
+    </div>
+    <div class="flow">
+      <div class="f"><div class="k">PASO 1</div><div class="v">Pregunta en lenguaje natural</div></div><div class="ar">›</div>
+      <div class="f"><div class="k">PASO 2</div><div class="v">Búsqueda híbrida en el índice</div></div><div class="ar">›</div>
+      <div class="f"><div class="k">PASO 3</div><div class="v">Reranking de los fragmentos</div></div><div class="ar">›</div>
+      <div class="f"><div class="k">PASO 4</div><div class="v">Respuesta con citas validadas</div></div>
+    </div>
+    <div class="proof">
+      <div class="p"><div class="k">100 %</div><div class="v">Del dato permanece en la infraestructura de la empresa.</div></div>
+      <div class="p"><div class="k">0</div><div class="v">Llamadas a servicios externos; opción de operación aislada.</div></div>
+      <div class="p"><div class="k">TRAZA</div><div class="v">Cada respuesta queda vinculada a su documento y su página.</div></div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · PROPUESTA CONFIDENCIAL</div><div class="pg">04 / 13</div></div>
+</section>
+
+<!-- ============ 05 · CASOS DE USO ============ -->
+<section class="slide s5" id="s5">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">04 · BASE DE CONOCIMIENTO</div>
+      <div class="h2">Qué podrá preguntar la Dirección <span class="cyan">y qué obtendrá</span></div>
+      <p class="lead">Respuestas en segundos, con la fuente exacta y el fragmento citado. Nada de cajas negras: la evidencia se puede abrir y auditar.</p>
+    </div>
+    <div class="body">
+      <div class="cases">
+        <div class="card"><div class="n">01</div><h3>Contratos</h3><p>Cláusulas, vigencias, penalidades y volúmenes comprometidos.</p><div class="ex">«Resume las penalidades del contrato X»</div></div>
+        <div class="card"><div class="n">02</div><h3>Despacho y ventas</h3><p>Cliente, producto, terminal y período; desviaciones frente al plan.</p><div class="ex">«Compara despacho vs. plan por terminal»</div></div>
+        <div class="card"><div class="n">03</div><h3>Reportes</h3><p>Hallazgos, incidencias y planes de acción de períodos anteriores.</p><div class="ex">«Qué incidencias afectaron Oriente»</div></div>
+        <div class="card"><div class="n">04</div><h3>Cumplimiento</h3><p>Documentos faltantes, vencimientos y soportes de auditoría.</p><div class="ex">«Qué documentos faltan para auditoría»</div></div>
+        <div class="card"><div class="n">05</div><h3>Archivo físico</h3><p>Digitalización y búsqueda de expedientes históricos.</p><div class="ex">«Busca el expediente del cliente Y»</div></div>
+        <div class="card"><div class="n">06</div><h3>Briefs ejecutivos</h3><p>Preparación de reuniones con citas en minutos, no en días.</p><div class="ex">«Brief para la reunión del comité»</div></div>
+      </div>
+      <div class="rightcol">
+        <div class="chat">
+          <div class="who">EJEMPLO DE CONSULTA · GERENCIA DE DESPACHO</div>
+          <div class="q">¿Cómo cerró el despacho de Oriente en septiembre frente a la meta y qué contratos se vieron afectados?</div>
+          <div class="a">El volumen despachado alcanzó 94 % de la meta. La desviación se concentra en Puerto La Cruz por el retraso de dos buques; los contratos D-2026-114 y D-2026-087 registran ajustes.</div>
+          <div class="cite">Fuente 1 · Informe de despacho septiembre · p. 12<br>Fuente 2 · Acta de comité 12/10 · p. 3<br>Fuente 3 · Contrato D-2026-114 · p. 8</div>
+          <div class="meta">6,2 s · 3 fuentes · confianza alta · original enlazado</div>
+        </div>
+        <div class="trace">
+          <h3>Qué garantiza cada respuesta</h3>
+          <div class="g"><b>Anclaje</b> Se limita a los fragmentos recuperados.</div>
+          <div class="g"><b>Cita</b> Se verifica contra el documento original.</div>
+          <div class="g"><b>Sin evidencia</b> Si no consta, lo dice; no inventa.</div>
+          <div class="sug"><span class="lbl">PREGUNTAS SUGERIDAS</span><span class="chip">Resume el contrato X</span><span class="chip">Despacho vs. plan</span><span class="chip">Documentos de auditoría</span></div>
+          <div class="meta3"><div><b>Documento</b> original enlazado</div><div><b>Página</b> y sección exactas</div><div><b>Fecha</b> y versión del archivo</div><div><b>Confianza</b> alta · trazable</div></div>
+        </div>
+      </div>
+    </div>
+    
+<div class="note"><b>Cada respuesta incluye</b> documento, página o sección, fecha, nivel de confianza y enlace al original. El ejemplo es ilustrativo; las cifras reales dependen de la base documental.</div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · PROPUESTA CONFIDENCIAL</div><div class="pg">05 / 13</div></div>
+</section>
+
+
+<!-- ============ 06 · DASHBOARD ============ -->
+<section class="slide s6" id="s6">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">05 · DASHBOARD DE OPERACIONES</div>
+      <div class="h2">El pulso de la operación y de la IA, <span class="cyan">en una sola pantalla</span></div>
+      <p class="lead">Ventas, despacho, inventario, clientes, contratos, precios, documentos, copiloto, observatorio de almacenes, flota y yacencias: una sola vista para decidir.</p>
+    </div>
+    <div class="dash">
+      <div class="chrome"><div class="cdot"></div><div class="cdot y"></div><div class="cdot g"></div><div class="url">https://panel.interno/distribucion-y-ventas</div><div class="live">● SISTEMA LOCAL · EN LÍNEA</div></div>
+      <div class="dbody">
+        <div class="side">
+          <div class="mini"><img src="assets/logo-mark.png" alt=""><span>innova<br>inteligente</span></div>
+          <div class="nav">
+            <div class="on">Resumen <b>●</b></div><div>Ventas</div><div>Despacho</div><div>Inventario</div><div>Clientes</div><div>Contratos</div><div>Observatorio</div><div>Flota</div><div>Precios y márgenes</div><div>Documentos</div><div>Copiloto IA</div><div>Alertas <b>3</b></div><div>Administración</div>
+          </div>
+          <div class="sys">Última sincronización<br>27/10/2026 · 08:42<br><br>Modelo: Qwen3.5 local<br>Índice: 12.480 docs<br>Estado: <span style="color:#2fd59b">óptimo</span><br>Respaldo: 02:00 ✓</div>
+        </div>
+        <div class="main">
+          <div class="kpis">
+            <div class="kpi"><div class="k">Volumen despachado</div><div class="v">1.842.500</div><div class="d">bbl · +4,2 % vs. plan</div></div>
+            <div class="kpi"><div class="k">Cumplimiento</div><div class="v">92,4 %</div><div class="d w">−1,8 pts vs. mes anterior</div></div>
+            <div class="kpi"><div class="k">Ocupación de almacenes</div><div class="v">78,4 %</div><div class="d w">3 yacencias críticas</div></div>
+            <div class="kpi"><div class="k">Consultas IA hoy</div><div class="v">124</div><div class="d">6,2 s promedio</div></div>
+          </div>
+          <div class="grid2">
+            <div class="card2">
+              <h3>Despacho mensual</h3><div class="sub">bbl × 10³ · 2026 · línea punteada = meta</div>
+              <div class="bars"><div class="target"></div>
+                <div class="bar" style="height:52%"></div><div class="bar" style="height:61%"></div><div class="bar" style="height:58%"></div><div class="bar" style="height:67%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:69%"></div><div class="bar" style="height:78%"></div><div class="bar" style="height:82%"></div><div class="bar" style="height:79%"></div><div class="bar" style="height:88%"></div><div class="bar" style="height:92%"></div><div class="bar dim" style="height:64%"></div>
+              </div>
+              <div class="blab"><span>E</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
+            </div>
+            <div class="card2">
+              <h3>Mix por producto</h3><div class="sub">participación del volumen</div>
+              <div class="mix">
+                <div class="row"><div class="lbl">Gasolina 91</div><div class="track"><div class="fill" style="width:84%"></div></div><div class="pct">48 %</div></div>
+                <div class="row"><div class="lbl">Diésel</div><div class="track"><div class="fill" style="width:56%"></div></div><div class="pct">27 %</div></div>
+                <div class="row"><div class="lbl">Jet A-1</div><div class="track"><div class="fill" style="width:34%"></div></div><div class="pct">15 %</div></div>
+                <div class="row"><div class="lbl">Fuel oil</div><div class="track"><div class="fill" style="width:22%"></div></div><div class="pct">10 %</div></div>
+              </div>
+              <div class="sub" style="margin-top:8px;margin-bottom:0">Cumplimiento por región</div>
+              <div class="mix">
+                <div class="row"><div class="lbl">Oriente</div><div class="track"><div class="fill" style="width:94%"></div></div><div class="pct">94 %</div></div>
+                <div class="row"><div class="lbl">Occidente</div><div class="track"><div class="fill" style="width:91%"></div></div><div class="pct">91 %</div></div>
+                <div class="row"><div class="lbl">Centro</div><div class="track"><div class="fill" style="width:88%"></div></div><div class="pct">88 %</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="row3">
+            <div class="card2">
+              <h3>Documentos indexados recientemente</h3>
+              <table class="tbl"><tr><th>DOCUMENTO</th><th>ÁREA</th><th>PÁG.</th><th>ESTADO</th></tr>
+              <tr><td>Contrato de suministro D-2026-114</td><td>Contratos</td><td>42</td><td><span class="chip2">Indexado</span></td></tr>
+              <tr><td>Informe de despacho septiembre</td><td>Operaciones</td><td>28</td><td><span class="chip2">Indexado</span></td></tr>
+              <tr><td>Acta de comité de ventas 12/10</td><td>Dirección</td><td>6</td><td><span class="chip2 w">OCR pendiente</span></td></tr>
+              <tr><td>Reporte de cobertura regional</td><td>Ventas</td><td>19</td><td><span class="chip2">Indexado</span></td></tr>
+              <tr><td>Precios autorizados octubre</td><td>Comercial</td><td>11</td><td><span class="chip2">Indexado</span></td></tr>
+              </table>
+            </div>
+            <div class="card2">
+              <h3>Copiloto IA · consulta reciente</h3>
+              <div class="q"><div class="who">GERENCIA DE DESPACHO</div>¿Cómo cerró el despacho de Oriente en septiembre frente a la meta?</div>
+              <div class="a">El volumen despachado alcanzó 94 % de la meta; la desviación se concentra en el terminal de Puerto La Cruz por retraso de dos buques.</div>
+              <div class="cite">Fuentes: Informe de despacho sept. · p. 12 · Acta de comité 12/10 · p. 3</div>
+              <div class="meta2"><b>●</b> 6,2 s &nbsp;·&nbsp; 3 fuentes &nbsp;·&nbsp; confianza alta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · DATOS ILUSTRATIVOS · KPI EN ANEXO C</div><div class="pg">06 / 13</div></div>
+</section>
+
+<!-- ============ 07 · MVP ============ -->
+<section class="slide s7" id="s7">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">06 · MVP</div>
+      <div class="h2">Qué entregamos y <span class="cyan">con qué equipo</span></div>
+      <p class="lead">Un producto mínimo viable en 16–24 semanas (incluida la adquisición), con alcance cerrado y una estación AMD Strix Halo dimensionada para modelos de 30B a 235B.</p>
+    </div>
+    <div class="body">
+      <div class="scope">
+        <div class="item"><div class="n">1</div><div class="t"><b>Estación de IA local.</b> GMKtec EVO-X5 Pro: PRO 495, 192 GB LPDDR5X, 2 TB NVMe, 2×10 GbE; UPS y respaldo.</div></div>
+        <div class="item"><div class="n">2</div><div class="t"><b>Ingesta del lote piloto.</b> 1.500–3.000 documentos (10.000–20.000 páginas) con OCR, clasificación y metadatos.</div></div>
+        <div class="item"><div class="n">3</div><div class="t"><b>Base vectorial y motor RAG.</b> Qdrant, búsqueda híbrida, reranking y citas validadas.</div></div>
+        <div class="item"><div class="n">4</div><div class="t"><b>Copiloto para 10–20 usuarios.</b> Roles y permisos, interfaz web y API para sistemas internos.</div></div>
+        <div class="item"><div class="n">5</div><div class="t"><b>Dashboard v1, gobernanza y capacitación.</b> Manual, dos talleres y transferencia al equipo.</div></div>
+        <div class="why">
+          <div class="w"><b>192 GB</b> permiten el modelo 122B + embeddings + reranker en memoria.</div>
+          <div class="w"><b>273 GB/s</b> sostienen 78–100 tok/s estimados en el modelo interactivo.</div>
+          <div class="w"><b>2×10 GbE + DASH</b> dan perfil de servidor, no de escritorio.</div>
+        </div>
+        <div class="closenote">El lote documental y el alcance exacto se cierran en la Fase 0 con la Dirección.</div>
+      </div>
+      <div class="spec">
+        <div class="top"><div><div class="lbl">ESTACIÓN IA LOCAL</div><div class="big">192 <span>GB</span></div><div class="note">LPDDR5X-8533 · 273 GB/s · 160 GB para GPU</div></div><div style="text-align:right;font-size:6.4px;color:#8aa0bb;line-height:1.5">196 GB no existe<br>como SKU oficial</div></div>
+        <div class="rows">
+          <div class="r"><span>APU</span><b>Ryzen AI Max+ PRO 495 · 16C/32T</b></div>
+          <div class="r"><span>GPU</span><b>Radeon 8065S · 40 CU</b></div>
+          <div class="r"><span>NPU</span><b>XDNA 2 · 55 TOPS</b></div>
+          <div class="r"><span>Almacenamiento</span><b>2 TB NVMe · 4 ranuras M.2 (1 + 3)</b></div>
+          <div class="r"><span>Red</span><b>2×10 GbE · AMD DASH</b></div>
+          <div class="r"><span>Energía</span><b>Fuente 330 W · 1.051,2–1.226,4 kWh/año</b></div>
+          <div class="r"><span>Sistema</span><b>Windows 11 Pro · Linux/Ubuntu</b></div>
+          <div class="r"><span>Garantía</span><b>1 año + 2 de componentes</b></div>
+        </div>
+        <div class="includes">Incluye UPS, respaldo externo, instalación y red. 2 TB locales para el lote piloto; los ~5 TB se montan en NAS/almacenamiento corporativo.</div>
+        <div class="price"><div><div class="lbl">PRECIO OFICIAL</div><div class="p">USD 6.799,00</div></div><div class="s">192 GB + 2 TB<br>sin flete, aranceles ni IVA</div></div>
+      </div>
+    </div>
+    <div class="strip">
+      <div class="box"><div class="lbl">CRITERIOS DE ACEPTACIÓN</div><span class="chip">100 % lote sin pérdida</span><span class="chip">Citas ≥ 95 %</span><span class="chip">Latencia &lt; 10 s</span><span class="chip">Operación offline</span></div>
+      <div class="box"><div class="lbl">MODELOS LOCALES</div><span class="chip">Qwen3.5-35B-A3B · interactivo</span><span class="chip">Qwen3.5-122B-A10B · análisis</span><div class="txt" style="margin-top:4px">262.000 tokens · Apache-2.0 · DeepSeek V4.1 no cabe en 192 GB.</div></div>
+      <div class="box"><div class="lbl">SALVEDAD TÉCNICA</div><div class="txt">MVP/piloto: los ~5 TB y la concurrencia nacional exigen clúster en fase 2. Mini-PC profesional, no servidor certificado 24/7; UPS y monitoreo.</div></div>
+    </div>
+    <div class="tl">
+      <div class="line"></div>
+      <div class="phases">
+        <div class="ph"><div class="dot"></div><div class="t">F0 · Diagnóstico</div><div class="d">2 semanas</div></div>
+        <div class="ph"><div class="dot"></div><div class="t">F1 · Ingesta</div><div class="d">4 semanas</div></div>
+        <div class="ph"><div class="dot"></div><div class="t">F2 · Modelo y RAG</div><div class="d">3 semanas</div></div>
+        <div class="ph"><div class="dot"></div><div class="t">F3 · Dashboard</div><div class="d">3 semanas</div></div>
+        <div class="ph"><div class="dot"></div><div class="t">F4 · Cierre</div><div class="d">2 semanas</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · PROPUESTA CONFIDENCIAL</div><div class="pg">07 / 13</div></div>
+</section>
+
+<!-- ============ 08 · SEGURIDAD ============ -->
+<section class="slide s8" id="s8">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">07 · SEGURIDAD Y GOBERNANZA</div>
+      <div class="h2">La IA opera dentro del perímetro; <span class="cyan">el conocimiento es de la empresa</span></div>
+      <p class="lead">El dato, el índice y el modelo viven en la infraestructura de la empresa. Sin llamadas externas, con roles, auditoría y respaldo.</p>
+    </div>
+    <div class="body">
+      <div class="perim">
+        <div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div>
+        <div class="core">DATO<span>Y CONOCIMIENTO</span></div>
+        <div class="plabel pl1">PERÍMETRO DE LA EMPRESA</div>
+        <div class="plabel pl2">SERVIDOR IA LOCAL</div>
+        <div class="plabel pl3">ÍNDICE Y MODELO</div>
+      </div>
+      <div class="commit">
+        <div class="card"><h3>100 % on-premise</h3><p>Sin salida a internet; opción de operación aislada (air-gap).</p></div>
+        <div class="card"><h3>Roles y permisos</h3><p>RBAC e integración con LDAP/Active Directory.</p></div>
+        <div class="card"><h3>Cifrado y auditoría</h3><p>Cifrado en reposo y tránsito; registro de consultas y accesos.</p></div>
+        <div class="card"><h3>Respaldo 3-2-1</h3><p>Copia local, externa y fuera de línea; plan de continuidad.</p></div>
+        <div class="card"><h3>Gobernanza del dato</h3><p>Clasificación, retención, calidad y trazabilidad.</p></div>
+        <div class="card"><h3>Ética y sesgos</h3><p>Revisión de respuestas, criterios de uso y documentación del modelo.</p></div>
+        <div class="card"><h3>Continuidad operativa</h3><p>UPS, monitoreo térmico y segundo nodo opcional.</p></div>
+        <div class="card"><h3>Cumplimiento</h3><p>Contratos, políticas de uso y validación jurídica del marco aplicable.</p></div>
+        <div class="barsafe">SIN TELEMETRÍA · SIN LLAMADAS EXTERNAS · SIN ENTRENAMIENTO CON DATOS DEL CLIENTE</div>
+        <div class="prop"><b>Propiedad:</b> el dato y el conocimiento son del cliente; Innovainteligente conserva su metodología y componentes reutilizables, con licencia de uso. Confidencialidad contractual y validación jurídica del marco aplicable.</div>
+      </div>
+    </div>
+    <div class="audit">
+      <div class="lbl">QUÉ QUEDA REGISTRADO</div>
+      <div class="items">
+        <div><b>Usuario y rol</b>Quién consultó y con qué permisos.</div>
+        <div><b>Consulta y fuentes</b>Qué preguntó y qué documentos sustentaron la respuesta.</div>
+        <div><b>Documento y versión</b>Página, fecha y hash del archivo citado.</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · PROPUESTA CONFIDENCIAL</div><div class="pg">08 / 13</div></div>
+</section>
+
+
+<!-- ============ 09 · INVERSIÓN ============ -->
+<section class="slide s9" id="s9">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">08 · INVERSIÓN DEL MVP</div>
+      <div class="h2">Una inversión clara, <span class="cyan">sin costo por token</span></div>
+      <p class="lead">MVP estimado en <b>USD 64.967,38</b> (cifras orientativas, con logística estimada). Primer año: <b>USD 73.607,38</b>. Horas y tarifas propuestas, a validar en la Fase 0.</p>
+    </div>
+    <div class="body">
+      <div class="inv2">
+        <table class="tbl3">
+          <tr><th>Componente</th><th>Detalle</th><th class="h">Horas</th><th class="r">USD</th></tr>
+          <tr><td><b>1. Hardware</b></td><td>Estación GMKtec EVO-X5 Pro 192 GB + 2 TB.</td><td class="h">—</td><td class="r">6.799,00</td></tr>
+          <tr><td><b>2. Logística e importación</b></td><td>Flete, seguro, aranceles e IVA (reserva 25 %; a cotizar).</td><td class="h">—</td><td class="r">2.212,25</td></tr>
+          <tr><td><b>3. Asesoría y gobernanza</b></td><td>Diagnóstico, casos de uso, hoja de ruta, políticas, 2 talleres.</td><td class="h">160</td><td class="r">8.800,00</td></tr>
+          <tr><td><b>4. Programación e integración</b></td><td>IDP/OCR, RAG, Qdrant, dashboard, API, RBAC y respaldo.</td><td class="h">560</td><td class="r">22.400,00</td></tr>
+          <tr><td><b>5. Adecuación de modelos</b></td><td>Evaluación, prompts, LoRA/QLoRA, cuantización y citas.</td><td class="h">180</td><td class="r">10.800,00</td></tr>
+          <tr><td><b>6. Gestión y QA</b></td><td>Dirección de proyecto, pruebas, aceptación y documentación.</td><td class="h">120</td><td class="r">6.000,00</td></tr>
+          <tr><td><b>7. Complementos</b></td><td>NAS 5 TB, UPS y respaldo externo (estimado).</td><td class="h">—</td><td class="r">2.050,00</td></tr>
+          <tr class="sub"><td colspan="2"><b>Subtotal</b></td><td class="h">1.020</td><td class="r">59.061,25</td></tr>
+          <tr><td colspan="2">Contingencia 10 %</td><td class="h">—</td><td class="r">5.906,13</td></tr>
+          <tr class="total"><td colspan="2">TOTAL MVP · cifras orientativas</td><td class="h">1.020</td><td class="r">64.967,38</td></tr>
+        </table>
+        <div class="calc"><div class="lbl">BASE DEL CÁLCULO</div><div class="g">1.020 horas de esfuerzo · tarifas propuestas: asesoría USD 55,00/h, programación USD 40,00/h, modelos USD 60,00/h, gestión USD 50,00/h · logística/IVA: reserva 25 % sobre hardware y complementos (a cotizar) · contingencia 10 %.</div></div>
+        <div class="ph2"><div class="lbl">FASE 2 · A COTIZAR</div><div class="g">Clúster de inferencia, almacenamiento distribuido para 5 TB y observatorio en tiempo real (Kafka/PostGIS).</div></div>
+        <div class="deliv"><div class="d"><b>Copiloto</b><span>RAG con citas</span></div><div class="d"><b>Dashboard</b><span>9 módulos</span></div><div class="d"><b>Modelo</b><span>Qwen3.5 adaptado</span></div></div>
+      </div>
+      <div class="summary">
+        <div class="lbl">SOPORTE 12 MESES</div>
+        <div class="big">USD 8.640,00 <span>/ año</span></div>
+        <div class="small">18 % sobre servicios: monitoreo, actualizaciones, calidad y mesa de ayuda.</div>
+        <div class="sep"></div>
+        <div class="lbl">INVERSIÓN PRIMER AÑO</div>
+        <div class="big">USD 73.607,38</div>
+        <div class="small">MVP + 12 meses de soporte.</div>
+        <div class="sep"></div>
+        <div class="lbl">TARIFAS PROPUESTAS</div>
+        <div class="row"><span>Asesoría senior</span><b>USD 55,00/h</b></div>
+        <div class="row"><span>Programación</span><b>USD 40,00/h</b></div>
+        <div class="row"><span>Modelos IA</span><b>USD 60,00/h</b></div>
+        <div class="row"><span>Gestión y QA</span><b>USD 50,00/h</b></div>
+        <div class="note">La logística/IVA es una reserva orientativa; se cotiza. No incluye licencias de terceros. Complementos y horas son estimaciones; la Fase 0 confirma alcance.</div>
+        <div class="phasebox"><div class="lbl">FASE 2</div><div class="small">A cotizar: clúster, 5 TB distribuidos y observatorio en tiempo real.</div></div>
+        <div class="team"><b>Equipo:</b> líder de proyecto · IA/RAG · IDP · dashboard · seguridad (parcial).</div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="b"><div class="k">Costo por consulta</div><div class="v"><b>USD 0,00</b> · sin cobro por token</div></div>
+      <div class="b"><div class="k">Energía estimada</div><div class="v"><b>USD 157,68–183,96/año</b> · 0,15 USD/kWh</div></div>
+      <div class="b"><div class="k">Datos</div><div class="v"><b>100 % locales</b> · sin salida a internet</div></div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · PROPUESTA CONFIDENCIAL</div><div class="pg">09 / 13</div></div>
+</section>
+
+<!-- ============ 10 · RUTA ============ -->
+<section class="slide s10" id="s10">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">09 · RUTA Y PRÓXIMOS PASOS</div>
+      <div class="h2">De la decisión al conocimiento <span class="cyan">consultable</span></div>
+      <p class="lead">Seis hitos. La Dirección solo necesita aprobar la Fase 0, designar una contraparte y facilitar el lote documental piloto.</p>
+    </div>
+    <div class="road">
+      <div class="line"></div>
+      <div class="steps">
+        <div class="step"><div class="n">00</div><div class="dot"></div><div class="t">Aprobación</div><div class="d">Semana 0</div></div>
+        <div class="step"><div class="n">01</div><div class="dot"></div><div class="t">Diagnóstico</div><div class="d">Semanas 1–2</div></div>
+        <div class="step"><div class="n">02</div><div class="dot"></div><div class="t">Adquisición</div><div class="d">Semanas 2–10</div></div>
+        <div class="step"><div class="n">03</div><div class="dot"></div><div class="t">Ingesta</div><div class="d">Semanas 3–8</div></div>
+        <div class="step"><div class="n">04</div><div class="dot"></div><div class="t">Copiloto y dashboard</div><div class="d">Semanas 8–13</div></div>
+        <div class="step"><div class="n">05</div><div class="dot"></div><div class="t">Capacitación y entrega</div><div class="d">Semanas 13–16</div></div>
+      </div>
+    </div>
+    <div class="gantt">
+      <div class="gtitle"><span>CRONOGRAMA · 16 SEMANAS</span><span>ADQUISICIÓN EN PARALELO</span></div>
+      <div class="grow"><div class="gl">Adquisición</div><div class="gt"><div class="gb alt" style="left:6.25%;width:50%">semanas 2–10</div></div></div>
+      <div class="grow"><div class="gl">F0 · Diagnóstico</div><div class="gt"><div class="gb" style="left:0%;width:12.5%">1–2</div></div></div>
+      <div class="grow"><div class="gl">F1 · Ingesta</div><div class="gt"><div class="gb" style="left:12.5%;width:37.5%">3–8</div></div></div>
+      <div class="grow"><div class="gl">F2 · Modelo y RAG</div><div class="gt"><div class="gb" style="left:37.5%;width:25%">7–10</div></div></div>
+      <div class="grow"><div class="gl">F3 · Dashboard</div><div class="gt"><div class="gb" style="left:50%;width:31.25%">9–13</div></div></div>
+      <div class="grow"><div class="gl">F4 · Cierre</div><div class="gt"><div class="gb" style="left:75%;width:18.75%">13–16</div></div></div>
+      <div class="foot">Plazo total 16–24 semanas según importación y disponibilidad. <b style="color:#8bebf9;font-weight:500">Fase 2 (mes 5+):</b> clúster de inferencia, observatorio en tiempo real y cobertura nacional.</div>
+    </div>
+    <div class="bottom">
+      <div class="need">
+        <h3>Qué necesitamos de la Dirección</h3>
+        <div class="it"><span class="check">✓</span>Contraparte técnica con capacidad de decisión.</div>
+        <div class="it"><span class="check">✓</span>Acceso al lote documental piloto y a los sistemas de origen.</div>
+        <div class="it"><span class="check">✓</span>Espacio físico, red y punto de energía para el equipo.</div>
+        <div class="it"><span class="check">✓</span>Validación jurídica del marco de confidencialidad y uso del dato.</div>
+        <div class="risk">La adquisición es el hito crítico: se recomienda iniciarla en paralelo a la Fase 0.</div>
+      </div>
+      <div class="decision">
+        <h3>Decisión solicitada</h3>
+        <p>Aprobar el alcance del MVP y autorizar el inicio de la Fase 0 (diagnóstico y definición del lote piloto).</p>
+        <div class="checks"><div><span class="check">✓</span> Aprobar el alcance del MVP</div><div><span class="check">✓</span> Designar la contraparte técnica</div><div><span class="check">✓</span> Autorizar el inicio de la Fase 0</div></div>
+        <div class="next">La Fase 0 no requiere el hardware: puede comenzar de inmediato.</div>
+        <div class="cta">Aprobar la Fase 0 →</div>
+        <div class="contact">info@innovainteligente.com · WhatsApp +58 414-381-3674<br>innovainteligente.com · Propuesta confidencial</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · PROPUESTA CONFIDENCIAL</div><div class="pg">10 / 13</div></div>
+</section>
+
+<!-- ============ ANEXO A ============ -->
+<section class="slide annex" id="a1">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">ANEXO A · FICHA TÉCNICA</div>
+      <div class="h2">Sustento del <span class="cyan">MVP</span></div>
+      <p class="lead">Especificaciones verificadas en fuentes oficiales al 27/10/2026. Los precios son de tienda oficial, en USD y sin impuestos.</p>
+    </div>
+    <div class="body">
+      <div class="col" style="flex:1.15">
+        <h3>Equipo propuesto · GMKtec EVO-X5 Pro</h3>
+        <table class="tbl">
+          <tr><th>Dato</th><th>Valor</th></tr>
+          <tr><td><b>APU</b></td><td>AMD Ryzen AI Max+ PRO 495 · 16C/32T · Zen 5 · 5,2 GHz</td></tr>
+          <tr><td><b>GPU</b></td><td>Radeon 8065S · 40 CU RDNA 3.5</td></tr>
+          <tr><td><b>NPU</b></td><td>XDNA 2 · 55 TOPS · 132 TOPS totales</td></tr>
+          <tr><td><b>Memoria</b></td><td>192 GB LPDDR5X-8533 (8 × 24 GB) · 273 GB/s · 160 GB para GPU</td></tr>
+          <tr><td><b>Almacenamiento</b></td><td>2 TB NVMe + 3 ranuras adicionales M.2 · hasta 24 TB</td></tr>
+          <tr><td><b>Red</b></td><td>2×10 GbE (una con DASH) · Wi-Fi 7 · BT 5.4</td></tr>
+          <tr><td><b>Seguridad</b></td><td>dTPM 2.0 · AMD DASH · lector de huellas</td></tr>
+          <tr><td><b>Sistema operativo</b></td><td>Windows 11 Pro · soporte Linux/Ubuntu declarado</td></tr>
+          <tr><td><b>Consumo</b></td><td>120 W sostenidos / 160 W pico · fuente 330 W</td></tr>
+          <tr><td><b>Precio</b></td><td><b>USD 6.799,00</b> (2 TB) · USD 7.099,00 (4 TB)</td></tr>
+          <tr><td><b>Garantía</b></td><td>1 año equipo + 2 años componentes</td></tr>
+          <tr><td><b>24/7</b></td><td>Sin declaración explícita; mini-PC profesional, no servidor certificado</td></tr>
+        </table>
+        <div class="box note" style="margin-top:7px"><b>196 GB:</b> no existe como SKU. El máximo oficial es 192 GB (familia PRO 400). 192 GiB = 196.608 MiB; leer ese valor como MB y dividirlo entre 1.000 produce «196 GB». Hipótesis del origen de la cifra; se recomienda corregir el requisito a 192 GB.</div>
+        <h3 style="margin-top:9px">Alternativas evaluadas</h3>
+        <table class="tbl">
+          <tr><th>Equipo</th><th>RAM</th><th>Precio</th><th>Disponibilidad</th></tr>
+          <tr><td><b>Framework Desktop DIY</b></td><td>192 GB</td><td>USD 6.799,00 sin SSD</td><td>Pre-orden dic-2026</td></tr>
+          <tr><td><b>Minisforum MS-S1 MAX-P495</b></td><td>192 GB</td><td>No encontrado</td><td>No disponible</td></tr>
+          <tr><td><b>Minisforum N5 MAX NAS</b></td><td>128 GB</td><td>USD 3.679,00</td><td>Envío nov-2026</td></tr>
+          <tr><td><b>GMKtec EVO-X3</b></td><td>128 GB</td><td>USD 3.799,99</td><td>En venta · 24/7</td></tr>
+        </table>
+      </div>
+      <div class="col" style="flex:.9">
+        <h3>Modelos locales</h3>
+        <table class="tbl">
+          <tr><th>Modelo</th><th>Uso</th><th class="c">Memoria</th></tr>
+          <tr><td><b>Qwen3.5-35B-A3B</b></td><td>Interactivo</td><td class="c">22 GB</td></tr>
+          <tr><td><b>Qwen3.5-122B-A10B</b></td><td>Análisis profundo</td><td class="c">81 GB</td></tr>
+          <tr><td><b>Qwen3-Embedding-8B</b></td><td>Embeddings</td><td class="c">~16 GB</td></tr>
+          <tr><td><b>Qwen3-Reranker-8B</b></td><td>Reranking</td><td class="c">~16 GB</td></tr>
+        </table>
+        <div class="note">Qwen3.5: 262.000 tokens de contexto · Apache-2.0 · 201 idiomas. DeepSeek V4.1-Flash (552B, ~310 GB) y R1 (671B, ~404 GB en Q4) no caben en 192 GB; se evalúan en una segunda etapa.</div>
+        <h3 style="margin-top:9px">Stack de software</h3>
+        <table class="tbl">
+          <tr><td><b>Inferencia</b></td><td>Ollama / llama.cpp · vLLM para alta concurrencia</td></tr>
+          <tr><td><b>Vectorial</b></td><td>Qdrant</td></tr>
+          <tr><td><b>OCR / IDP</b></td><td>PaddleOCR + Tesseract · Qwen3-VL para páginas difíciles</td></tr>
+          <tr><td><b>Orquestación</b></td><td>Pipeline RAG propio sobre API local</td></tr>
+          <tr><td><b>Dashboard</b></td><td>Aplicación web a medida + API</td></tr>
+        </table>
+        <div class="box note" style="margin-top:7px"><b>Riesgos declarados:</b> sin benchmark oficial en español; validar ROCm y VRAM en BIOS; importación no incluida; 10–20 usuarios con un nodo. Un Strix Halo es MVP/piloto, no producción nacional: 5 TB y concurrencia requieren clúster (aceleradores AMD Instinct + EPYC + almacenamiento distribuido).</div>
+        <div class="box note" style="margin-top:7px"><b>Criterios de aceptación:</b> 100 % del lote sin pérdida · respuestas con cita ≥ 95 % · latencia &lt; 10 s · operación 100 % offline.</div>
+        <div class="box note" style="margin-top:7px"><b>Fase 2 · escala nacional:</b> nodos de inferencia con aceleradores AMD Instinct, servidores EPYC, almacenamiento distribuido (MinIO/Ceph), Kafka/PostGIS/TimescaleDB y orquestación Kubernetes. El Strix Halo queda como nodo piloto/edge.</div>
+      </div>
+    </div>
+    <div class="annexbar">
+      <div class="ab"><div class="k">PRECIOS</div><div class="v">Oficiales al 27/10/2026, en USD y sin impuestos.</div></div>
+      <div class="ab"><div class="k">ALCANCE</div><div class="v">10 láminas + 2 anexos técnicos.</div></div>
+      <div class="ab"><div class="k">CONTACTO</div><div class="v">info@innovainteligente.com · +58 414-381-3674</div></div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · ANEXO TÉCNICO</div><div class="pg">11 / 13</div></div>
+</section>
+
+<!-- ============ ANEXO B ============ -->
+<section class="slide annex" id="a2">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">ANEXO B · SERVICIOS Y FUENTES</div>
+      <div class="h2">Los 14 servicios, <span class="cyan">mapeados al MVP</span></div>
+      <p class="lead">Catálogo extraído de innovainteligente.com. El MVP activa siete servicios de forma directa; el resto queda como ruta de escalamiento.</p>
+    </div>
+    <div class="body">
+      <div class="col" style="flex:1.3">
+        <h3>Mapa de servicios</h3>
+        <table class="tbl">
+          <tr><th>#</th><th>Servicio</th><th>Momento</th></tr>
+          <tr><td>01</td><td>RPA + IA</td><td>Fase 2</td></tr>
+          <tr><td>02</td><td>Procesamiento Inteligente de Documentos (IDP)</td><td><b>MVP</b></td></tr>
+          <tr><td>03</td><td>Optimización de cadena de suministro y operaciones</td><td>Fase 2</td></tr>
+          <tr><td>04</td><td>Integración de sistemas e interoperabilidad</td><td><b>MVP</b></td></tr>
+          <tr><td>05</td><td>Automatización de atención al cliente y ventas</td><td>Opcional</td></tr>
+          <tr><td>06</td><td>Desarrollo de modelos de IA a medida</td><td>Fase 2</td></tr>
+          <tr><td>07</td><td>Pruebas de concepto y prototipado rápido</td><td><b>MVP</b></td></tr>
+          <tr><td>08</td><td>Consultoría y gestión de fondos de I+D+i</td><td>No activado</td></tr>
+          <tr><td>09</td><td>Analítica predictiva y prescriptiva</td><td>Fase 2</td></tr>
+          <tr><td>10</td><td>Generación de propiedad intelectual</td><td>Fase 2</td></tr>
+          <tr><td>11</td><td>Auditoría de madurez digital y diagnóstico</td><td><b>MVP · Fase 0</b></td></tr>
+          <tr><td>12</td><td>Diseño de la hoja de ruta de IA</td><td><b>MVP</b></td></tr>
+          <tr><td>13</td><td>Gobernanza de datos y ética en IA</td><td><b>MVP</b></td></tr>
+          <tr><td>14</td><td>Capacitación y cambio cultural</td><td><b>MVP</b></td></tr>
+        </table>
+        <div class="box note" style="margin-top:8px"><b>Equipo y plazo:</b> líder de proyecto · ingeniero de IA/RAG · especialista IDP/OCR · desarrollador de dashboard · especialista en seguridad (parcial). Implementación efectiva 12–14 semanas; total 16–24 semanas según importación. El MVP cubre un lote piloto; 5 TB y observatorio en tiempo real son fase 2.</div>
+      </div>
+      <div class="col" style="flex:.8">
+        <h3>Fuentes principales</h3>
+        <div class="src">
+          <b>AMD</b> · ficha del Ryzen AI Max+ PRO 495 y blog del 12/10/2026 (“up to 192GB”).<br>
+          <b>GMKtec</b> · EVO-X5 Pro, 192 GB / 2 TB, USD 6.799,00 (27/10/2026).<br>
+          <b>Framework</b> · Desktop DIY 192 GB, pre-orden dic-2026.<br>
+          <b>Minisforum</b> · MS-S1 MAX-P495 (sin precio) y N5 MAX 128 GB, USD 3.679,00.<br>
+          <b>Qwen</b> · model cards Qwen3.5-35B-A3B, Qwen3.5-122B-A10B, Qwen3-Embedding-8B y Qwen3-Reranker-8B (Hugging Face).<br>
+          <b>DeepSeek</b> · model card DeepSeek-V4.1-Flash-1017 (Hugging Face).<br>
+          <b>Ollama / Qdrant / PaddleOCR / vLLM</b> · documentación oficial y licencias.<br>
+          <b>Innovainteligente</b> · catálogo de 14 servicios y política de gobernanza de IA.
+        </div>
+        <div class="box note" style="margin-top:8px">
+          <b>Nota de transparencia:</b> los precios de HP Z2 Mini G1a, Lenovo ThinkCentre X Ultra y Minisforum MS-S1 MAX-P495 no se encontraron en fuentes oficiales y no se inventaron. El consumo eléctrico es una estimación; el costo real depende de la tarifa local.
+        </div>
+        <div class="box note" style="margin-top:8px"><b>Glosario:</b> <span class="gloss"><b>RAG</b> recuperación aumentada · <b>OCR/IDP</b> lectura de papel y documentos · <b>LLM</b> modelo de lenguaje · <b>embeddings</b> representación vectorial · <b>RBAC</b> permisos por rol · <b>air-gap</b> operación aislada.</span></div>
+        <div class="note" style="margin-top:6px">Documento preparado por Innovainteligente · 27/10/2026 · Confidencial. Los datos del dashboard son ilustrativos.</div>
+        <div class="src" style="margin-top:6px"><b>URLs de verificación</b><span class="urls">amd.com/en/products/processors/laptop/ryzen-pro/ai-max-pro-400-series/amd-ryzen-ai-max-plus-pro-495.html<br>gmktec.com/products/gmktec-evo-x5-pro-amd-ryzen-ai-max-pro-495-ai-mini-pc<br>huggingface.co/Qwen/Qwen3.5-35B-A3B · huggingface.co/Qwen/Qwen3.5-122B-A10B<br>innovainteligente.com/landing/</span></div>
+      </div>
+    </div>
+    <div class="annexbar">
+      <div class="ab"><div class="n">01</div><div class="v">Aprobar la Fase 0 y designar contraparte.</div></div>
+      <div class="ab"><div class="n">02</div><div class="v">Ejecutar el MVP en 16–24 semanas.</div></div>
+      <div class="ab"><div class="n">03</div><div class="v">Escalar con RPA, analítica y segundo nodo.</div></div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · ANEXO DE SERVICIOS</div><div class="pg">12 / 13</div></div>
+</section>
+
+
+
+<!-- ============ ANEXO C · KPIs ============ -->
+<section class="slide annex a3" id="a3">
+  <div class="frame">
+    <div class="header">
+      <div class="kicker">ANEXO C · KPIs PROPUESTOS</div>
+      <div class="h2">Qué medir para <span class="cyan">gobernar la operación</span></div>
+      <p class="lead">22 indicadores para distribución, estaciones, mantenimiento, inventario, comercial e IA. La Dirección elige cinco por rol; el resto queda como tablero de detalle.</p>
+    </div>
+    <div class="body">
+      <div class="col" style="flex:1.12">
+        <h3>Distribución de combustible</h3>
+        <table class="tbl">
+          <tr><th>KPI</th><th>Definición / fórmula</th><th class="f">Frecuencia</th></tr>
+          <tr><td><b>Volumen despachado</b></td><td>Litros o barriles despachados vs. meta</td><td class="f">Diario</td></tr>
+          <tr><td><b>OTIF</b></td><td>% de entregas completas y a tiempo</td><td class="f">Diario</td></tr>
+          <tr><td><b>Costo logístico / litro</b></td><td>Costo total de distribución ÷ litros</td><td class="f">Mensual</td></tr>
+          <tr><td><b>Mermas y pérdidas</b></td><td>% sobre el volumen manejado</td><td class="f">Semanal</td></tr>
+          <tr><td><b>Utilización de flota</b></td><td>% de capacidad de carga utilizada</td><td class="f">Diario</td></tr>
+          <tr><td><b>Cobertura regional</b></td><td>Clientes y estaciones atendidas por región</td><td class="f">Semanal</td></tr>
+        </table>
+        <h3>Estaciones de servicio</h3>
+        <table class="tbl">
+          <tr><th>KPI</th><th>Definición / fórmula</th><th class="f">Frecuencia</th></tr>
+          <tr><td><b>Ventas por estación</b></td><td>Litros vendidos por día</td><td class="f">Diario</td></tr>
+          <tr><td><b>Margen por litro</b></td><td>Precio de venta − costo de suministro</td><td class="f">Diario</td></tr>
+          <tr><td><b>Quiebres de producto</b></td><td>% de horas sin inventario disponible</td><td class="f">Diario</td></tr>
+          <tr><td><b>Ticket promedio</b></td><td>Ventas ÷ número de transacciones</td><td class="f">Diario</td></tr>
+          <tr><td><b>NPS / satisfacción</b></td><td>Encuesta al cliente en estación</td><td class="f">Mensual</td></tr>
+        </table>
+      </div>
+      <div class="col" style="flex:1">
+        <h3>Mantenimiento</h3>
+        <table class="tbl">
+          <tr><th>KPI</th><th>Definición / fórmula</th><th class="f">Frecuencia</th></tr>
+          <tr><td><b>Disponibilidad de flota</b></td><td>% del tiempo operativo de los vehículos</td><td class="f">Diario</td></tr>
+          <tr><td><b>MTTR</b></td><td>Tiempo medio de reparación</td><td class="f">Semanal</td></tr>
+          <tr><td><b>Cumplimiento preventivo</b></td><td>% del plan de mantenimiento ejecutado</td><td class="f">Mensual</td></tr>
+          <tr><td><b>Costo de mantenimiento / km</b></td><td>Costo total ÷ kilómetros recorridos</td><td class="f">Mensual</td></tr>
+        </table>
+        <h3>Inventario y comercial</h3>
+        <table class="tbl">
+          <tr><th>KPI</th><th>Definición / fórmula</th><th class="f">Frecuencia</th></tr>
+          <tr><td><b>Días de cobertura</b></td><td>Inventario ÷ consumo diario promedio</td><td class="f">Diario</td></tr>
+          <tr><td><b>Exactitud de inventario</b></td><td>% de diferencia física vs. sistema</td><td class="f">Semanal</td></tr>
+          <tr><td><b>Contratos por vencer</b></td><td>Contratos que vencen en 30 / 60 / 90 días</td><td class="f">Semanal</td></tr>
+          <tr><td><b>Margen por cliente</b></td><td>Margen bruto por cliente o contrato</td><td class="f">Mensual</td></tr>
+        </table>
+        <h3>IA y conocimiento</h3>
+        <table class="tbl">
+          <tr><th>KPI</th><th>Definición / fórmula</th><th class="f">Frecuencia</th></tr>
+          <tr><td><b>Latencia p95</b></td><td>Tiempo de respuesta del copiloto</td><td class="f">Diario</td></tr>
+          <tr><td><b>Respuestas con cita</b></td><td>% con fuente validada</td><td class="f">Semanal</td></tr>
+          <tr><td><b>Consultas y usuarios</b></td><td>Consultas/día y usuarios activos</td><td class="f">Diario</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="roles">
+      <div class="role"><div class="k">Dirección</div><div class="v">Volumen vs. plan · OTIF · margen/litro · disponibilidad de flota · latencia IA.</div></div>
+      <div class="role"><div class="k">Operaciones</div><div class="v">Despacho · cobertura · mermas · quiebres · MTTR · días de inventario.</div></div>
+      <div class="role"><div class="k">Comercial</div><div class="v">Ventas/estación · margen por cliente · contratos por vencer · NPS · cartera.</div></div>
+    </div>
+    <div class="annexbar">
+      <div class="ab"><div class="k">SELECCIÓN</div><div class="v">Cinco KPI por rol; el resto queda en el tablero de detalle.</div></div>
+      <div class="ab"><div class="k">GOBIERNO</div><div class="v">Un dueño por indicador y revisión mensual con la Dirección.</div></div>
+      <div class="ab"><div class="k">FINANCIERO</div><div class="v">Añadir ingresos, margen bruto, EBITDA, capital de trabajo y costo por litro.</div></div>
+    </div>
+  </div>
+  <div class="footer"><div class="brand">INNOVAINTELIGENTE.COM · ANEXO DE KPI</div><div class="pg">13 / 13</div></div>
+</section>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var counter = document.getElementById('cnt');
+  var total = slides.length;
+  function pad(n){ return (n<10?'0':'')+n; }
+  function fit(){
+    var scale = Math.min(1, (window.innerWidth - 40) / 1380);
+    slides.forEach(function(el){ el.style.zoom = scale; });
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          var i = slides.indexOf(en.target);
+          if (i >= 0 && counter){ counter.textContent = pad(i+1) + ' / ' + pad(total); }
+        }
+      });
+    }, {threshold: 0.55});
+    slides.forEach(function(el){ io.observe(el); });
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' '){
+      e.preventDefault();
+      var i = slides.findIndex(function(el){ var r = el.getBoundingClientRect(); return r.top > -10; });
+      var next = slides[Math.max(0, i)];
+      if (next) next.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp'){
+      e.preventDefault();
+      var i = slides.findIndex(function(el){ var r = el.getBoundingClientRect(); return r.top > -10; });
+      var prev = slides[Math.max(0, i-2)];
+      if (prev) prev.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

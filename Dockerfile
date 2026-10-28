@@ -18,6 +18,7 @@ RUN groupadd --system app \
 COPY --chown=app:app server/app.py ./server/app.py
 COPY --chown=app:app landing ./landing
 COPY --chown=app:app dashboard ./dashboard
+COPY --chown=app:app ofertas ./ofertas
 
 USER app
 
