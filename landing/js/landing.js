@@ -235,9 +235,22 @@
       }
     }
 
+    function closeAll() {
+      triggers.forEach(function (trigger, i) {
+        trigger.setAttribute("aria-expanded", "false");
+        if (panels[i]) {
+          panels[i].hidden = true;
+        }
+      });
+    }
+
     triggers.forEach(function (trigger, i) {
       trigger.addEventListener("click", function () {
-        activate(i, false);
+        if (trigger.getAttribute("aria-expanded") === "true") {
+          closeAll();
+        } else {
+          activate(i, false);
+        }
       });
       trigger.addEventListener("keydown", function (event) {
         var next = null;
