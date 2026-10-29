@@ -488,7 +488,7 @@ class Handler(BaseHTTPRequestHandler):
         if path in ("/", ""):
             self.redirect("/landing/")
             return
-        if path in ("/landing", "/dashboard", "/ofertas"):
+        if path in {prefix.rstrip("/") for prefix in STATIC_ROOTS}:
             self.redirect(path + "/")
             return
 
