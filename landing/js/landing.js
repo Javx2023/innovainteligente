@@ -1,6 +1,6 @@
 /* ==========================================================================
    Innovainteligente · Landing
-   landing.js — Tema, cabecera, menú móvil, pestañas, revelado, estadísticas,
+   landing.js — Tema, cabecera, menú móvil, acordeón de servicios, revelado, estadísticas,
    formulario y navegación. Sin dependencias.
    ========================================================================== */
 (function () {
@@ -211,49 +211,44 @@
   });
 
   /* ======================================================================
-     5. Pestañas de servicios
+     5. Acordeón vertical de pilares de servicio
      ====================================================================== */
-  $$(".tabs").forEach(function (tabs) {
-    var tablist = tabs.querySelector('[role="tablist"]');
-    if (!tablist) {
-      return;
-    }
-    var tabButtons = $$('[role="tab"]', tablist);
-    var panels = tabButtons.map(function (tab) {
-      return document.getElementById(tab.getAttribute("aria-controls"));
+  $$("[data-accordion]").forEach(function (accordion) {
+    var triggers = $$(".lp-pillars-accordion__trigger", accordion);
+    var panels = triggers.map(function (trigger) {
+      return document.getElementById(trigger.getAttribute("aria-controls"));
     });
 
     function activate(index, moveFocus) {
-      if (index < 0 || index >= tabButtons.length) {
+      if (index < 0 || index >= triggers.length) {
         return;
       }
-      tabButtons.forEach(function (tab, i) {
+      triggers.forEach(function (trigger, i) {
         var selected = i === index;
-        tab.setAttribute("aria-selected", String(selected));
-        tab.tabIndex = selected ? 0 : -1;
+        trigger.setAttribute("aria-expanded", String(selected));
         if (panels[i]) {
           panels[i].hidden = !selected;
         }
       });
       if (moveFocus) {
-        tabButtons[index].focus();
+        triggers[index].focus();
       }
     }
 
-    tabButtons.forEach(function (tab, i) {
-      tab.addEventListener("click", function () {
+    triggers.forEach(function (trigger, i) {
+      trigger.addEventListener("click", function () {
         activate(i, false);
       });
-      tab.addEventListener("keydown", function (event) {
+      trigger.addEventListener("keydown", function (event) {
         var next = null;
-        if (event.key === "ArrowRight") {
-          next = (i + 1) % tabButtons.length;
-        } else if (event.key === "ArrowLeft") {
-          next = (i - 1 + tabButtons.length) % tabButtons.length;
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+          next = (i + 1) % triggers.length;
+        } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+          next = (i - 1 + triggers.length) % triggers.length;
         } else if (event.key === "Home") {
           next = 0;
         } else if (event.key === "End") {
-          next = tabButtons.length - 1;
+          next = triggers.length - 1;
         }
         if (next !== null) {
           event.preventDefault();
@@ -261,6 +256,8 @@
         }
       });
     });
+
+    activate(0, false);
   });
 
   /* ======================================================================

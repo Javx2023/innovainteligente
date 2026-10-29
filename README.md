@@ -63,7 +63,7 @@ e I+D+i con IA:
 - Fundamentos de I+D+i: definición, fórmula, fases e importancia.
 - Los tres pilares de servicio con sus catorce servicios.
 - Ruta de adopción, preguntas frecuentes y formulario de contacto.
-- Tema oscuro y claro, menú móvil, pestañas accesibles y validación de formulario.
+- Tema oscuro y claro, menú móvil, acordeón de servicios accesible y validación de formulario.
 - El formulario registra la solicitud en el servidor local. Las respuestas se gestionan
   desde `javier@innovainteligente.com`.
 - Para contacto directo, la landing ofrece `info@innovainteligente.com`, WhatsApp y

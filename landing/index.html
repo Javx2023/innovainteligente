@@ -29,8 +29,9 @@
     <style>
       .lp-menu-btn { display: none !important; }
       .lp-nav { display: flex !important; flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
-      .lp-tabs .tabs__list { display: none; }
-      .lp-tab-panel[hidden] { display: block !important; margin-bottom: var(--space-8); }
+      .lp-pillars-accordion { display: block !important; }
+      .lp-pillars-accordion__trigger { display: none !important; }
+      .lp-pillars-accordion__panel[hidden] { display: block !important; margin-bottom: var(--space-8); }
       .lp-mobile-panel { display: none !important; }
     </style>
   </noscript>
@@ -309,64 +310,69 @@
           <p class="lp-section__lead">Automatización, I+D+i y gobernanza de IA: tres formas de trabajar el mismo objetivo, desde la operación diaria hasta la estrategia tecnológica.</p>
         </div>
 
-        <div class="tabs lp-tabs" id="pilares" data-reveal>
-          <div class="tabs__list" role="tablist" aria-label="Pilares de servicio">
-            <button class="tab" id="tab-procesos" role="tab" aria-selected="true" aria-controls="panel-procesos" tabindex="0">
+        <div class="lp-pillars-accordion" id="pilares" data-accordion data-reveal>
+          <h3 class="lp-pillars-accordion__heading">
+            <button class="lp-pillars-accordion__trigger" type="button" id="acc-procesos" aria-expanded="true" aria-controls="panel-procesos">
               <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-workflow"></use></svg>
-              <span class="tab-label tab-label--long">Automatización</span>
-              <span class="tab-label tab-label--short">Procesos</span>
+              <span class="lp-pillars-accordion__label">Automatización</span>
+              <svg class="icon icon--sm lp-pillars-accordion__chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>
             </button>
-            <button class="tab" id="tab-idi" role="tab" aria-selected="false" aria-controls="panel-idi" tabindex="-1">
-              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-cpu"></use></svg>
-              <span class="tab-label">I+D+i</span>
-            </button>
-            <button class="tab" id="tab-gob" role="tab" aria-selected="false" aria-controls="panel-gob" tabindex="-1">
-              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg>
-              <span class="tab-label">Gobernanza</span>
-            </button>
-          </div>
-
-          <div class="tabs__panel lp-tab-panel" id="panel-procesos" role="tabpanel" aria-labelledby="tab-procesos" tabindex="0">
+          </h3>
+          <div class="lp-pillars-accordion__panel" id="panel-procesos" role="region" aria-labelledby="acc-procesos" tabindex="0">
             <div class="lp-pillar-lead">
               <span class="badge badge--accent">Pilar 01 · Procesos</span>
-              <h3>Automatización e Inteligencia de Procesos</h3>
+              <h4>Automatización e Inteligencia de Procesos</h4>
               <p>Estos servicios buscan eliminar tareas repetitivas, reducir errores humanos y acelerar los flujos de trabajo diarios.</p>
             </div>
             <div class="lp-services">
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-workflow"></use></svg></span><span class="lp-service__num">01</span></div><h4 class="service-card__title">Automatización Robótica de Procesos (RPA) + IA</h4><p class="service-card__text">Bots inteligentes que integran sistemas legados, procesan documentos estructurados y no estructurados (facturas, contratos, correos) y automatizan flujos operativos end-to-end.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-file"></use></svg></span><span class="lp-service__num">02</span></div><h4 class="service-card__title">Procesamiento Inteligente de Documentos (IDP)</h4><p class="service-card__text">OCR avanzado impulsado por IA para extraer, clasificar y procesar grandes volúmenes de datos en papel o PDF.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-layers"></use></svg></span><span class="lp-service__num">03</span></div><h4 class="service-card__title">Optimización de Cadena de Suministro y Operaciones</h4><p class="service-card__text">Algoritmos de planificación predictiva, gestión automática de inventarios y logística inteligente.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-network"></use></svg></span><span class="lp-service__num">04</span></div><h4 class="service-card__title">Integración de Sistemas e Interoperabilidad</h4><p class="service-card__text">Conexión de herramientas (ERP, CRM, bases de datos) mediante conectores de IA e integración de APIs personalizadas.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-message"></use></svg></span><span class="lp-service__num">05</span></div><h4 class="service-card__title">Automatización de Atención al Cliente y Ventas</h4><p class="service-card__text">Agentes conversacionales (chatbots y voicebots con IA generativa) capaces de resolver incidencias complejas y calificar clientes potenciales.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-workflow"></use></svg></span><span class="lp-service__num">01</span></div><h5 class="service-card__title">Automatización Robótica de Procesos (RPA) + IA</h5><p class="service-card__text">Bots inteligentes que integran sistemas legados, procesan documentos estructurados y no estructurados (facturas, contratos, correos) y automatizan flujos operativos end-to-end.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-file"></use></svg></span><span class="lp-service__num">02</span></div><h5 class="service-card__title">Procesamiento Inteligente de Documentos (IDP)</h5><p class="service-card__text">OCR avanzado impulsado por IA para extraer, clasificar y procesar grandes volúmenes de datos en papel o PDF.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-layers"></use></svg></span><span class="lp-service__num">03</span></div><h5 class="service-card__title">Optimización de Cadena de Suministro y Operaciones</h5><p class="service-card__text">Algoritmos de planificación predictiva, gestión automática de inventarios y logística inteligente.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-network"></use></svg></span><span class="lp-service__num">04</span></div><h5 class="service-card__title">Integración de Sistemas e Interoperabilidad</h5><p class="service-card__text">Conexión de herramientas (ERP, CRM, bases de datos) mediante conectores de IA e integración de APIs personalizadas.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-message"></use></svg></span><span class="lp-service__num">05</span></div><h5 class="service-card__title">Automatización de Atención al Cliente y Ventas</h5><p class="service-card__text">Agentes conversacionales (chatbots y voicebots con IA generativa) capaces de resolver incidencias complejas y calificar clientes potenciales.</p></article>
             </div>
           </div>
 
-          <div class="tabs__panel lp-tab-panel" id="panel-idi" role="tabpanel" aria-labelledby="tab-idi" tabindex="0" hidden>
+          <h3 class="lp-pillars-accordion__heading">
+            <button class="lp-pillars-accordion__trigger" type="button" id="acc-idi" aria-expanded="false" aria-controls="panel-idi">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-cpu"></use></svg>
+              <span class="lp-pillars-accordion__label">I+D+i</span>
+              <svg class="icon icon--sm lp-pillars-accordion__chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>
+            </button>
+          </h3>
+          <div class="lp-pillars-accordion__panel" id="panel-idi" role="region" aria-labelledby="acc-idi" tabindex="0" hidden>
             <div class="lp-pillar-lead">
               <span class="badge badge--accent">Pilar 02 · I+D+i</span>
-              <h3>Investigación, Desarrollo e Innovación</h3>
+              <h4>Investigación, Desarrollo e Innovación</h4>
               <p>Se enfoca en crear soluciones tecnológicas únicas, desarrollo de software a medida y prueba de nuevos modelos de negocio.</p>
             </div>
             <div class="lp-services">
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-cpu"></use></svg></span><span class="lp-service__num">06</span></div><h4 class="service-card__title">Desarrollo de Modelos de IA a Medida</h4><p class="service-card__text">Entrenamiento y ajuste fino (fine-tuning) de machine learning, visión por computador y modelos de lenguaje (LLM) adaptados a la data específica del cliente.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-zap"></use></svg></span><span class="lp-service__num">07</span></div><h4 class="service-card__title">Pruebas de Concepto (PoC) y Prototipado Rápido</h4><p class="service-card__text">Creación de productos mínimos viables (MVP) con IA para validar hipótesis de negocio o tecnológicas antes de realizar inversiones mayores.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-book"></use></svg></span><span class="lp-service__num">08</span></div><h4 class="service-card__title">Consultoría y Gestión de Fondos de I+D+i</h4><p class="service-card__text">Asesoramiento técnico y estructuración de proyectos de innovación para acceder a incentivos fiscales, deducciones tributarias o subvenciones públicas de I+D+i.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span><span class="lp-service__num">09</span></div><h4 class="service-card__title">Analítica Predictiva y Prescriptiva</h4><p class="service-card__text">Modelado de datos para predecir comportamientos de mercado, fuga de clientes (churn), mantenimiento predictivo de maquinaria o análisis de riesgo financiero.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-shield"></use></svg></span><span class="lp-service__num">10</span></div><h4 class="service-card__title">Generación de Propiedad Intelectual</h4><p class="service-card__text">Identificación y registro de patentes, algoritmos o software propio derivados de las investigaciones desarrolladas para la empresa.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-cpu"></use></svg></span><span class="lp-service__num">06</span></div><h5 class="service-card__title">Desarrollo de Modelos de IA a Medida</h5><p class="service-card__text">Entrenamiento y ajuste fino (fine-tuning) de machine learning, visión por computador y modelos de lenguaje (LLM) adaptados a la data específica del cliente.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-zap"></use></svg></span><span class="lp-service__num">07</span></div><h5 class="service-card__title">Pruebas de Concepto (PoC) y Prototipado Rápido</h5><p class="service-card__text">Creación de productos mínimos viables (MVP) con IA para validar hipótesis de negocio o tecnológicas antes de realizar inversiones mayores.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-book"></use></svg></span><span class="lp-service__num">08</span></div><h5 class="service-card__title">Consultoría y Gestión de Fondos de I+D+i</h5><p class="service-card__text">Asesoramiento técnico y estructuración de proyectos de innovación para acceder a incentivos fiscales, deducciones tributarias o subvenciones públicas de I+D+i.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-chart"></use></svg></span><span class="lp-service__num">09</span></div><h5 class="service-card__title">Analítica Predictiva y Prescriptiva</h5><p class="service-card__text">Modelado de datos para predecir comportamientos de mercado, fuga de clientes (churn), mantenimiento predictivo de maquinaria o análisis de riesgo financiero.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-shield"></use></svg></span><span class="lp-service__num">10</span></div><h5 class="service-card__title">Generación de Propiedad Intelectual</h5><p class="service-card__text">Identificación y registro de patentes, algoritmos o software propio derivados de las investigaciones desarrolladas para la empresa.</p></article>
             </div>
           </div>
 
-          <div class="tabs__panel lp-tab-panel" id="panel-gob" role="tabpanel" aria-labelledby="tab-gob" tabindex="0" hidden>
+          <h3 class="lp-pillars-accordion__heading">
+            <button class="lp-pillars-accordion__trigger" type="button" id="acc-gob" aria-expanded="false" aria-controls="panel-gob">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg>
+              <span class="lp-pillars-accordion__label">Gobernanza</span>
+              <svg class="icon icon--sm lp-pillars-accordion__chevron" aria-hidden="true" focusable="false"><use href="#i-chevron-down"></use></svg>
+            </button>
+          </h3>
+          <div class="lp-pillars-accordion__panel" id="panel-gob" role="region" aria-labelledby="acc-gob" tabindex="0" hidden>
             <div class="lp-pillar-lead">
               <span class="badge badge--accent">Pilar 03 · Gobernanza</span>
-              <h3>Transformación Estratégica y Gobernanza de IA</h3>
+              <h4>Transformación Estratégica y Gobernanza de IA</h4>
               <p>Servicios orientados a estructurar la adopción de la tecnología de manera ética, segura y rentable.</p>
             </div>
             <div class="lp-services">
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-search"></use></svg></span><span class="lp-service__num">11</span></div><h4 class="service-card__title">Auditoría de Madurez Digital y Diagnóstico de Procesos</h4><p class="service-card__text">Identificación de cuellos de botella e inventario de procesos candidatos para ser automatizados o transformados con IA.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-grid"></use></svg></span><span class="lp-service__num">12</span></div><h4 class="service-card__title">Diseño de la Hoja de Ruta de IA (AI Roadmap)</h4><p class="service-card__text">Planificación estratégica que define la prioridad de los proyectos según su ROI (Retorno de Inversión) e impacto operativo.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-lock"></use></svg></span><span class="lp-service__num">13</span></div><h4 class="service-card__title">Gobernanza de Datos y Ética en IA</h4><p class="service-card__text">Políticas de cumplimiento normativo (privacidad, seguridad, auditoría de sesgos en algoritmos) e implementación de arquitecturas RAG para entornos corporativos seguros.</p></article>
-              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-user"></use></svg></span><span class="lp-service__num">14</span></div><h4 class="service-card__title">Capacitación y Cambio Cultural (Up-skilling)</h4><p class="service-card__text">Formación de equipos internos en el uso de herramientas de IA, ingeniería de prompts (prompt engineering) y gestión del cambio organizacional para evitar el rechazo a la automatización.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-search"></use></svg></span><span class="lp-service__num">11</span></div><h5 class="service-card__title">Auditoría de Madurez Digital y Diagnóstico de Procesos</h5><p class="service-card__text">Identificación de cuellos de botella e inventario de procesos candidatos para ser automatizados o transformados con IA.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-grid"></use></svg></span><span class="lp-service__num">12</span></div><h5 class="service-card__title">Diseño de la Hoja de Ruta de IA (AI Roadmap)</h5><p class="service-card__text">Planificación estratégica que define la prioridad de los proyectos según su ROI (Retorno de Inversión) e impacto operativo.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-lock"></use></svg></span><span class="lp-service__num">13</span></div><h5 class="service-card__title">Gobernanza de Datos y Ética en IA</h5><p class="service-card__text">Políticas de cumplimiento normativo (privacidad, seguridad, auditoría de sesgos en algoritmos) e implementación de arquitecturas RAG para entornos corporativos seguros.</p></article>
+              <article class="service-card"><div class="service-card__head"><span class="card__icon" aria-hidden="true"><svg><use href="#i-user"></use></svg></span><span class="lp-service__num">14</span></div><h5 class="service-card__title">Capacitación y Cambio Cultural (Up-skilling)</h5><p class="service-card__text">Formación de equipos internos en el uso de herramientas de IA, ingeniería de prompts (prompt engineering) y gestión del cambio organizacional para evitar el rechazo a la automatización.</p></article>
             </div>
           </div>
         </div>

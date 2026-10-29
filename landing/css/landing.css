@@ -880,32 +880,121 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   7. Servicios y pestañas
+   7. Servicios y acordeón de pilares
    -------------------------------------------------------------------------- */
-.lp-tabs {
-  gap: var(--space-6);
+.lp-pillars-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.lp-tabs .tabs__list {
+.lp-pillars-accordion__heading {
+  margin: 0;
+}
+
+.lp-pillars-accordion__heading + .lp-pillars-accordion__heading {
+  margin-top: var(--space-2);
+}
+
+.lp-pillars-accordion__trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   width: 100%;
-  justify-content: flex-start;
-  padding: 0.35rem;
+  min-height: 3rem;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   background: var(--color-surface-1);
-}
-
-.lp-tabs .tab {
-  flex: 1 1 auto;
-  justify-content: center;
-  min-height: 2.75rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-display);
   font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
 }
 
-.lp-tabs .tabs__panel,
-.lp-tab-panel {
-  padding: 0;
-  border: 0;
-  background: none;
-  border-radius: 0;
+.lp-pillars-accordion__trigger:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent-border);
+  background: var(--color-surface-2);
+}
+
+.lp-pillars-accordion__trigger[aria-expanded="true"] {
+  color: var(--color-accent);
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-subtle);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.lp-pillars-accordion__trigger .icon {
+  flex: none;
+}
+
+.lp-pillars-accordion__chevron {
+  margin-left: auto;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.lp-pillars-accordion__trigger[aria-expanded="true"] .lp-pillars-accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.lp-pillars-accordion__panel {
+  padding: var(--space-4) var(--space-4) 0;
+  border: 1px solid var(--color-border-subtle);
+  border-top: 0;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface-1) 72%, transparent);
+}
+
+.lp-pillars-accordion__panel:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: -2px;
+}
+
+@media (min-width: 48rem) {
+  .lp-pillars-accordion {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--space-2);
+    row-gap: var(--space-5);
+  }
+
+  .lp-pillars-accordion__heading {
+    grid-row: 1;
+  }
+
+  .lp-pillars-accordion__heading + .lp-pillars-accordion__heading {
+    margin-top: 0;
+  }
+
+  .lp-pillars-accordion__trigger {
+    justify-content: center;
+    border-radius: var(--radius-pill);
+  }
+
+  .lp-pillars-accordion__trigger[aria-expanded="true"] {
+    border-radius: var(--radius-pill);
+  }
+
+  .lp-pillars-accordion__chevron {
+    display: none;
+  }
+
+  .lp-pillars-accordion__panel {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    padding: var(--space-1) 0 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+  }
 }
 
 .lp-pillar-lead {
@@ -917,7 +1006,7 @@ body {
   margin-bottom: var(--space-6);
 }
 
-.lp-pillar-lead h3 {
+.lp-pillar-lead h4 {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 1vw + 1rem, var(--text-3xl));
   font-weight: var(--font-weight-semibold);
@@ -1464,9 +1553,6 @@ body {
     display: none;
   }
 
-  .lp-tabs .tab {
-    flex: none;
-  }
 
   .lp-contact__form {
     padding: var(--space-5);
@@ -1590,7 +1676,7 @@ body.menu-open .lp-mobile-panel {
 }
 
 /* --------------------------------------------------------------------------
-   16. Ajustes de pantallas estrechas y pestañas
+   16. Ajustes de pantallas estrechas y acordeón
    -------------------------------------------------------------------------- */
 .lp-brand {
   min-width: 0;
@@ -1605,32 +1691,9 @@ body.menu-open .lp-mobile-panel {
   flex: none;
 }
 
-.tab-label--short {
-  display: none;
-}
-
 .lp-mobile-panel {
   min-height: calc(100vh - 4.5rem);
   min-height: calc(100dvh - 4.5rem);
-}
-
-@media (max-width: 47.99rem) {
-  .lp-tabs .tab {
-    padding-inline: var(--space-3);
-    font-size: var(--text-xs);
-  }
-
-  .lp-tabs .tab .icon {
-    display: none;
-  }
-
-  .tab-label--long {
-    display: none;
-  }
-
-  .tab-label--short {
-    display: inline;
-  }
 }
 
 @media (max-width: 23rem) {
