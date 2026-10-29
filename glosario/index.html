@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glosario interactivo · IA, I+D+i y Automatización · Innovainteligente</title>
+  <meta name="description" content="Glosario interactivo de inteligencia artificial, I+D+i, machine learning y automatización: RAG, IDP, RPA, LoRA, QLoRA, LLM y más. Estilo Innovainteligente.">
+  <meta name="author" content="Prof. Javier Rodríguez · Innovainteligente">
+  <meta name="theme-color" content="#031129" id="meta-theme-color">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/brand/favicon-180.png">
+  <link rel="preload" href="assets/brand/logo-mark.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/glosario.css">
+  <script src="js/theme-init.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+
+  <noscript>
+    <style>
+      .gl-card__body { display: block !important; }
+      .gl-card__toggle { display: none !important; }
+      .gl-letters, .gl-tools__search, .gl-toolbar__actions { display: none !important; }
+    </style>
+  </noscript>
+
+  <!-- Sprite de iconos (mismo trazado que la landing) -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1111.2 3a6.6 6.6 0 009.8 9.8z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 016.5 2H20v18H6.5A2.5 2.5 0 004 22V4.5z"/><path d="M4 17.5A2.5 2.5 0 016.5 15H20"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 006.4 0l3-3a4.5 4.5 0 00-6.4-6.4l-1.5 1.5"/><path d="M14 10a4.5 4.5 0 00-6.4 0l-3 3a4.5 4.5 0 006.4 6.4l1.5-1.5"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.4"/></symbol>
+      <symbol id="i-chev-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></symbol>
+      <symbol id="i-collapse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="gl-header theme-ink" id="cabecera">
+    <div class="container container--wide gl-header__inner">
+      <a class="gl-brand" href="https://innovainteligente.com" aria-label="Innovainteligente, volver al sitio">
+        <span class="gl-brand__tile" aria-hidden="true">
+          <img src="assets/brand/logo-mark.webp" alt="" width="640" height="640">
+        </span>
+        <span class="gl-brand__name">innova<span>inteligente</span>.com</span>
+      </a>
+      <div class="gl-header__actions">
+        <span class="badge badge--dot" id="contador-badge" aria-live="polite">69 conceptos</span>
+        <button class="btn btn--icon btn--sm btn--ghost theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a tema claro" aria-pressed="false">
+          <svg class="icon icon--sm icon-moon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>
+          <svg class="icon icon--sm icon-sun" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>
+        </button>
+        <a class="btn btn--outline btn--sm gl-home-cta" href="https://innovainteligente.com">
+          Volver al sitio
+          <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <!-- ================================= HERO ================================= -->
+    <section class="gl-hero theme-ink" id="inicio" aria-labelledby="hero-title">
+      <div class="gl-hero__grid" aria-hidden="true"></div>
+      <div class="container container--wide gl-hero__inner">
+        <span class="kicker">Referencia · Automatización, procesos e I+D+i con IA</span>
+        <h1 class="gl-hero__title" id="hero-title">Glosario interactivo de <span class="gl-gradient">IA y Automatización</span></h1>
+        <p class="gl-hero__lead">Cada concepto se desarrolla con su definición ampliada, qué hace, para qué sirve y su diferencia clave con conceptos cercanos: de LoRA y QLoRA a RAG, IDP, RPA y agentes de IA.</p>
+
+        <div class="gl-hero__search">
+          <div class="gl-search" role="search">
+            <svg class="icon gl-search__icon" aria-hidden="true" focusable="false"><use href="#i-search"></use></svg>
+            <input class="gl-search__input" id="buscador" type="search" placeholder="Buscar concepto: RAG, cuantización, alucinación…" aria-label="Buscar en el glosario" autocomplete="off">
+            <kbd class="gl-search__kbd" aria-hidden="true">/</kbd>
+            <button class="btn btn--icon btn--sm btn--ghost gl-search__clear" id="limpiar" type="button" hidden aria-label="Limpiar búsqueda">
+              <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-x"></use></svg>
+            </button>
+          </div>
+        </div>
+
+        <dl class="gl-hero__stats">
+          <div class="gl-stat"><dt>Conceptos</dt><dd class="gl-stat__value" id="stat-entradas">69</dd></div>
+          <div class="gl-stat"><dt>Secciones A–Z</dt><dd class="gl-stat__value" id="stat-letras">22</dd></div>
+          <div class="gl-stat"><dt>Formato</dt><dd class="gl-stat__value gl-stat__value--text">Qué · Para · Diferencia</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- =============================== TOOLBAR =============================== -->
+    <div class="gl-toolbar" id="barra">
+      <div class="container container--wide gl-toolbar__inner">
+        <nav class="gl-letters" id="letras" aria-label="Índice alfabético"></nav>
+        <div class="gl-toolbar__actions">
+          <button class="btn btn--ghost btn--sm" id="expandir" type="button">
+            <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-expand"></use></svg>
+            <span class="gl-btn-label">Expandir todo</span>
+          </button>
+          <button class="btn btn--ghost btn--sm" id="colapsar" type="button">
+            <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-collapse"></use></svg>
+            <span class="gl-btn-label">Colapsar todo</span>
+          </button>
+          <span class="gl-toolbar__count" id="resultados" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =============================== GLOSARIO =============================== -->
+    <section class="gl-section" aria-label="Conceptos del glosario">
+      <div class="container">
+        <div id="lista"></div>
+        <div class="gl-empty" id="vacio" hidden>
+          <span class="hex hex--lg" aria-hidden="true"><svg><use href="#i-search"></use></svg></span>
+          <h2>Sin resultados</h2>
+          <p id="vacio-texto">No hay conceptos que coincidan con tu búsqueda.</p>
+          <button class="btn btn--primary btn--sm" id="vacio-reset" type="button">Ver todos los conceptos</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="gl-footer">
+    <div class="container container--wide">
+      <div class="gl-footer__inner">
+        <div class="gl-footer__brand">
+          <a class="gl-brand" href="https://innovainteligente.com" aria-label="Innovainteligente, volver al inicio">
+            <span class="gl-brand__tile" aria-hidden="true"><img src="assets/brand/logo-mark.webp" alt="" width="640" height="640"></span>
+            <span class="gl-brand__name">innova<span>inteligente</span>.com</span>
+          </a>
+          <p>Automatización y procesos I+D+i con inteligencia artificial.</p>
+        </div>
+        <div class="gl-footer__meta">
+          <p id="footer-fuente"></p>
+          <p class="gl-footer__note">Glosario de referencia — <a class="link" href="https://innovainteligente.com">innovainteligente.com</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

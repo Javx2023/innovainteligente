@@ -1,6 +1,6 @@
 # Innovainteligente
 
-Dos entregables independientes construidos a partir del logotipo original
+Proyecto web de Innovainteligente construido a partir del logotipo original
 `Logoinnovaintel150.png` (los archivos originales permanecen intactos en la raíz):
 
 | Carpeta | Contenido |
@@ -8,7 +8,9 @@ Dos entregables independientes construidos a partir del logotipo original
 | [`landing/`](landing/) | Landing page de producto, autocontenida |
 | [`dashboard/`](dashboard/) | Panel interno de clientes y leads |
 | [`server/`](server/) | Servidor local: API, SQLite/JSON y aviso por correo |
-| [`design-system/`](design-system/) | Catálogo del sistema de diseño, tokens, componentes y documentación |
+| [`ds/`](ds/) | Catálogo del sistema de diseño en `/ds/` |
+| [`glosario/`](glosario/) | Glosario interactivo enlazado desde la landing |
+| [`ofertas/`](ofertas/) | Oferta publicada en `/ofertas/` (noindex) |
 
 La landing por sí sola se puede abrir con doble clic. Para que el formulario registre
 solicitudes hay que arrancar el servidor local.
@@ -34,7 +36,7 @@ python3 server/app.py
 ```
 
 El catálogo del design system se puede abrir como archivo con doble clic o con cualquier
-servidor estático: `design-system/index.html`.
+servidor estático: `ds/index.html` o en `/ds/` al usar el servidor.
 
 No hay dependencias externas ni conexión a internet. El servidor usa solo la biblioteca
 estándar de Python.
@@ -47,9 +49,9 @@ La landing y el panel están preparados para desplegarse con Docker:
 - Variables de entorno en [`.env.example`](.env.example).
 - Guía paso a paso para Dokploy en [`DEPLOY.md`](DEPLOY.md).
 
-La imagen solo incluye `landing/`, `dashboard/` y el servidor. El panel queda protegido con
-autenticación básica cuando se define `DASHBOARD_PASSWORD`; el formulario sigue siendo
-público.
+La imagen incluye `landing/`, `dashboard/`, `glosario/`, `ds/`, `ofertas/` y el servidor.
+El panel queda protegido con autenticación básica cuando se define `DASHBOARD_PASSWORD`;
+el formulario y las páginas públicas siguen abiertos.
 
 ## Landing
 
@@ -95,7 +97,7 @@ completas en [`server/README.md`](server/README.md).
 
 ## Design system
 
-[`design-system/index.html`](design-system/index.html) es el catálogo interactivo del
+[`ds/index.html`](ds/index.html) es el catálogo interactivo del
 sistema:
 
 - 191 tokens de color, tipografía, espacio, forma, elevación y movimiento.
@@ -104,13 +106,13 @@ sistema:
   `prefers-reduced-motion`.
 - Explorador de tokens con filtro, copiado y descarga en JSON.
 
-Documentación en [`design-system/docs/`](design-system/docs/):
+Documentación en [`ds/docs/`](ds/docs/):
 
-- [Sistema de diseño](design-system/docs/design-system.md)
-- [Paleta y contraste](design-system/docs/paleta-y-contraste.md)
-- [Checklist de accesibilidad](design-system/docs/accesibilidad.md)
-- [Revisión visual y funcional](design-system/docs/revision-qa-visual.md)
-- [Tokens en JSON](design-system/docs/tokens.json)
+- [Sistema de diseño](ds/docs/design-system.md)
+- [Paleta y contraste](ds/docs/paleta-y-contraste.md)
+- [Checklist de accesibilidad](ds/docs/accesibilidad.md)
+- [Revisión visual y funcional](ds/docs/revision-qa-visual.md)
+- [Tokens en JSON](ds/docs/tokens.json)
 
 ## Estructura
 
@@ -125,12 +127,18 @@ Documentación en [`design-system/docs/`](design-system/docs/):
 ├── server/
 │   ├── app.py          servidor estático + API + SQLite/JSON + SMTP opcional
 │   └── data/           leads.sqlite3 · leads.json
-├── design-system/
+├── ds/
 │   ├── index.html
 │   ├── css/            fonts.css · tokens.css · components.css · showcase.css
 │   ├── js/             theme-init.js · app.js
 │   ├── assets/         marca completa y fuentes
 │   └── docs/           documentación, tokens.json y capturas
+├── glosario/
+│   ├── index.html
+│   ├── css/            fonts.css · tokens.css · glosario.css
+│   ├── js/             data.js · app.js · theme-init.js
+│   └── assets/         marca y fuentes
+├── ofertas/            oferta publicada (index.html, PDF y assets)
 ├── Dockerfile
 ├── docker-compose.yml
 ├── .dockerignore
@@ -143,12 +151,13 @@ Documentación en [`design-system/docs/`](design-system/docs/):
 
 ## Uso
 
-La landing y el catálogo comparten el lenguaje visual y los tokens, pero se sirven por
-separado. Para reutilizar componentes en otro proyecto, toma como referencia
-`design-system/css/tokens.css` y `design-system/css/components.css`.
+La landing, el glosario y el catálogo comparten el lenguaje visual y los tokens. El
+catálogo está disponible en `/ds/` y también puede abrirse como archivo. Para reutilizar
+componentes en otro proyecto, toma como referencia
+`ds/css/tokens.css` y `ds/css/components.css`.
 
 ## Licencias
 
 Logotipo y marca: innovainteligente.com. Poppins e Inter: SIL Open Font License 1.1
-(ver [`design-system/assets/fonts/LICENCIAS.md`](design-system/assets/fonts/LICENCIAS.md)).
+(ver [`ds/assets/fonts/LICENCIAS.md`](ds/assets/fonts/LICENCIAS.md)).
 El resto del código es propio del proyecto.

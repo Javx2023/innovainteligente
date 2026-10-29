@@ -1,7 +1,8 @@
 # Servidor local de leads
 
 Servicio mínimo en Python (solo biblioteca estándar) que sirve la landing, el panel
-de leads y una API para guardar las solicitudes del formulario.
+de leads, el glosario, el design system (`/ds/`), la oferta publicada (`/ofertas/`)
+y una API para guardar las solicitudes del formulario.
 
 ## Arranque
 
@@ -62,7 +63,11 @@ python3 server/app.py
 
 | Método | Ruta | Uso |
 | --- | --- | --- |
-| GET | `/api/health` | Estado del servicio y configuración de correo |
+| GET | `/api/health` | Estado del servicio (público) |
+| GET | `/landing/` | Landing pública |
+| GET | `/glosario/` | Glosario interactivo |
+| GET | `/ds/` | Catálogo del sistema de diseño |
+| GET | `/ofertas/` | Oferta publicada (noindex) |
 | GET | `/api/leads` | Lista de leads y estadísticas |
 | POST | `/api/leads` | Alta de una solicitud |
 | PATCH | `/api/leads/{id}` | Cambio de estado (`nuevo`, `contactado`, `descartado`) |
@@ -87,7 +92,7 @@ El servidor valida tipos, longitudes, correo, pilar y consentimiento; limita el 
   Sin contraseña, el panel y la API de administración responden 503.
 - La landing y `POST /api/leads` son públicos para que el formulario funcione.
 - `/api/health` es público y no devuelve datos internos.
-- Solo se sirven las carpetas `landing/` y `dashboard/`; el resto del proyecto
-  (documentación, design system, fuentes internas) no se expone por HTTP.
+- Se sirven `landing/`, `dashboard/`, `glosario/`, `ds/` y `ofertas/`; el resto del
+  proyecto (documentación interna, originales y carpetas de trabajo) no se expone por HTTP.
 - Los datos personales de los leads quedan en este equipo. Aplica tus políticas de
   privacidad y conservación.

@@ -1,4 +1,4 @@
-# Innovainteligente · landing + panel de leads + API
+# Innovainteligente · landing, panel de leads, glosario, design system, ofertas y API
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -19,6 +19,8 @@ COPY --chown=app:app server/app.py ./server/app.py
 COPY --chown=app:app landing ./landing
 COPY --chown=app:app dashboard ./dashboard
 COPY --chown=app:app ofertas ./ofertas
+COPY --chown=app:app glosario ./glosario
+COPY --chown=app:app ds ./ds
 
 USER app
 

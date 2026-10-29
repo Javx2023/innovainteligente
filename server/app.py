@@ -26,8 +26,8 @@ Variables:
     SMTP_SERVER_HOSTNAME  Nombre (SNI) a validar en el certificado TLS cuando
                      SMTP_HOST es una IP interna (opcional).
 
-El servidor escucha en 127.0.0.1 por defecto: el panel y la API no deben
-exponerse a Internet sin autenticación adicional.
+El servidor escucha en 127.0.0.1 por defecto. En producción el panel y la API
+de administración se protegen con autenticación básica (DASHBOARD_PASSWORD).
 """
 
 from __future__ import annotations
@@ -61,6 +61,8 @@ STATIC_ROOTS = {
     "/landing/": PROJECT_ROOT / "landing",
     "/dashboard/": PROJECT_ROOT / "dashboard",
     "/ofertas/": PROJECT_ROOT / "ofertas",
+    "/glosario/": PROJECT_ROOT / "glosario",
+    "/ds/": PROJECT_ROOT / "ds",
 }
 
 PILLARS = {

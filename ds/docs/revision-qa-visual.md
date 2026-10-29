@@ -1,7 +1,7 @@
 > **Nota de rutas.** Este informe se redactó antes de reorganizar el proyecto en
-> `design-system/` y `landing/`. Por eso cita `index.html`, `css/` y `js/` en la raíz;
-> hoy corresponden a `design-system/index.html`, `design-system/css/` y
-> `design-system/js/`.
+> `ds/` y `landing/`. Por eso cita `index.html`, `css/` y `js/` en la raíz;
+> hoy corresponden a `ds/index.html`, `ds/css/` y
+> `ds/js/`.
 
 # Revisión QA visual y funcional — catálogo Innovainteligente (fase 2)
 

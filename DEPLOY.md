@@ -1,16 +1,19 @@
 # Despliegue con Docker y Dokploy
 
-La imagen contiene tres piezas:
+La imagen contiene estas rutas:
 
 | Ruta | Contenido |
 | --- | --- |
 | `/landing/` | Landing pública y formulario |
 | `/dashboard/` | Panel interno de leads (protegido con autenticación básica) |
+| `/glosario/` | Glosario interactivo enlazado desde la landing |
+| `/ds/` | Catálogo del sistema de diseño |
+| `/ofertas/` | Oferta publicada, con `noindex` |
 | `/api/` | API del formulario y del panel |
 
 El servidor escucha en el puerto **8080**, guarda los datos en **`/data`** (volumen) y solo
-sirve `landing/` y `dashboard/`; no incluye el design system, la documentación ni el archivo
-fuente interno.
+sirve `landing/`, `dashboard/`, `glosario/`, `ds/` y `ofertas/`; no incluye la documentación
+interna, el archivo fuente ni los originales.
 
 ## Archivos
 
